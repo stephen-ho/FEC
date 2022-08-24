@@ -12,7 +12,8 @@ Version
 -
 
 Linting
--
+- AirBnB Style Guide
+  To use linter run command 'npm run lint **filepath**'
 
 Front-end
 ----------------
