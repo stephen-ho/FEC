@@ -1,13 +1,22 @@
 import React from 'react';
 // eslint-disable-next-line import/extensions
-import AnswerList from './AnswerList.jsx';
+import QuestionItem from './QuestionItem.jsx';
+import App from './App.jsx';
 
-function QuestionList() {
+function QuestionList({ products }) {
+  //console.log(products);
+  const questions = products.results.map((question, index) => {
+    return (<QuestionItem key={index} question={question} />);
+  });
+
   return (
-    <div>
-      <h3>Q: Is it true to size?</h3>
-      <AnswerList />
-    </div>
+    <>
+      <div>
+        {questions}
+        {/* <QuestionItem products={products} /> */}
+      </div>
+      <p>See More Questions</p>
+    </>
   );
 }
 

@@ -1,6 +1,7 @@
 /* eslint-disable import/extensions */
 import React, { useState } from 'react';
 import QuestionList from './QuestionList.jsx';
+import sampleProduct from './sampleData.js';
 
 function App() {
   const [question, setQuestion] = useState('');
@@ -19,7 +20,7 @@ function App() {
       />
       <p>Ask a Question</p>
       <div>
-        <QuestionList />
+        <QuestionList products={sampleProduct}/>
       </div>
     </>
   );

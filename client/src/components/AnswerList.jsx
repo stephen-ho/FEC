@@ -1,12 +1,14 @@
 import React from 'react';
+import AnswerItem from './AnswerItem.jsx';
 
 function AnswerList() {
   return (
-    <div>
-      <p>Add Answer</p>
-      <p>A: Our clothes typically fit true to size</p>
-      <p>By Seller & Date</p>
-    </div>
+    <>
+      <div>
+        <AnswerItem />
+      </div>
+      <p>See More Answers</p>
+    </>
   );
 }
 
