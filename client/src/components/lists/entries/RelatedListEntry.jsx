@@ -3,7 +3,7 @@ import FontAwesomeIcon from '@fortawesome/fontawesome-free';
 
 const RelatedListEntry = () => {
   return (
-    <div className="entry related">
+    <div className="entry">
       <button className="button compare-outfit">star</button>
       <div className="image">product image goes here</div>
       <h3 className="category">Category</h3>

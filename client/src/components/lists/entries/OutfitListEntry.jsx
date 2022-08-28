@@ -3,7 +3,7 @@ import '/client/dist/Lists.css';
 
 const OutfitListEntry = () => {
   return (
-    <div className="entry outfits">
+    <div className="entry">
       <button className="button remove-outfit">X</button>
       <div className="image">outfit image goes here</div>
       <h3 className="category">Category</h3>

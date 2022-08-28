@@ -3,7 +3,12 @@ import RelatedListEntry from './entries/RelatedListEntry.jsx';
 
 const RelatedList = () => {
   return (
-    <div className="container">
+    <div className="container related">
+      <RelatedListEntry />
+      <RelatedListEntry />
+      <RelatedListEntry />
+      <RelatedListEntry />
+      <RelatedListEntry />
       <RelatedListEntry />
       <RelatedListEntry />
       <RelatedListEntry />

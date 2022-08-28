@@ -4,7 +4,7 @@ import RelatedList from './lists/RelatedList.jsx';
 
 const RelatedItemsAndOutfits = () => {
   return (
-    <div>
+    <div className="slides">
       <RelatedList />
       <OutfitList />
     </div>

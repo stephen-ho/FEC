@@ -1,18 +1,56 @@
-.container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin: 25px;
-  gap: 10px;
-  height: 50vh;
+.page {
+  scroll-behavior: auto;
 }
+
+/*
+========================================
+ SLIDE CONTAINER
+========================================
+*/
+
+.slides {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  scroll-behavior: smooth;
+}
+
+/*
+========================================
+ SLIDES
+========================================
+*/
+
+.container {
+  padding: 20px;
+  max-width: 1250px;
+  width : 100%;
+  display : flex;
+  min-height:  300px;
+  background: #FFFFFF;
+  border: 1px solid rgba(133, 77, 206, 0.25);
+  box-sizing: border-box;
+  border-radius: 8px;
+  align-items: center;
+  margin-top: 20px;
+  overflow-x : scroll;
+}
+
+/*
+========================================
+ ENTRIES
+========================================
+*/
 
 .entry {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-content:space-around;
   background-color: white;
-  height: 325px;
-  width: 200px;
+  margin: 20px 20px;
+  padding: 10px 5px 10px 5px;
   border: solid;
   border-radius: 10px;
   cursor: pointer;
@@ -20,6 +58,56 @@
 }
 
 .entry:hover {
-  transform: scale(1.2);
+  transform: scale(1.168);
   box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
+
+/*
+========================================
+ ENTRY ITEMS
+========================================
+*/
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+  width: 35px;
+}
+
+.image {
+  height: 200px;
+}
+
+.category {
+  display: flex;
+  justify-content: flex-start;
+  margin: 5px;
+}
+
+.description {
+  display: flex;
+  justify-content: flex-start;
+  margin: 5px;
+  margin-bottom: 50px;
+}
+
+.price {
+  margin: 5px;
+}
+
+.reviews {
+  margin: 5px;
+}
+
+/* ---------------------------------- */
+
+/* background-color: grey;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+margin: 25px;
+gap: 10px;
+height: 50vh;
+width: 1000px;
+white-space: nowrap;
+overflow: scroll; */
