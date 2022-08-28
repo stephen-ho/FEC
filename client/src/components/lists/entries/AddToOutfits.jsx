@@ -1,9 +1,10 @@
 import React from 'react';
+import '/client/dist/Lists.css';
 
 const AddToOutfits = () => {
   return (
-    <div>
-      <div>button goes here</div>
+    <div className="entry outfits">
+      <button className="add">+</button>
     </div>
   );
 };

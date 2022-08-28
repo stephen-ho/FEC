@@ -1,3 +1,25 @@
-.outfits-list {
-  border-style: solid;
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 25px;
+  gap: 10px;
+  height: 50vh;
+}
+
+.entry {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  height: 325px;
+  width: 200px;
+  border: solid;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.entry:hover {
+  transform: scale(1.2);
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
 }

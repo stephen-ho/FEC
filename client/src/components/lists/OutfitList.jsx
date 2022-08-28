@@ -7,7 +7,7 @@ const OutfitList = () => {
   // list hardcoded for now
   const outfits = [];
   return (
-    <div className="outfits-list">
+    <div className="container">
       <AddToOutfits />
       <OutfitListEntry />
       <OutfitListEntry />

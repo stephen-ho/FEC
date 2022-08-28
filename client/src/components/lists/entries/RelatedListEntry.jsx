@@ -1,14 +1,15 @@
 import React from 'react';
+import FontAwesomeIcon from '@fortawesome/fontawesome-free';
 
 const RelatedListEntry = () => {
   return (
-    <div>
-      <button>star button</button>
-      <div>product image goes here</div>
-      <h3>Category</h3>
-      <h4>Description... blah blah blah</h4>
-      <h4>Price</h4>
-      <div>review stars go here</div>
+    <div className="entry related">
+      <button className="button compare-outfit">star</button>
+      <div className="image">product image goes here</div>
+      <h3 className="category">Category</h3>
+      <h4 className="description">Description... blah blah blah</h4>
+      <h4 className="price original">Price</h4>
+      <div className="reviews">No reviews</div>
     </div>
   );
 };
