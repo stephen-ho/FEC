@@ -3,8 +3,8 @@ import '/client/dist/Lists.css';
 
 const AddToOutfits = () => {
   return (
-    <div className="entry">
-      <button className="add">+</button>
+    <div className="entry-add">
+      <button className="add">Click here to add this to your outfits</button>
     </div>
   );
 };

@@ -1,13 +1,23 @@
 import React from 'react';
 import OutfitListEntry from './entries/OutfitListEntry.jsx';
 import AddToOutfits from './entries/AddToOutfits.jsx';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import '/client/dist/Lists.css';
 
 const OutfitList = () => {
-  // list hardcoded for now
-  const outfits = [];
+  const slideLeft = () => {
+    const slider = document.getElementById('slider-outfits');
+    slider.scrollLeft = slider.scrollLeft - 275;
+  };
+
+  const slideRight = () => {
+    const slider = document.getElementById('slider-outfits');
+    slider.scrollLeft = slider.scrollLeft + 275;
+  };
+
   return (
-    <div className="container outfits">
+    <div className="container outfits" id="slider-outfits">
+      <FaArrowLeft className="slide-left" onClick={slideLeft} />
       <AddToOutfits />
       <OutfitListEntry />
       <OutfitListEntry />
@@ -17,6 +27,7 @@ const OutfitList = () => {
       <OutfitListEntry />
       <OutfitListEntry />
       <OutfitListEntry />
+      <FaArrowRight className="slide-right" onClick={slideRight} />
     </div>
   );
 };

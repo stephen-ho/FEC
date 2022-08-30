@@ -18,23 +18,24 @@
 
 /*
 ========================================
- SLIDES
+ SLIDER
 ========================================
 */
 
 .container {
   padding: 20px;
   max-width: 1250px;
-  width : 100%;
+  width : 96%;
   display : flex;
   min-height:  300px;
   background: #FFFFFF;
-  border: 1px solid rgba(133, 77, 206, 0.25);
   box-sizing: border-box;
   border-radius: 8px;
   align-items: center;
   margin-top: 20px;
   overflow-x : scroll;
+  scroll-behavior: smooth;
+  overflow: hidden;
 }
 
 /*
@@ -49,17 +50,63 @@
   justify-content: flex-start;
   align-content:space-around;
   background-color: white;
-  margin: 20px 20px;
+  width: 35vh;
+  margin: 20px 25px;
   padding: 10px 5px 10px 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.entry-add {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
   border: solid;
+  height: 70vh;
+  width: 35vh;
+  margin: 25px 25px;
+  padding: 10px 5px 10px 5px;
   border-radius: 10px;
   cursor: pointer;
   transition: 0.25s;
 }
 
 .entry:hover {
-  transform: scale(1.168);
+  transform: scale(1.12);
   box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.entry-add:hover {
+  transform: scale(1.12);
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+/*
+========================================
+ slide buttons
+========================================
+*/
+.slide-left {
+  position: absolute;
+  align-items: center;
+  padding: 0px;
+  margin-left: -47px;
+  transition: 0.2s;
+}
+
+.slide-right {
+  position: absolute;
+  padding: 0px;
+  margin-right: 0px;
+  margin-left: 93%;
+  transition: 0.2s;
+}
+
+.slide-left:hover, .slide-right:hover {
+  cursor: pointer;
+  transform: scale(1.5);
 }
 
 /*
@@ -70,33 +117,56 @@
 
 .button {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  margin-right: 0px;
+  margin-left: auto;
+  margin-bottom: 5px;
+  padding: 0px;
   width: 35px;
+  transition: 0.15s;
+}
+
+.button:hover {
+  transform: scale(1.15);
+}
+
+.add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid;
+  border-radius: 10px;
+  height: 325px;
+  width: 210px;
+  margin-left: 0px;
+  margin-top: 5px;
+  margin-bottom: 125px;
+  background: transparent;
 }
 
 .image {
-  height: 200px;
+
 }
 
 .category {
   display: flex;
   justify-content: flex-start;
-  margin: 5px;
+  margin: 2px 0px 2px 0px;
 }
 
 .description {
   display: flex;
   justify-content: flex-start;
-  margin: 5px;
-  margin-bottom: 50px;
+  margin: 2px 0px 2px 0px;
+  font-size: smaller;
 }
 
 .price {
-  margin: 5px;
+  margin: 3px 0px;
 }
 
 .reviews {
-  margin: 5px;
+  margin-top: 3px 0px;
 }
 
 /* ---------------------------------- */
