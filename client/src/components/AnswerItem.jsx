@@ -1,13 +1,13 @@
 import React from 'react';
 import AnswerList from './AnswerList.jsx';
 
-function AnswerItem({ question }) {
+function AnswerItem({ answer }) {
 
-  let answerObj;
+  // let answerObj;
 
-  for (var key in question.answers) {
-    answerObj = question.answers[key];
-  };
+  // for (var key in answer.answers) {
+  //   answerObj = question.answers[key];
+  // };
 
   function handleHelpful() {
     console.log('Add 1 to helpfulness');
@@ -15,11 +15,11 @@ function AnswerItem({ question }) {
 
   return (
     <div>
-      <h3>A: {answerObj.body}</h3>
-      <p>By: {answerObj.answerer_name}</p>
-      <p>Date: {answerObj.date}</p>
+      <h3>A: {answer.body}</h3>
+      <p>By: {answer.answerer_name}</p>
+      <p>Date: {answer.date}</p>
       <p>Helpful?</p>
-      <p onClick={handleHelpful}>Yes ({answerObj.helpfulness})</p>
+      <p onClick={handleHelpful}>Yes ({answer.helpfulness})</p>
     </div>
   );
 }

@@ -1,17 +1,19 @@
 import React from 'react';
 import './Modal.css';
 
-class Modal extends React.Component {
+class QuestionModal extends React.Component {
   constructor(props) {
     super(props);
 
     this.state={
       username: '',
       answer: '',
+      email: ''
     }
 
     this.handleUsername = this.handleUsername.bind(this);
     this.handleAnswer = this.handleAnswer.bind(this);
+    this.handleEmail = this.handleEmail.bind(this);
   };
 
   handleUsername(e) {
@@ -26,6 +28,12 @@ class Modal extends React.Component {
     })
   }
 
+  handleEmail(e) {
+    this.setState({
+      email: e.target.value
+    })
+  }
+
   render() {
     if (!this.props.show) {
       return null;
@@ -34,22 +42,40 @@ class Modal extends React.Component {
       <div className='modal' onClick={this.props.onClose}>
         <div className='modal-content' onClick={e => e.stopPropagation()}>
           <div className='modal-header'>
-            <h4 className='modal-title'>Add Answer</h4>
+            <h2 className='modal-title'>Ask Your Question</h2>
+            <h3>About the Product Name</h3>
           </div>
           <div className='modal-body'>
             <form>
               <label>
-                Username:
+                What is your nickname? *
+                <br/>
                 <input
                   name='username'
                   type='text'
+                  placeholder='Example: jackson11!'
                   value={this.state.username}
                   onChange={this.handleUsername}
                 />
               </label>
+              <p>For privacy reasons, do not use your full name or email address</p>
               <br/>
               <label>
-                Your Answer:
+                What is your email? *
+                <br/>
+                <input
+                  name='email'
+                  type='email'
+                  placeholder='Example: jackson11@email.com'
+                  value={this.state.email}
+                  onChange={this.handleEmail}
+                />
+                <p>For authentication reasons, you will not be emailed</p>
+              </label>
+              <br/>
+              <label>
+                Your Answer: *
+                <br/>
                 <input
                   name='answer'
                   type='text'
@@ -57,15 +83,10 @@ class Modal extends React.Component {
                   onChange={this.handleAnswer}
                 />
               </label>
-              <br/>
-              <label>
-                Add Photos:
-                <input type='file'/>
-              </label>
             </form>
           </div>
           <div className='modal-footer'>
-            <button onClick={this.props.onClose} className='button'>Close</button>
+            <button onClick={this.props.onClose} className='button'>Submit</button>
           </div>
         </div>
       </div>
@@ -73,4 +94,4 @@ class Modal extends React.Component {
   };
 };
 
-export default Modal;
+export default QuestionModal;

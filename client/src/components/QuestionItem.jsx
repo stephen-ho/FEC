@@ -6,7 +6,7 @@ function QuestionItem({ question }) {
   return (
     <div>
       <h2>Q: {question.question_body}</h2>
-      <AnswerList question={question}/>
+      <AnswerList questionid={question.question_id}/>
     </div>
   );
 }
