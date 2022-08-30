@@ -2,11 +2,11 @@ import React from 'react';
 import AnswerList from './AnswerList.jsx';
 
 function QuestionItem({ question }) {
-  console.log(question);
+  //console.log(question);
   return (
     <div>
-      <h3>Q: {question.question_body}</h3>
-      <AnswerList />
+      <h2>Q: {question.question_body}</h2>
+      <AnswerList question={question}/>
     </div>
   );
 }

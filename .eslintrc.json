@@ -21,6 +21,6 @@
         "react/function-component-definition": [1, {
             "namedComponents": ["function-declaration","function-expression", "arrow-function"]
           }],
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     }
 }
