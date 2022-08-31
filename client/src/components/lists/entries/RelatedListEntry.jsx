@@ -3,11 +3,10 @@ import axios from 'axios';
 import { FaRegStar } from 'react-icons/fa';
 import { API_KEY } from '../../../config.js';
 import { getProduct, getStyles, getRelated } from '../../../getHelpers.js';
-
 import ProductContext from '../../ProductContext.jsx';
 
 const RelatedListEntry = (props) => {
-  const { setProduct, setRelated, product } = useContext(ProductContext);
+  const { handleProductChange } = useContext(ProductContext);
   const [image, setImage] = useState('');
   const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
@@ -15,15 +14,17 @@ const RelatedListEntry = (props) => {
   const [reviews, setReviews] = useState('');
 
   console.log('Related List entry render');
+
   const newRender = (productID) => {
-    setProduct(productID);
-    getRelated(productID)
-      .then((res) => {
-        setRelated(res.data);
-      })
-      .catch((e) => {
-        console.error(e);
-      });
+    console.log('current product id ==>', props.item);
+    handleProductChange(productID);
+    // getRelated(productID)
+    //   .then((res) => {
+    //     setRelated(res.data);
+    //   })
+    //   .catch((e) => {
+    //     console.error(e);
+    //   });
   };
 
   useEffect(() => {
@@ -48,7 +49,7 @@ const RelatedListEntry = (props) => {
 
   return (
     <div className="entry"
-    onClick={() => {newRender(props.item); console.log(props.item, product)}}>
+    onClick={() => {newRender(props.item)}}>
       <FaRegStar className="button compare-outfit" />
       <img className="image" src={image} alt="could not be displayed" />
       <h4 className="category">{category}</h4>
