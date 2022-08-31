@@ -16,7 +16,6 @@ const ProductDetailPage = () => {
   const [related, setRelated] = useState([]);
 
   useEffect(() => {
-    console.log(product);
     axios({
       method: 'get',
       url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products/${product}`,
@@ -62,19 +61,18 @@ const ProductDetailPage = () => {
         console.error(e);
       });
   }, [product]);
-  console.log(related);
   return (
     <div>
       <img src={image} alt="image could not be displayed"></img>
       <div>{name}</div>
       <div>{description}</div>
       <div>{originalPrice}</div>
-      <ProductContext.Provider value={{related, product, setProduct}}>
+      <ProductContext.Provider value={{related, setRelated, product, setProduct}}>
         <RelatedItemsAndOutfits />
       </ProductContext.Provider>
     </div>
 
   );
-}
+};
 
 export default ProductDetailPage;

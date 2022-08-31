@@ -5,4 +5,4 @@ import App from './components/App.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // eslint-disable-next-line react/jsx-filename-extension
-root.render(<App />);
+root.render(<App className="test" />);

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import ProductContext from './../ProductContext.jsx';
 import RelatedListEntry from './entries/RelatedListEntry.jsx';
+import '/client/dist/Lists.css';
 
 const RelatedList = () => {
   const { related } = useContext(ProductContext);

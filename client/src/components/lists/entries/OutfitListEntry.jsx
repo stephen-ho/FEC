@@ -1,7 +1,7 @@
 import React, {useState, useContext} from 'react';
 import ProductContext from '../../ProductContext.jsx';
 import { FaTimes, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import '/client/dist/Lists.css';
+// import '/client/dist/Lists.css';
 
 const OutfitListEntry = () => {
   const { image, category, description } = useContext(ProductContext);

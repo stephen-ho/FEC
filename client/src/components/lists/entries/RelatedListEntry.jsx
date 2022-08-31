@@ -5,12 +5,28 @@ import { FaRegStar } from 'react-icons/fa';
 import ProductContext from '../../ProductContext.jsx';
 
 const RelatedListEntry = (props) => {
-  const { setProduct, product } = useContext(ProductContext);
+  const { setProduct, setRelated, product, related } = useContext(ProductContext);
   const [image, setImage] = useState('');
   const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const [reviews, setReviews] = useState('');
+  const [test, setTest] = useState(false);
+  const getRelated = () => {
+    axios({
+      method: 'get',
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products/${props.item}/related`,
+      headers: {
+        'Authorization': `${API_KEY}`,
+      },
+    })
+      .then((res) => {
+        setRelated(res.data);
+      })
+      .catch((e) => {
+        console.error(e);
+      });
+  }
 
   // product info by id
   useEffect(() => {
@@ -22,7 +38,6 @@ const RelatedListEntry = (props) => {
       },
     })
       .then((res) => {
-        console.log(props.item);
         setCategory(res.data.category);
         setDescription(res.data.description);
         // category = res.data.category;
@@ -46,10 +61,9 @@ const RelatedListEntry = (props) => {
       .catch((e) => {
         console.error(e);
       });
-  }, []);
-
+  }, [product]);
   return (
-    <div className="entry" onClick={() => {setProduct(props.item); console.log(props.item, product)}}>
+    <div className="entry" onClick={() => {setProduct(props.item); getRelated(); setTest(!test); console.log(props.item, product)}}>
       <FaRegStar className="button compare-outfit" />
       <img className="image" src={image} alt="could not be displayed" />
       <h4 className="category">{category}</h4>
@@ -61,5 +75,3 @@ const RelatedListEntry = (props) => {
 };
 
 export default RelatedListEntry;
-
-

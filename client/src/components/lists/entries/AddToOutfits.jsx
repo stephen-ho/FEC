@@ -1,5 +1,5 @@
 import React from 'react';
-import '/client/dist/Lists.css';
+
 
 const AddToOutfits = () => {
   return (
