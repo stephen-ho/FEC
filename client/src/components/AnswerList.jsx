@@ -4,6 +4,7 @@ import AnswerItem from './AnswerItem.jsx';
 import App from './App.jsx';
 import sampleData from './sampleData.js';
 import AnswerModal from './Modal/AnswerModal.jsx';
+import {API_KEY} from '../config.js'
 
 function AnswerList({ questionid }) {
 
@@ -13,7 +14,7 @@ function AnswerList({ questionid }) {
   const [answersList, setAnswers] = useState([]);
 
   const options = {
-    headers: {'Authorization': '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'},
+    headers: {'Authorization': API_KEY},
   }
 
   useEffect(() => {

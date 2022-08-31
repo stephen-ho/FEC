@@ -3,6 +3,7 @@ import axios from 'axios';
 // eslint-disable-next-line import/extensions
 import QuestionItem from './QuestionItem.jsx';
 import App from './App.jsx';
+import {API_KEY} from '../config.js';
 
 function QuestionList({ products }) {
 
@@ -10,7 +11,7 @@ function QuestionList({ products }) {
   // console.log(products);
 
   const options = {
-    headers: {'Authorization': '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'},
+    headers: {'Authorization': API_KEY},
     params: {'product_id': 65656}
   }
 
