@@ -1,7 +1,7 @@
 import React from 'react';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import OutfitListEntry from './entries/OutfitListEntry.jsx';
 import AddToOutfits from './entries/AddToOutfits.jsx';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import '/client/dist/Lists.css';
 
 const OutfitList = () => {
