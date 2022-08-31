@@ -8,6 +8,7 @@ import {API_KEY} from '../config.js';
 function QuestionList({ products }) {
 
   const [questionsList, setQuestions] = useState([]);
+  const [seeMoreQuestions, setSeeMoreQuestions] = useState(false);
   // console.log(products);
 
   const options = {
@@ -33,17 +34,29 @@ function QuestionList({ products }) {
 
   function handleClick() {
     console.log('Clicked');
+    setSeeMoreQuestions(true);
   }
 
-  return (
-    <>
-      <div>
-        {questions}
-      </div>
-      <p onClick={handleClick}>See More Questions</p>
-    </>
-  );
-}
+  if (seeMoreQuestions === true) {
+    return (
+      <>
+        <div>
+          {questions}
+        </div>
+        <p onClick={handleClick}>See More Questions</p>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <div>
+          {questions.slice(0,4)}
+        </div>
+        <p onClick={handleClick}>See More Questions</p>
+      </>
+    );
+  };
+};
 
 export default QuestionList;
 

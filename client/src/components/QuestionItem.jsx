@@ -5,7 +5,7 @@ function QuestionItem({ question }) {
   //console.log(question);
   return (
     <div>
-      <h2>Q: {question.question_body}</h2>
+      <h3>Q: {question.question_body}</h3>
       <AnswerList questionid={question.question_id}/>
     </div>
   );

@@ -4,6 +4,7 @@ import AnswerItem from './AnswerItem.jsx';
 import sampleData from './sampleData.js';
 import AnswerModal from './Modal/AnswerModal.jsx';
 import {API_KEY} from '../config.js'
+import './App.css';
 
 function AnswerList({ questionid }) {
 
@@ -11,6 +12,7 @@ function AnswerList({ questionid }) {
 
   const [show, setShow] = useState(false);
   const [answersList, setAnswers] = useState([]);
+  const [showMoreAnswers, setShowMoreAnswers] = useState(false);
 
   const options = {
     headers: {'Authorization': API_KEY},
@@ -33,16 +35,28 @@ function AnswerList({ questionid }) {
 
   function handleClick() {
     console.log('See More Answers');
-  }
+    setShowMoreAnswers(true);
+  };
 
-  return (
-    <div>
+  if(showMoreAnswers === true) {
+    return (
+      <div className='AnswerList'>
       {answers}
-      <button onClick={() => setShow(true)}>Add Answer</button>
-      <AnswerModal onClose={() => setShow(false)} show={show} />
-      <p onClick={handleClick}>See More Answers</p>
-    </div>
-  );
-}
+        <AnswerModal onClose={() => setShow(false)} show={show} />
+        <p onClick={handleClick}>See More Answers</p>
+        <button onClick={() => setShow(true)}>Add Answer</button>
+      </div>
+    )
+  } else {
+    return (
+      <div className='AnswerList'>
+        {answers.slice(0,2)}
+        <AnswerModal onClose={() => setShow(false)} show={show} />
+        <p onClick={handleClick}>See More Answers</p>
+        <button onClick={() => setShow(true)}>Add Answer</button>
+      </div>
+    );
+  };
+};
 
 export default AnswerList;

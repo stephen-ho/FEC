@@ -4,6 +4,7 @@ import QuestionList from './QuestionList.jsx';
 import sampleProduct from './sampleData.js';
 import AnswerList from './AnswerList.jsx';
 import QuestionModal from './Modal/QuestionModal.jsx';
+import './App.css';
 
 function App() {
   const [search, setSearch] = useState('');
@@ -15,17 +16,22 @@ function App() {
 
   return (
     <>
-      <h1>Questions & Answers</h1>
-      <input
-        type="text"
-        value={search}
-        onChange={handleSearch}
-      />
-      <br/>
-      <button onClick={() => setShow(true)}>Ask a Question</button>
-      <QuestionModal onClose={() => setShow(false)} show={show} />
-      <div>
-        <QuestionList products={sampleProduct} />
+      <div className='App'>
+        <h1>Questions & Answers</h1>
+        <div className='searchParent'>
+          <input
+            className='searchChild'
+            type='text'
+            placeholder='Have a question? Search for answers...'
+            value={search}
+            onChange={handleSearch}
+          />
+          <button onClick={() => setShow(true)}>Ask a Question</button>
+        </div>
+        <QuestionModal onClose={() => setShow(false)} show={show} />
+        <div className='QuestionList'>
+          <QuestionList products={sampleProduct} />
+        </div>
       </div>
     </>
   );

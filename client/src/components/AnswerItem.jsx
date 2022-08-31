@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 
 function AnswerItem({ answer }) {
 
@@ -14,11 +15,16 @@ function AnswerItem({ answer }) {
 
   return (
     <div>
-      <h3>A: {answer.body}</h3>
-      <p>By: {answer.answerer_name}</p>
-      <p>Date: {answer.date}</p>
-      <p>Helpful?</p>
-      <p onClick={handleHelpful}>Yes ({answer.helpfulness})</p>
+      <h4>A: {answer.body}</h4>
+      <div className='answerInfo'>
+        <div className='postInfo'>
+          <p>By: {answer.answerer_name} on {answer.date}</p>
+        </div>
+        <div className='helpful'>
+          <p>Helpful?</p>
+          <p onClick={handleHelpful}>Yes ({answer.helpfulness})</p>
+        </div>
+      </div>
     </div>
   );
 }
