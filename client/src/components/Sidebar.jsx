@@ -122,18 +122,18 @@ const Sidebar = ({
 
   return (
     <div>
-      <div>
+      <div id="sidebarProductCategory">
         {productCategory}
       </div>
-      <h1 id="productName">
+      <h2 id="sidebarProductName">
         {productName}
-      </h1>
+      </h2>
       <div>
         ★★★★★
         <a href="#reviews">(# of reviews)</a>
       </div>
       <br />
-      <div>
+      <div id="sidebarStyleName">
         {selectedStyle?.name}
       </div>
       <br />
@@ -141,7 +141,7 @@ const Sidebar = ({
         <StyleIcons allStyles={allStyles} setSelectedStyle={styleChangeHandler} />
       </div>
       <br />
-      <div>
+      <div id="sidebarPrice">
         {
           (parseInt(selectedStyle?.sale_price, 10) > 0
             && parseInt(selectedStyle?.original_price, 10) > parseInt(selectedStyle?.sale_price, 10))
@@ -178,6 +178,7 @@ const Sidebar = ({
             options={sizeOptions}
             theme={customTheme}
             styles={customStyles}
+            isSearchable={false}
           />
           <div>
             <br />
@@ -192,6 +193,7 @@ const Sidebar = ({
             theme={customTheme}
             styles={customStyles}
             isDisabled={selectedSizeOption === null}
+            isSearchable={false}
           />
         </div>
       ) : (

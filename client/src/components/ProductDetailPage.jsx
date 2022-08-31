@@ -322,8 +322,8 @@ function ProductDetailPage({ product, allStyles, allPhotos }) {
     <div>
       <div id="productContainer">
         <div id="productMain">
-          <div id="gallery">
-            <Gallery photos={currPhotoSet} />
+          <div>
+            <Gallery photos={currPhotoSet} product={product} />
           </div>
           <div id="productFeatures">
             <ProductFeatures
@@ -333,13 +333,15 @@ function ProductDetailPage({ product, allStyles, allPhotos }) {
             />
           </div>
         </div>
-        <div id="sidebar">
-          <Sidebar
-            productName={product?.name}
-            productCategory={product?.category}
-            allStyles={allStyles}
-            updateStyleImage={updateStyleImage}
-          />
+        <div id="sidebarContainer">
+          <div id="sidebar">
+            <Sidebar
+              productName={product?.name}
+              productCategory={product?.category}
+              allStyles={allStyles}
+              updateStyleImage={updateStyleImage}
+            />
+          </div>
         </div>
       </div>
     </div>
