@@ -6,12 +6,6 @@ import RelatedList from './lists/RelatedList.jsx';
 import { API_KEY } from '../config.js';
 
 const RelatedItemsAndOutfits = () => {
-  const [image, setImage] = useState('');
-  const [category, setCategory] = useState('');
-  const [description, setDescription] = useState('');
-  const [price, setPrice] = useState('');
-  const [reviews, setReviews] = useState('');
-
 
   return (
     // <ProductContext.Provider value={{category, description, image}}>

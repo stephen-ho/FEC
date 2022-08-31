@@ -19,14 +19,6 @@ const OutfitList = () => {
     <div className="container outfits" id="slider-outfits">
       <FaArrowLeft className="slide-left" onClick={slideLeft} />
       <AddToOutfits />
-      <OutfitListEntry />
-      <OutfitListEntry />
-      <OutfitListEntry />
-      <OutfitListEntry />
-      <OutfitListEntry />
-      <OutfitListEntry />
-      <OutfitListEntry />
-      <OutfitListEntry />
       <FaArrowRight className="slide-right" onClick={slideRight} />
     </div>
   );

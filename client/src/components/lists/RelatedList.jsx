@@ -6,6 +6,7 @@ import '/client/dist/Lists.css';
 
 const RelatedList = () => {
   const { relatedValues } = useContext(ProductContext);
+  console.log('current related ID list: ', relatedValues);
   const slideLeft = () => {
     const slider = document.getElementById('slider');
     slider.scrollLeft = slider.scrollLeft - 275;

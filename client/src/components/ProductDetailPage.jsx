@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import { API_KEY } from '../config.js';
@@ -20,7 +21,6 @@ const ProductDetailPage = () => {
     getProduct(product)
       .then((res) => {
         setName(res.data.name);
-        setCategory(res.data.category);
         setDescription(res.data.description);
         setPrice(res.data.default_price);
       })
@@ -45,10 +45,9 @@ const ProductDetailPage = () => {
       });
   }, [product]);
 
-  // const renderRelated = useCallback(())
-  // const renderProduct = useCallback(())
-  const productValue = useMemo(() => { return product }, [product]);
-  const relatedValues = useMemo(() => { return related }, [related]);
+  const productValue = useMemo(() => { return product; }, [product]);
+  const relatedValues = useMemo(() => { return related; }, [related]);
+  console.log('current product: ', product);
   return (
     <div>
       <img src={image} alt="image could not be displayed"></img>
