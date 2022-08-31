@@ -1,0 +1,185 @@
+.page {
+  scroll-behavior: auto;
+}
+
+/*
+========================================
+ SLIDE CONTAINER
+========================================
+*/
+
+.slides {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  scroll-behavior: smooth;
+}
+
+/*
+========================================
+ SLIDER
+========================================
+*/
+
+.container {
+  padding: 20px;
+  max-width: 1250px;
+  width : 96%;
+  display : flex;
+  min-height:  300px;
+  background: #FFFFFF;
+  box-sizing: border-box;
+  border-radius: 8px;
+  align-items: center;
+  margin-top: 20px;
+  overflow-x : scroll;
+  scroll-behavior: smooth;
+  overflow: hidden;
+}
+
+/*
+========================================
+ ENTRIES
+========================================
+*/
+
+.entry {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content:space-around;
+  background-color: white;
+  width: 35vh;
+  min-width: 215px;
+  min-height: 400px;
+  margin: 20px 25px;
+  padding: 10px 5px 10px 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.entry-add {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  border: solid;
+  height: 70vh;
+  width: 35vh;
+  margin: 25px 25px;
+  padding: 10px 5px 10px 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.entry:hover {
+  transform: scale(1.12);
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.entry-add:hover {
+  transform: scale(1.12);
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+/*
+========================================
+ slide buttons
+========================================
+*/
+.slide-left {
+  position: absolute;
+  align-items: center;
+  padding: 0px;
+  margin-left: -47px;
+  transition: 0.2s;
+}
+
+.slide-right {
+  position: absolute;
+  padding: 0px;
+  margin-right: 0px;
+  margin-left: 93%;
+  transition: 0.2s;
+}
+
+.slide-left:hover, .slide-right:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+}
+
+/*
+========================================
+ ENTRY ITEMS
+========================================
+*/
+
+.button {
+  display: flex;
+  justify-content: center;
+  margin-right: 0px;
+  margin-left: auto;
+  margin-bottom: 5px;
+  padding: 0px;
+  width: 35px;
+  transition: 0.15s;
+}
+
+.button:hover {
+  transform: scale(1.15);
+}
+
+.add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid;
+  border-radius: 10px;
+  height: 325px;
+  width: 210px;
+  margin-left: 0px;
+  margin-top: 5px;
+  margin-bottom: 125px;
+  background: transparent;
+}
+
+.image {
+
+}
+
+.category {
+  display: flex;
+  justify-content: flex-start;
+  margin: 2px 0px 2px 0px;
+}
+
+.description {
+  display: flex;
+  justify-content: flex-start;
+  margin: 2px 0px 2px 0px;
+  font-size: smaller;
+}
+
+.price {
+  margin: 3px 0px;
+}
+
+.reviews {
+  margin-top: 3px 0px;
+}
+
+/* ---------------------------------- */
+
+/* background-color: grey;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+margin: 25px;
+gap: 10px;
+height: 50vh;
+width: 1000px;
+white-space: nowrap;
+overflow: scroll; */
