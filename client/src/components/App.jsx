@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ProductDetailPage from './ProductDetailPage.jsx';
+import OutfitList from './lists/OutfitList.jsx';
+import RelatedList from './lists/RelatedList.jsx';
+import ProductContext from './ProductContext.jsx';
 
 const axios = require('axios');
 
@@ -11,6 +14,7 @@ function App() {
   const [product, setProduct] = useState(null);
   const [allStyles, setAllStyles] = useState([]);
   const [photos, setPhotos] = useState({});
+  const [related, setRelated] = useState([]);
 
   // get all produts for initial loading
   useEffect(() => {
@@ -26,7 +30,7 @@ function App() {
       .then((data) => {
         // temp way to set initial product until catalog page
         setProduct(data[0]);
-        console.log("PRODUCT UPDATED")
+        console.log("PRODUCT UPDATED TO: ", data[0]);
       });
   }, []);
 
@@ -47,6 +51,12 @@ function App() {
             pics[style.style_id] = style.photos;
           });
           setPhotos(pics);
+        })
+        .then(() => {
+          axios.get(`${API_URL}/products/${product.id}/related`, { headers: header })
+            .then((response) => {
+              setRelated(response.data);
+            });
         });
     }
   }, [product]);
@@ -60,11 +70,21 @@ function App() {
   };
 
   return (
-    <ProductDetailPage
-      product={product}
-      allStyles={allStyles}
-      allPhotos={photos}
-    />
+    <div>
+      <ProductDetailPage
+        related={related}
+        product={product}
+        allStyles={allStyles}
+        allPhotos={photos}
+      />
+      <ProductContext.Provider value={{ handleProductChange }}>
+        <RelatedList
+          related={related}
+        />
+        <OutfitList />
+      </ProductContext.Provider>
+    </div>
+
   );
 }
 

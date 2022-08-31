@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import StyleIcons from './StyleIcons.jsx';
 import ShareIcons from './ShareIcons.jsx';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faStar } from '@fortawesome/free-regular-svg-icons';
 
 import '../../dist/sidebar.css';
 
