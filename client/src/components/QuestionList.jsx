@@ -3,7 +3,7 @@ import axios from 'axios';
 // eslint-disable-next-line import/extensions
 import QuestionItem from './QuestionItem.jsx';
 import App from './App.jsx';
-import {API_KEY} from '../config.js';
+const {API_KEY} = process.env;
 
 function QuestionList() {
 

@@ -1,9 +1,10 @@
 import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import { FaRegStar } from 'react-icons/fa';
-import { API_KEY } from '../../../config.js';
 import { getProduct, getStyles, getRelated } from '../../../getHelpers.js';
 import ProductContext from '../../ProductContext.jsx';
+
+const {API_KEY} = process.env;
 
 const RelatedListEntry = (props) => {
   const { handleProductChange } = useContext(ProductContext);
