@@ -94,15 +94,15 @@
   position: absolute;
   align-items: center;
   padding: 0px;
-  margin-left: -47px;
+  margin-left: -20px;
   transition: 0.2s;
 }
 
 .slide-right {
   position: absolute;
   padding: 0px;
-  margin-right: 0px;
-  margin-left: 93%;
+  margin-right: -10px;
+  margin-left: 95%;
   transition: 0.2s;
 }
 
@@ -156,11 +156,11 @@
   margin: 2px 0px 2px 0px;
 }
 
-.description {
+.name {
   display: flex;
   justify-content: flex-start;
   margin: 2px 0px 2px 0px;
-  font-size: smaller;
+  font-size: large;
 }
 
 .price {

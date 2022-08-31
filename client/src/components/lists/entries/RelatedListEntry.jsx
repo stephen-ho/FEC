@@ -9,7 +9,7 @@ const RelatedListEntry = (props) => {
   const { handleProductChange } = useContext(ProductContext);
   const [image, setImage] = useState('');
   const [category, setCategory] = useState('');
-  const [description, setDescription] = useState('');
+  const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [reviews, setReviews] = useState('');
 
@@ -18,20 +18,13 @@ const RelatedListEntry = (props) => {
   const newRender = (productID) => {
     console.log('current product id ==>', props.item);
     handleProductChange(productID);
-    // getRelated(productID)
-    //   .then((res) => {
-    //     setRelated(res.data);
-    //   })
-    //   .catch((e) => {
-    //     console.error(e);
-    //   });
   };
 
   useEffect(() => {
     getProduct(props.item)
       .then((res) => {
+        setName(res.data.name);
         setCategory(res.data.category);
-        setDescription(res.data.description);
       })
       .catch((e) => {
         console.error(e);
@@ -52,8 +45,8 @@ const RelatedListEntry = (props) => {
     onClick={() => {newRender(props.item)}}>
       <FaRegStar className="button compare-outfit" />
       <img className="image" src={image} alt="could not be displayed" />
+      <h3 className="name">{name}</h3>
       <h4 className="category">{category}</h4>
-      <p className="description">{description}</p>
       <h4 className="price original">{price}</h4>
       <div className="reviews">{reviews}</div>
     </div>
