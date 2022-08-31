@@ -30,18 +30,12 @@
   background-color: white;
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 70px;
+  margin-bottom: 60px;
   row-gap: 8px;
   align-content: flex-end;
 }
 
-#gallery {
-  height: 50%;
-  display: flex;
-}
-
 .styleIcon{
-  background-color:white;
   flex: 0 0 25%;
   flex-basis: 25%;
 }
@@ -76,28 +70,47 @@ TODO
 #sidebar {
   background-color: white;
   position: sticky;
+  position: -webkit-sticky;
   top: 0;
+  padding-left: 15px;
+  padding-bottom: 10px;
 }
 
-#productName {
+#sidebarContainer {
+  background: teal;
+  height: 100vh;
+}
+
+#sidebarProductCategory {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#sidebarPrice {
+  font-size: larger;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#sidebarStyleName {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#sidebarProductName {
   margin-top: 0;
   margin-bottom: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #productMain {
-  order: 1;
   display:flex;
   background-color: aliceblue;
-  width: 60vh;
   flex-direction: column;
-  height:50vh;
-  overflow: auto;
 }
 
 #productContainer {
   display: flex;
-  background-color: black;
-  height: 100vh;
+  flex-direction: row;
+  background-color: grey;
+  height: 100%;
 }
 
 #shareIconContainer {
@@ -133,3 +146,41 @@ TODO
 .fa-twitter :hover {
   transform: scale(1.3);
   }
+
+#imageGalleryArrows {
+  position: absolute;
+}
+
+#imageGalleryPrev {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  left:32px;
+  font-size: 45px;
+  color: black;
+  z-index: 2;
+  cursor: pointer;
+}
+
+#imageGalleryNext {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  right:32px;
+  font-size: 45px;
+  color: black;
+  z-index: 2;
+  cursor: pointer;
+}
+
+#galleryContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+#thumbnail {
+  border:black solid 1px;
+  height: 60px;
+  width: 50px;
+  flex: 1 0 100%;
+}
