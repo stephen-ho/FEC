@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useMemo } from 'react';
 import axios from 'axios';
 import ProductContext from './ProductContext.jsx';
 import OutfitList from './lists/OutfitList.jsx';

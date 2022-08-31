@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import { API_KEY } from '../config.js';
+import { getProduct, getStyles, getRelated } from '../getHelpers.js';
 import ProductContext from './ProductContext.jsx';
 import RelatedItemsAndOutfits from './RelatedItemsAndOutfits.jsx';
 
@@ -16,13 +17,7 @@ const ProductDetailPage = () => {
   const [related, setRelated] = useState([]);
 
   useEffect(() => {
-    axios({
-      method: 'get',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products/${product}`,
-      headers: {
-        'Authorization': `${API_KEY}`,
-      },
-    })
+    getProduct(product)
       .then((res) => {
         setName(res.data.name);
         setCategory(res.data.category);
@@ -33,13 +28,7 @@ const ProductDetailPage = () => {
         console.error(e);
       });
 
-    axios({
-      method: 'get',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products/${product}/styles`,
-      headers: {
-        'Authorization': `${API_KEY}`,
-      },
-    })
+    getStyles(product)
       .then((res) => {
         setImage(res.data.results[0].photos[0].thumbnail_url);
       })
@@ -47,13 +36,7 @@ const ProductDetailPage = () => {
         console.error(e);
       });
 
-    axios({
-      method: 'get',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products/${product}/related`,
-      headers: {
-        'Authorization': `${API_KEY}`,
-      },
-    })
+    getRelated(product)
       .then((res) => {
         setRelated(res.data);
       })
@@ -61,13 +44,18 @@ const ProductDetailPage = () => {
         console.error(e);
       });
   }, [product]);
+
+  // const renderRelated = useCallback(())
+  // const renderProduct = useCallback(())
+  const productValue = useMemo(() => { return product }, [product]);
+  const relatedValues = useMemo(() => { return related }, [related]);
   return (
     <div>
       <img src={image} alt="image could not be displayed"></img>
       <div>{name}</div>
       <div>{description}</div>
       <div>{originalPrice}</div>
-      <ProductContext.Provider value={{related, setRelated, product, setProduct}}>
+      <ProductContext.Provider value={{ relatedValues, setRelated, productValue, setProduct }}>
         <RelatedItemsAndOutfits />
       </ProductContext.Provider>
     </div>

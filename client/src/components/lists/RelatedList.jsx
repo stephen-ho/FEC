@@ -5,7 +5,7 @@ import RelatedListEntry from './entries/RelatedListEntry.jsx';
 import '/client/dist/Lists.css';
 
 const RelatedList = () => {
-  const { related } = useContext(ProductContext);
+  const { relatedValues } = useContext(ProductContext);
   const slideLeft = () => {
     const slider = document.getElementById('slider');
     slider.scrollLeft = slider.scrollLeft - 275;
@@ -19,7 +19,7 @@ const RelatedList = () => {
   return (
     <div className="container related" id="slider">
       <FaArrowLeft className="slide-left" onClick={slideLeft} />
-      {related.map((item, index) => <RelatedListEntry item={item} key={index} />)}
+      {relatedValues.map((item, index) => <RelatedListEntry item={item} key={index} />)}
       <FaArrowRight className="slide-right" onClick={slideRight} />
     </div>
   );

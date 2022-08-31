@@ -1,59 +1,42 @@
 import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
-import { API_KEY } from '../../../config.js';
 import { FaRegStar } from 'react-icons/fa';
+import { API_KEY } from '../../../config.js';
+import { getProduct, getStyles, getRelated } from '../../../getHelpers.js';
+
 import ProductContext from '../../ProductContext.jsx';
 
 const RelatedListEntry = (props) => {
-  const { setProduct, setRelated, product, related } = useContext(ProductContext);
+  const { setProduct, setRelated, product } = useContext(ProductContext);
   const [image, setImage] = useState('');
   const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const [reviews, setReviews] = useState('');
-  const [test, setTest] = useState(false);
-  const getRelated = () => {
-    axios({
-      method: 'get',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products/${props.item}/related`,
-      headers: {
-        'Authorization': `${API_KEY}`,
-      },
-    })
+
+  console.log('Related List entry render');
+  const newRender = (productID) => {
+    setProduct(productID);
+    getRelated(productID)
       .then((res) => {
         setRelated(res.data);
       })
       .catch((e) => {
         console.error(e);
       });
-  }
+  };
 
-  // product info by id
   useEffect(() => {
-    axios({
-      method: 'get',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products/${props.item}`,
-      headers: {
-        'Authorization': `${API_KEY}`,
-      },
-    })
+    getProduct(props.item)
       .then((res) => {
         setCategory(res.data.category);
         setDescription(res.data.description);
-        // category = res.data.category;
-        // description = res.data.description;
       })
       .catch((e) => {
         console.error(e);
       });
-    // product styles by id
-    axios({
-      method: 'get',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products/${props.item}/styles`,
-      headers: {
-        'Authorization': `${API_KEY}`,
-      },
-    })
+
+    getStyles(props.item)
       .then((res) => {
         setImage(res.data.results[0].photos[0].thumbnail_url);
         setPrice(res.data.results[0].original_price);
@@ -61,9 +44,11 @@ const RelatedListEntry = (props) => {
       .catch((e) => {
         console.error(e);
       });
-  }, [product]);
+  }, [props.item]);
+
   return (
-    <div className="entry" onClick={() => {setProduct(props.item); getRelated(); setTest(!test); console.log(props.item, product)}}>
+    <div className="entry"
+    onClick={() => {newRender(props.item); console.log(props.item, product)}}>
       <FaRegStar className="button compare-outfit" />
       <img className="image" src={image} alt="could not be displayed" />
       <h4 className="category">{category}</h4>
