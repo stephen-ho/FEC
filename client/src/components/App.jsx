@@ -3,6 +3,10 @@ import ProductDetailPage from './ProductDetailPage.jsx';
 import OutfitList from './lists/OutfitList.jsx';
 import RelatedList from './lists/RelatedList.jsx';
 import ProductContext from './ProductContext.jsx';
+import QuestionList from './QuestionList.jsx';
+import AnswerList from './AnswerList.jsx';
+import QuestionModal from './Modal/QuestionModal.jsx';
+import './App.css';
 
 const axios = require('axios');
 
@@ -15,6 +19,8 @@ function App() {
   const [allStyles, setAllStyles] = useState([]);
   const [photos, setPhotos] = useState({});
   const [related, setRelated] = useState([]);
+  const [search, setSearch] = useState('');
+  const [show, setShow] = useState(false);
 
   // get all produts for initial loading
   useEffect(() => {
@@ -69,7 +75,12 @@ function App() {
       });
   };
 
+  function handleSearch(e) {
+    setSearch(e.target.value);
+  }
+
   return (
+    <>
     <div>
       <ProductDetailPage
         related={related}
@@ -85,6 +96,24 @@ function App() {
       </ProductContext.Provider>
     </div>
 
+    <div className='App'>
+      <h1>Questions & Answers</h1>
+      <div className='searchParent'>
+        <input
+          className='searchChild'
+          type='text'
+          placeholder='Have a question? Search for answers...'
+          value={search}
+          onChange={handleSearch}
+        />
+        <button onClick={() => setShow(true)}>Ask a Question</button>
+      </div>
+      <QuestionModal onClose={() => setShow(false)} show={show} />
+      <div className='QuestionList'>
+        <QuestionList />
+      </div>
+    </div>
+    </>
   );
 }
 
