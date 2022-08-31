@@ -5,7 +5,7 @@ import QuestionItem from './QuestionItem.jsx';
 import App from './App.jsx';
 import {API_KEY} from '../config.js';
 
-function QuestionList({ products }) {
+function QuestionList() {
 
   const [questionsList, setQuestions] = useState([]);
   const [seeMoreQuestions, setSeeMoreQuestions] = useState(false);

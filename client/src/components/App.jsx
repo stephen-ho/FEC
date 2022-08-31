@@ -110,7 +110,7 @@ function App() {
       </div>
       <QuestionModal onClose={() => setShow(false)} show={show} />
       <div className='QuestionList'>
-        <QuestionList products={sampleProduct} />
+        <QuestionList />
       </div>
     </div>
     </>
