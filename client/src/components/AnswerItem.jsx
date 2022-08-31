@@ -1,5 +1,4 @@
 import React from 'react';
-import AnswerList from './AnswerList.jsx';
 
 function AnswerItem({ answer }) {
 

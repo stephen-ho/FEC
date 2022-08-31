@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AnswerItem from './AnswerItem.jsx';
-import App from './App.jsx';
 import sampleData from './sampleData.js';
 import AnswerModal from './Modal/AnswerModal.jsx';
 import {API_KEY} from '../config.js'
