@@ -108,9 +108,9 @@ function App() {
         />
         <button onClick={() => setShow(true)}>Ask a Question</button>
       </div>
-      <QuestionModal onClose={() => setShow(false)} show={show} />
+      <QuestionModal onClose={() => setShow(false)} show={show} product={product} />
       <div className='QuestionList'>
-        <QuestionList />
+        <QuestionList product={product} />
       </div>
     </div>
     </>

@@ -2,24 +2,24 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 // eslint-disable-next-line import/extensions
 import QuestionItem from './QuestionItem.jsx';
-import App from './App.jsx';
 import {API_KEY} from '../config.js';
 
-function QuestionList() {
+function QuestionList({ product }) {
 
   const [questionsList, setQuestions] = useState([]);
   const [seeMoreQuestions, setSeeMoreQuestions] = useState(false);
-  // console.log(products);
+  //console.log(product);
+  console.log(product?.id);
 
   const options = {
-    headers: {'Authorization': API_KEY},
+    headers: {'Authorization': process.env.API_KEY},
     params: {'product_id': 65656}
   }
 
   useEffect(() => {
     axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions`, options)
     .then((response) => {
-      console.log(response.data.results)
+      //console.log(response.data.results)
       setQuestions(response.data.results);
     })
     .catch((err) => {
@@ -46,16 +46,15 @@ function QuestionList() {
         <p onClick={handleClick}>See More Questions</p>
       </>
     );
-  } else {
-    return (
-      <>
-        <div>
-          {questions.slice(0,4)}
-        </div>
-        <p onClick={handleClick}>See More Questions</p>
-      </>
-    );
-  };
+  }
+  return (
+    <>
+      <div>
+        {questions.slice(0,4)}
+      </div>
+      <p onClick={handleClick}>See More Questions</p>
+    </>
+  );
 };
 
 export default QuestionList;
