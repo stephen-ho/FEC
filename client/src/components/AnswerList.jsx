@@ -36,17 +36,17 @@ function AnswerList({ questionid }) {
   function handleClick() {
     console.log('See More Answers');
     setShowMoreAnswers(true);
-  };
+  }
 
-  if(showMoreAnswers === true) {
+  if (showMoreAnswers === true) {
     return (
-      <div className="AnswerList">
-      {answers}
+      <div className="AnswerListAll">
+        {answers}
         <AnswerModal onClose={() => setShow(false)} show={show} />
         <p onClick={handleClick}>See More Answers</p>
         <button onClick={() => setShow(true)}>Add Answer</button>
       </div>
-    )
+    );
   }
   return (
     <div className="AnswerList">
@@ -56,6 +56,6 @@ function AnswerList({ questionid }) {
       <button onClick={() => setShow(true)}>Add Answer</button>
     </div>
   );
-};
+}
 
 export default AnswerList;

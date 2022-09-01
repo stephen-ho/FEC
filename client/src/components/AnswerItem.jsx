@@ -13,16 +13,23 @@ function AnswerItem({ answer }) {
     console.log('Add 1 to helpfulness');
   }
 
+  function handleReport() {
+    console.log('Reported');
+  }
+
   return (
-    <div>
+    <div className="AnswerItem">
       <h4>A: {answer.body} </h4>
       <div className="answerInfo">
         <div className="postInfo">
           <p>By: {answer.answerer_name} on {answer.date}</p>
         </div>
-        <div className="helpful">
+        <div className="helpful" onClick={handleHelpful}>
           <p>Helpful?</p>
-          <p onClick={handleHelpful}>Yes ({answer.helpfulness})</p>
+          <p>Yes ({answer.helpfulness})</p>
+        </div>
+        <div className="report" onClick={handleReport}>
+          <p>Report</p>
         </div>
       </div>
     </div>
