@@ -3,7 +3,9 @@ import axios from 'axios';
 import AnswerItem from './AnswerItem.jsx';
 import sampleData from './sampleData.js';
 import AnswerModal from './Modal/AnswerModal.jsx';
-import {API_KEY} from '../config.js'
+
+const { API_KEY } =  process.env;
+
 import './App.css';
 
 function AnswerList({ questionid }) {

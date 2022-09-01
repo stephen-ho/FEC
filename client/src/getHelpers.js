@@ -1,7 +1,7 @@
 /* eslint-disable quote-props */
 /* eslint-disable arrow-body-style */
 const axios = require('axios');
-const key = require('./config.js');
+const {API_KEY} = process.env;
 
 module.exports = {
   getProduct: (productID) => {
@@ -9,7 +9,7 @@ module.exports = {
       method: 'get',
       url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products/${productID}`,
       headers: {
-        'Authorization': `${key.API_KEY}`,
+        'Authorization': `${API_KEY}`,
       },
     });
   },
@@ -19,7 +19,7 @@ module.exports = {
       method: 'get',
       url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products/${productID}/styles`,
       headers: {
-        'Authorization': `${key.API_KEY}`,
+        'Authorization': `${API_KEY}`,
       },
     });
   },
@@ -29,7 +29,7 @@ module.exports = {
       method: 'get',
       url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products/${productID}/related`,
       headers: {
-        'Authorization': `${key.API_KEY}`,
+        'Authorization': `${API_KEY}`,
       },
     });
   },

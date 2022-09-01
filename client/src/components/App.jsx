@@ -6,6 +6,7 @@ import ProductContext from './ProductContext.jsx';
 import QuestionList from './QuestionList.jsx';
 import AnswerList from './AnswerList.jsx';
 import QuestionModal from './Modal/QuestionModal.jsx';
+import Reviews from './ReviewsAndRatings/Reviews.jsx';
 import './App.css';
 
 const axios = require('axios');
@@ -17,6 +18,7 @@ function App() {
   const [allProducts, setAllProducts] = useState({});
   const [product, setProduct] = useState(null);
   const [allStyles, setAllStyles] = useState([]);
+  const [defaultPhoto, setDefaultPhoto] = useState('');
   const [photos, setPhotos] = useState({});
   const [related, setRelated] = useState([]);
   const [search, setSearch] = useState('');
@@ -49,6 +51,7 @@ function App() {
       axios.get(`${API_URL}/products/${product.id}/styles`, { headers: header })
         .then((response) => {
           setAllStyles(response.data.results);
+          setDefaultPhoto(response.data.results[0].photos[0].thumbnail_url)
           return response.data.results;
         })
         .then((data) => {
@@ -64,6 +67,15 @@ function App() {
               setRelated(response.data);
             });
         });
+        console.log('B I G console log ==============')
+        console.log('product ==>', product)
+        console.log('allStyles ==> ', allStyles)
+        console.log('defaultPhoto ==>', defaultPhoto)
+        console.log('photos ==> ', photos)
+        console.log('related ==> ', related)
+        console.log('search ==> ', search)
+        console.log('show ==> ', show)
+        console.log('================================')
     }
   }, [product]);
 
@@ -88,14 +100,15 @@ function App() {
         allStyles={allStyles}
         allPhotos={photos}
       />
-      <ProductContext.Provider value={{ handleProductChange }}>
+      <ProductContext.Provider className="list-container" value={{ handleProductChange, product }}>
         <RelatedList
           related={related}
         />
-        <OutfitList />
+        <OutfitList
+          currentProduct={product}
+        />
       </ProductContext.Provider>
     </div>
-
     <div className='App'>
       <h1>Questions & Answers</h1>
       <div className='searchParent'>
@@ -112,6 +125,9 @@ function App() {
       <div className='QuestionList'>
         <QuestionList product={product} />
       </div>
+    </div>
+    <div>
+    <Reviews />
     </div>
     </>
   );
