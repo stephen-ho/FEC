@@ -2,11 +2,11 @@ import React from 'react';
 
 const ProductFeatures = ({ slogan, description, features = [] }) => (
   <div>
-    <div>
+    <div id="sloganText">
       {slogan}
     </div>
     <br />
-    <div>
+    <div id="descriptionText">
       {description}
     </div>
     <ul>
@@ -14,7 +14,7 @@ const ProductFeatures = ({ slogan, description, features = [] }) => (
       features.length > 0 ? features.map((feature) => {
         console.log(features);
         return (
-          <li>
+          <li className="featureText">
             { feature.feature }
             {' '}
             :
