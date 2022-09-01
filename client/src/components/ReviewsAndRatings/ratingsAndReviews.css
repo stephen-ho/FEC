@@ -1,0 +1,49 @@
+
+h6 {
+  text-align: right;
+}
+.reviews-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.review-list{
+  flex: 8 0 auto;
+  border: 1px solid rgba(58, 60, 60, 0.442);
+}
+.review-item{
+  border: 1px solid rgba(58, 60, 60, 0.442);
+  align-items: center;
+}
+
+.ratings-container{
+  border: 1px solid rgba(58, 60, 60, 0.442);
+}
+
+.ratings-products{
+  border: 1px solid rgba(58, 60, 60, 0.442);
+}
+
+.ratings-breakdown {
+  border: 1px solid rgba(58, 60, 60, 0.442);
+}
+.response {
+  background-color: grey;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #e0e0e0;
+  padding: 3px;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, .2);
+}
+
+.progress-bar-fill {
+  display: block;
+  height: 10px;
+  background-color: #659cef;
+  border-radius: 3px;
+
+  transition: width 500ms ease-in-out;
+}
