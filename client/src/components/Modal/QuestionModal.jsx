@@ -1,37 +1,60 @@
 import React from 'react';
 import './Modal.css';
+import axios from 'axios';
 
 class QuestionModal extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state={
+    this.state = {
       username: '',
-      answer: '',
-      email: ''
-    }
+      question: '',
+      email: '',
+    };
 
     this.handleUsername = this.handleUsername.bind(this);
-    this.handleAnswer = this.handleAnswer.bind(this);
+    this.handleQuestion = this.handleQuestion.bind(this);
     this.handleEmail = this.handleEmail.bind(this);
-  };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
   handleUsername(e) {
     this.setState({
-      username: e.target.value
-    })
+      username: e.target.value,
+    });
   }
 
-  handleAnswer(e) {
+  handleQuestion(e) {
     this.setState({
-      answer: e.target.value
-    })
+      question: e.target.value,
+    });
   }
 
   handleEmail(e) {
     this.setState({
-      email: e.target.value
+      email: e.target.value,
+    });
+  }
+
+  handleSubmit() {
+    axios({
+      method: 'post',
+      url: `${process.env.API_URL}/qa/questions`,
+      data: {
+        body: this.state.question,
+        name: this.state.username,
+        email: this.state.email,
+        product_id: this.props.product?.id
+      },
+      headers: { Authorization: process.env.API_KEY },
     })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    this.props.onClose();
   }
 
   render() {
@@ -39,21 +62,21 @@ class QuestionModal extends React.Component {
       return null;
     }
     return (
-      <div className='modal' onClick={this.props.onClose}>
-        <div className='modal-content' onClick={e => e.stopPropagation()}>
-          <div className='modal-header'>
-            <h2 className='modal-title'>Ask Your Question</h2>
+      <div className="modal" onClick={this.props.onClose}>
+        <div className="modal-content" onClick={e => e.stopPropagation()}>
+          <div className="modal-header">
+            <h2 className="modal-title">Ask Your Question</h2>
             <h3>About the Product Name</h3>
           </div>
-          <div className='modal-body'>
+          <div className="modal-body">
             <form>
               <label>
                 What is your nickname? *
                 <br/>
                 <input
-                  name='username'
-                  type='text'
-                  placeholder='Example: jackson11!'
+                  name="username"
+                  type="text"
+                  placeholder="Example: jackson11!"
                   value={this.state.username}
                   onChange={this.handleUsername}
                 />
@@ -64,9 +87,9 @@ class QuestionModal extends React.Component {
                 What is your email? *
                 <br/>
                 <input
-                  name='email'
-                  type='email'
-                  placeholder='Example: jackson11@email.com'
+                  name="email"
+                  type="email"
+                  placeholder="Example: jackson11@email.com"
                   value={this.state.email}
                   onChange={this.handleEmail}
                 />
@@ -74,24 +97,24 @@ class QuestionModal extends React.Component {
               </label>
               <br/>
               <label>
-                Your Answer: *
+                Your Question: *
                 <br/>
                 <input
-                  name='answer'
-                  type='text'
-                  value={this.state.answer}
-                  onChange={this.handleAnswer}
+                  name="question"
+                  type="text"
+                  value={this.state.question}
+                  onChange={this.handleQuestion}
                 />
               </label>
             </form>
           </div>
-          <div className='modal-footer'>
-            <button onClick={this.props.onClose} className='button'>Submit</button>
+          <div className="modal-footer">
+            <button onClick={this.handleSubmit} className='button'>Submit</button>
           </div>
         </div>
       </div>
-    )
-  };
-};
+    );
+  }
+}
 
 export default QuestionModal;

@@ -15,12 +15,12 @@ function AnswerItem({ answer }) {
 
   return (
     <div>
-      <h4>A: {answer.body}</h4>
-      <div className='answerInfo'>
-        <div className='postInfo'>
+      <h4>A: {answer.body} </h4>
+      <div className="answerInfo">
+        <div className="postInfo">
           <p>By: {answer.answerer_name} on {answer.date}</p>
         </div>
-        <div className='helpful'>
+        <div className="helpful">
           <p>Helpful?</p>
           <p onClick={handleHelpful}>Yes ({answer.helpfulness})</p>
         </div>
