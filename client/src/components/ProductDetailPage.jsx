@@ -78,10 +78,6 @@ function ProductDetailPage({ product, allStyles, allPhotos }) {
     }
   }, [allStyles]);
 
-  // useEffect(() => {
-  //
-  // }, [allStyles]);
-
   const updateStyleImage = (id) => {
     console.log("UPDATE IMAGES TRIGGER");
     console.log(allPhotos[id]);
@@ -91,10 +87,9 @@ function ProductDetailPage({ product, allStyles, allPhotos }) {
   return (
     <div>
       <div id="productContainer">
+        <div />
         <div id="productMain">
-          <div>
-            <Gallery photos={currPhotoSet} product={product} />
-          </div>
+          <Gallery photos={currPhotoSet} product={product} />
           <div id="productFeatures">
             <ProductFeatures
               slogan={product?.slogan}
@@ -113,6 +108,7 @@ function ProductDetailPage({ product, allStyles, allPhotos }) {
             />
           </div>
         </div>
+        <div />
       </div>
     </div>
   );
