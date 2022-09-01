@@ -25,6 +25,7 @@ const RelatedListEntry = (props) => {
   useEffect(() => {
     getProduct(props.item)
       .then((res) => {
+        setName(res.data.name);
         setCategory(res.data.category);
         setName(res.data.name);
       })
@@ -53,8 +54,16 @@ const RelatedListEntry = (props) => {
         <h4 className="price original">{price}</h4>
         <div className="reviews">No reviews</div>
       </div>
+      <div className="entry"
+      onClick={() => {newRender(props.item)}}>
+        <FaRegStar className="button compare-outfit" />
+        <img className="image" src={image} alt="could not be displayed" />
+        <h3 className="name">{name}</h3>
+        <h4 className="category">{category}</h4>
+        <h4 className="price original">{price}</h4>
+        <div className="reviews">{reviews}</div>
+      </div>
     </>
-
   );
 };
 
