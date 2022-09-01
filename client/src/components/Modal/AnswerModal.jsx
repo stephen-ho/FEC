@@ -1,37 +1,60 @@
 import React from 'react';
 import './Modal.css';
+import axios from 'axios';
 
 class AnswerModal extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state={
+    this.state = {
       username: '',
       answer: '',
-      email: ''
-    }
+      email: '',
+    };
 
     this.handleUsername = this.handleUsername.bind(this);
     this.handleAnswer = this.handleAnswer.bind(this);
     this.handleEmail = this.handleEmail.bind(this);
-  };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
   handleUsername(e) {
     this.setState({
-      username: e.target.value
-    })
+      username: e.target.value,
+    });
   }
 
   handleAnswer(e) {
     this.setState({
-      answer: e.target.value
-    })
+      answer: e.target.value,
+    });
   }
 
   handleEmail(e) {
     this.setState({
-      email: e.target.value
+      email: e.target.value,
+    });
+  }
+
+  handleSubmit() {
+    axios({
+      method: 'post',
+      url: `${process.env.API_URL}/qa/questions/${this.props.questionid}/answers`,
+      data: {
+        body: this.state.answer,
+        name: this.state.username,
+        email: this.state.email,
+        // photos: array of urls
+      },
+      headers: { Authorization: process.env.API_KEY },
     })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    this.props.onClose();
   }
 
   render() {
@@ -92,7 +115,7 @@ class AnswerModal extends React.Component {
             </form>
           </div>
           <div className='modal-footer'>
-            <button onClick={this.props.onClose} className='button'>Submit</button>
+            <button onClick={this.handleSubmit} className='button'>Submit</button>
           </div>
         </div>
       </div>
