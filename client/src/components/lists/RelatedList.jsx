@@ -18,11 +18,14 @@ const RelatedList = (props) => {
   };
 
   return (
-    <div className="container related" id="slider">
-      <FaArrowLeft className="slide-left" onClick={slideLeft} />
-      {props.related.map((item, index) => <RelatedListEntry item={item} key={index} />)}
-      <FaArrowRight className="slide-right" onClick={slideRight} />
-    </div>
+    <>
+      <h1 className="list-title">Related outfits</h1>
+      <div className="container related" id="slider">
+        <FaArrowLeft className="slide-left" onClick={slideLeft} />
+        {props.related.map((item, index) => <RelatedListEntry item={item} key={index} />)}
+        <FaArrowRight className="slide-right" onClick={slideRight} />
+      </div>
+    </>
   );
 };
 

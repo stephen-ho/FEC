@@ -1,11 +1,13 @@
 {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "jest/globals": true
     },
     "extends": [
         "plugin:react/recommended",
-        "airbnb"
+        "airbnb",
+        "plugin:jest/recommended"
     ],
     "overrides": [
     ],
@@ -14,7 +16,8 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "jest"
     ],
     "rules": {
         "import/extensions": [1, "always", { "js" : "ignorePackages"}],
@@ -22,5 +25,6 @@
             "namedComponents": ["function-declaration","function-expression", "arrow-function"]
           }],
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+
     }
 }
