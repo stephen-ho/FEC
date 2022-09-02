@@ -3,11 +3,11 @@ import ProductDetailPage from './ProductDetailPage.jsx';
 import OutfitList from './lists/OutfitList.jsx';
 import RelatedList from './lists/RelatedList.jsx';
 import ProductContext from './ProductContext.jsx';
-import QuestionList from './QuestionList.jsx';
-import AnswerList from './AnswerList.jsx';
+import QuestionList from './QA/QuestionList.jsx';
+import AnswerList from './QA/AnswerList.jsx';
 import QuestionModal from './Modal/QuestionModal.jsx';
 import Reviews from './ReviewsAndRatings/Reviews.jsx';
-import './App.css';
+import './QA/QA.css';
 
 const axios = require('axios');
 
@@ -109,9 +109,9 @@ function App() {
         />
       </ProductContext.Provider>
     </div>
-    <div className='App'>
+    <div className='QA'>
       <h1>Questions & Answers</h1>
-      <div className='searchParent'>
+      <div className='searchbar'>
         <input
           className='searchChild'
           type='text'
