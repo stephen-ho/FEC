@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 
-import '../../dist/productOverview.css';
+import '../../../dist/productOverview.css';
 
 const StyleIcons = ({ allStyles, setSelectedStyle }) => {
   console.log('STYLE ICONS RENDER');
@@ -15,7 +15,6 @@ const StyleIcons = ({ allStyles, setSelectedStyle }) => {
 
     for (let i = 0; i < allStyles.length; i += 1) {
       if (allStyles[i]['default?']) {
-        console.log('DEFAUT FOUND')
         defaultStyle = allStyles[i];
         defaultIndex = i;
         break;

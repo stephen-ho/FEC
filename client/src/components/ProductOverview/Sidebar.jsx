@@ -3,7 +3,7 @@ import Select from 'react-select';
 import StyleIcons from './StyleIcons.jsx';
 import ShareIcons from './ShareIcons.jsx';
 
-import '../../dist/productOverview.css';
+import '../../../dist/productOverview.css';
 
 const axios = require('axios');
 

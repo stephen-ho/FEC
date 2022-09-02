@@ -192,10 +192,6 @@
   cursor: zoom-in;
 }
 
-#galleryImage:active {
-
-}
-
 #galleryContainer {
  width: fit-content;
 }
@@ -209,7 +205,6 @@
   border:white solid 1px;
   height: 40px;
   width: 40px;
-  max-width: px;
   max-height: 60px;
   flex: 1 0 100%;
   margin: 5px;
