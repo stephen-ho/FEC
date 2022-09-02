@@ -2,7 +2,7 @@ import React from 'react';
 import data from './data.js';
 import './ratingsAndReviews.css';
 
-export default function RatingsProductMeta () {
+export default function RatingsProductMeta (props) {
   function getWidth (num){
     return num ?  Number(Math.round(( num / 5) * 100)) :  0
    }
