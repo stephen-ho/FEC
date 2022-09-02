@@ -48,7 +48,7 @@ const ListComparison = (props) => {
 
   useEffect(() => {
     mergeFeatures();
-  }, [])
+  }, [props.entryFeatures])
 
 
   if (!props.show) {
