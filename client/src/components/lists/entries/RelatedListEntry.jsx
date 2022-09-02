@@ -1,16 +1,18 @@
 import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import { FaRegStar } from 'react-icons/fa';
-import { API_KEY } from '../../../config.js';
 import { getProduct, getStyles, getRelated } from '../../../getHelpers.js';
 import ProductContext from '../../ProductContext.jsx';
-import AnswerModal from '../../Modal/AnswerModal.jsx'
+import ListComparison from './modals/listComparison.jsx';
+
+const {API_KEY} = process.env;
 
 const RelatedListEntry = (props) => {
   const { handleProductChange } = useContext(ProductContext);
   const [image, setImage] = useState('');
   const [category, setCategory] = useState('');
   const [name, setName] = useState('');
+  const [feature, setFeature] = useState([]);
   const [price, setPrice] = useState('');
   const [reviews, setReviews] = useState('');
   const [show, setShow] = useState(false);
@@ -25,8 +27,9 @@ const RelatedListEntry = (props) => {
   useEffect(() => {
     getProduct(props.item)
       .then((res) => {
-        setCategory(res.data.category);
         setName(res.data.name);
+        setCategory(res.data.category);
+        // setFeatures(res.data.features.map());
       })
       .catch((e) => {
         console.error(e);
@@ -44,9 +47,9 @@ const RelatedListEntry = (props) => {
 
   return (
     <>
-      <AnswerModal onClose={() => setShow(false)} show={show} />
+      <ListComparison onClose={() => setShow(false)} show={show} close={setShow}/>
       <div className="entry">
-        <FaRegStar className="button compare-outfit" onClick={()=>{setShow(true); console.log(show)}}/>
+        <FaRegStar className="button compare-outfit" onClick={()=>{setShow(true)}}/>
         <img className="image" src={image} alt="could not be displayed" onClick={() => {newRender(props.item)}}/>
         <h2 className="name">{name}</h2>
         <h4 className="category">{category}</h4>
@@ -54,7 +57,6 @@ const RelatedListEntry = (props) => {
         <div className="reviews">No reviews</div>
       </div>
     </>
-
   );
 };
 
