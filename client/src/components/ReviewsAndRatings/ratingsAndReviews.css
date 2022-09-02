@@ -17,8 +17,9 @@ h6 {
 }
 
 .ratings-container{
-  border: 1px solid rgba(58, 60, 60, 0.442);
+box-sizing: border-box;
 }
+
 
 .ratings-products{
   border: 1px solid rgba(58, 60, 60, 0.442);
@@ -47,3 +48,16 @@ h6 {
 
   transition: width 500ms ease-in-out;
 }
+
+.ratings-star {
+  display: inline-block;
+  position: relative;
+  font-size: 15px;
+  color: orange;
+}
+
+
+.star-row{
+  display: inline;
+}
+
