@@ -3,7 +3,7 @@ import axios from 'axios';
 import { FaRegStar } from 'react-icons/fa';
 import { getProduct, getStyles, getRelated } from '../../../getHelpers.js';
 import ProductContext from '../../ProductContext.jsx';
-import ListComparison from './modals/ListComparison.jsx'
+import ListComparison from './modals/listComparison.jsx';
 
 const {API_KEY} = process.env;
 
