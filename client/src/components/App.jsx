@@ -1,21 +1,10 @@
-<<<<<<< HEAD
-import React, { useState, useEffect, useContext, useMemo } from 'react';
-import ProductDetailPage from './ProductDetailPage.jsx';
-import OutfitList from './lists/OutfitList.jsx';
-import RelatedList from './lists/RelatedList.jsx';
-import ProductContext from './ProductContext.jsx';
-import FeaturesContext from './FeaturesContext.jsx';
-import QuestionList from './QuestionList.jsx';
-import AnswerList from './AnswerList.jsx';
-=======
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import ProductDetailPage from './ProductOverview/ProductDetailPage.jsx';
 import OutfitList from './lists/OutfitList.jsx';
 import RelatedList from './lists/RelatedList.jsx';
 import ProductContext from './ProductContext.jsx';
 import QuestionList from './QA/QuestionList.jsx';
 import AnswerList from './QA/AnswerList.jsx';
->>>>>>> 0b73fdb79758881a2fd63cb4d606aa03d460f6af
 import QuestionModal from './Modal/QuestionModal.jsx';
 import Reviews from './ReviewsAndRatings/Reviews.jsx';
 import './QA/QA.css';

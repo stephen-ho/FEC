@@ -53,7 +53,7 @@ const RelatedListEntry = (props) => {
           close={setShow}
           entryFeatures={features}/>
         <div className="entry">
-          <FaRegStar className="button compare-outfit" onClick={()=>{setShow(true)}}/>
+          <FaRegStar className="button-compare-outfit" onClick={()=>{setShow(true)}}/>
           <img className="image" src={image} alt="could not be displayed" onClick={() => {newRender(props.item)}}/>
           <h2 className="name">{name}</h2>
           <h4 className="category">{category}</h4>
