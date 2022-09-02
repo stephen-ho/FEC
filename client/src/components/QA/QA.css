@@ -23,9 +23,10 @@
 
 
 .QuestionItem {
-  border-top-style: solid;
+  border-top: 1px solid #eee;
+  /* border-top-style: solid;
   border-top-width: thin;
-  border-color: gray;
+  border-color: gray; */
   padding: 20px;
 }
 
@@ -63,8 +64,15 @@
   margin-top: 0;
 }
 
+#helpTrue {
+  color: white;
+  background-color: black;
+}
+
 .answerInfo {
   display: flex;
+  justify-content: space-between;
+  width: 60%;
   gap: 50px;
   font-size: 12px;
 }
@@ -86,7 +94,6 @@
 }
 
 .report {
-
   text-decoration: underline;
   gap: 10px;
 }

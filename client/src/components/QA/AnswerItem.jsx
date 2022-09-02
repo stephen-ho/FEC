@@ -4,9 +4,11 @@ import './QA.css';
 function AnswerItem({ answer }) {
 
   const [report, setReport] = useState(false);
+  const [helpful, setHelpful] = useState(false);
 
   function handleHelpful() {
     console.log('Add 1 to helpfulness');
+    setHelpful(!helpful);
   }
 
   function handleReport() {
@@ -21,7 +23,7 @@ function AnswerItem({ answer }) {
         <div className="postInfo">
           <p>By: {answer.answerer_name} on {answer.date}</p>
         </div>
-        <div className="clickable helpful" onClick={handleHelpful}>
+        <div id={helpful ? 'helpTrue' : 'helpFalse'}className="clickable helpful" onClick={handleHelpful}>
           <p>Helpful?</p>
           <p>Yes ({answer.helpfulness})</p>
         </div>
