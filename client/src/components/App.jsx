@@ -7,6 +7,7 @@ import FeaturesContext from './FeaturesContext.jsx';
 import QuestionList from './QuestionList.jsx';
 import AnswerList from './AnswerList.jsx';
 import QuestionModal from './Modal/QuestionModal.jsx';
+import Reviews from './ReviewsAndRatings/Reviews.jsx';
 import './App.css';
 
 const axios = require('axios');
@@ -131,6 +132,9 @@ function App() {
       <div className='QuestionList'>
         <QuestionList product={product} />
       </div>
+    </div>
+    <div>
+    <Reviews />
     </div>
     </>
   );
