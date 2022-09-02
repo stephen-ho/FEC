@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext, useMemo } from 'react';
 import ProductDetailPage from './ProductDetailPage.jsx';
 import OutfitList from './lists/OutfitList.jsx';
 import RelatedList from './lists/RelatedList.jsx';
 import ProductContext from './ProductContext.jsx';
+import FeaturesContext from './FeaturesContext.jsx';
 import QuestionList from './QuestionList.jsx';
 import AnswerList from './AnswerList.jsx';
 import QuestionModal from './Modal/QuestionModal.jsx';
+import Reviews from './ReviewsAndRatings/Reviews.jsx';
 import './App.css';
 
 const axios = require('axios');
@@ -21,6 +23,7 @@ function App() {
   const [photos, setPhotos] = useState({});
   const [related, setRelated] = useState([]);
   const [search, setSearch] = useState('');
+  const [features, setFeatures] = useState([]);
   const [show, setShow] = useState(false);
 
   // get all produts for initial loading
@@ -38,7 +41,8 @@ function App() {
         // temp way to set initial product until catalog page
         setProduct(data[0]);
         console.log("PRODUCT UPDATED TO: ", data[0]);
-      });
+        //return data;
+      })
   }, []);
 
   // trigger updates when product is changed
@@ -74,6 +78,7 @@ function App() {
         console.log('related ==> ', related)
         console.log('search ==> ', search)
         console.log('show ==> ', show)
+        console.log('features ==>', features)
         console.log('================================')
     }
   }, [product]);
@@ -90,6 +95,8 @@ function App() {
     setSearch(e.target.value);
   }
 
+  const currentProduct = useMemo(() => product, [product])
+  console.log('PRODUCT IN APP ====>', product)
   return (
     <>
     <div>
@@ -99,9 +106,10 @@ function App() {
         allStyles={allStyles}
         allPhotos={photos}
       />
-      <ProductContext.Provider className="list-container" value={{ handleProductChange, product }}>
+      <ProductContext.Provider className="list-container" value={{ handleProductChange, currentProduct }}>
         <RelatedList
           related={related}
+          currentProduct={product?.id ? product.id : null}
         />
         <OutfitList
           currentProduct={product}
@@ -124,6 +132,9 @@ function App() {
       <div className='QuestionList'>
         <QuestionList product={product} />
       </div>
+    </div>
+    <div>
+    <Reviews />
     </div>
     </>
   );
