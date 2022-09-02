@@ -87,10 +87,6 @@ function App() {
       });
   };
 
-  function handleSearch(e) {
-    setSearch(e.target.value);
-  }
-
   return (
     <>
     <div>
@@ -109,23 +105,12 @@ function App() {
         />
       </ProductContext.Provider>
     </div>
-    <div className='QA'>
-      <h1>Questions & Answers</h1>
-      <div className='searchbar'>
-        <input
-          className='searchChild'
-          type='text'
-          placeholder='Have a question? Search for answers...'
-          value={search}
-          onChange={handleSearch}
-        />
-        <button onClick={() => setShow(true)}>Ask a Question</button>
+      <div className="QA">
+        <h1>Questions & Answers</h1>
+        <div className="QuestionList">
+          <QuestionList product={product} />
+        </div>
       </div>
-      <QuestionModal onClose={() => setShow(false)} show={show} product={product} />
-      <div className='QuestionList'>
-        <QuestionList product={product} />
-      </div>
-    </div>
     <div>
     <Reviews />
     </div>
