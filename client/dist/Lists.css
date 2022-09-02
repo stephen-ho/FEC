@@ -123,7 +123,7 @@
 ========================================
 */
 
-.button {
+.button-compare-outfit {
   display: flex;
   justify-content: center;
   margin-right: 0px;
@@ -135,7 +135,7 @@
   cursor: pointer;
 }
 
-.button:hover {
+.button-compare-outfit:hover {
   transform: scale(1.15);
 }
 
@@ -194,30 +194,69 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 60%;
   height: 500px;
-  margin-left: 20%;
+  margin-left: 12%;
   border: thin;
   border-radius: 10px;
   background-color: white;
   box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
 
+.comparison-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 95%;
+  width: 95%;
+}
+
 .comparison-list {
   display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
   border-radius: 10px;
   height: 65vh;
-  margin-bottom: 5px;
-  margin-top: 5px;
-  width: 46.5vw;
+  /* margin-bottom: 5px; */
+  width: 100%;
   background-color: rgba(0, 0, 0, 0.1);
   overflow-y: scroll;
 }
 
+/* ------------ list components ------------ */
+
+.current-features {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  border: solid;
+  width: 33%;
+}
+
+.features {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  border: solid;
+  width: 33%;
+}
+
+.related-features {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  border: solid;
+  width: 33%;
+}
+
+/* ------------------------------------------*/
+
 .close-modal {
-  margin-top: 10px;
-  margin-bottom: 5px;
-  margin-left: 30%;
+  margin-bottom: 15px;
   height: 50px;
   width: 200px;
   border: none;

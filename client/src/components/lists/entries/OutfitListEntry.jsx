@@ -12,7 +12,6 @@ const OutfitListEntry = (props) => {
   const [reviews, setReviews] = useState('');
 
   const newRender = (productID) => {
-    console.log('current product id ==>', props.outfit);
     handleProductChange(productID);
   };
 
