@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import ProductDetailPage from './ProductDetailPage.jsx';
+import React, { useState, useEffect, useMemo } from 'react';
+import ProductDetailPage from './ProductOverview/ProductDetailPage.jsx';
 import OutfitList from './lists/OutfitList.jsx';
 import RelatedList from './lists/RelatedList.jsx';
 import ProductContext from './ProductContext.jsx';
-import QuestionList from './QuestionList.jsx';
-import AnswerList from './AnswerList.jsx';
+import QuestionList from './QA/QuestionList.jsx';
+import AnswerList from './QA/AnswerList.jsx';
 import QuestionModal from './Modal/QuestionModal.jsx';
 import Reviews from './ReviewsAndRatings/Reviews.jsx';
-import './App.css';
+import './QA/QA.css';
 
 const axios = require('axios');
 
@@ -22,6 +22,7 @@ function App() {
   const [photos, setPhotos] = useState({});
   const [related, setRelated] = useState([]);
   const [search, setSearch] = useState('');
+  const [features, setFeatures] = useState([]);
   const [show, setShow] = useState(false);
 
   // get all produts for initial loading
@@ -39,7 +40,8 @@ function App() {
         // temp way to set initial product until catalog page
         setProduct(data[0]);
         console.log("PRODUCT UPDATED TO: ", data[0]);
-      });
+        //return data;
+      })
   }, []);
 
   // trigger updates when product is changed
@@ -75,6 +77,7 @@ function App() {
         console.log('related ==> ', related)
         console.log('search ==> ', search)
         console.log('show ==> ', show)
+        console.log('features ==>', features)
         console.log('================================')
     }
   }, [product]);
@@ -87,9 +90,13 @@ function App() {
       });
   };
 
+
   function handleSearch(e) {
     setSearch(e.target.value);
   }
+
+  const currentProduct = useMemo(() => product, [product])
+  console.log('PRODUCT IN APP ====>', product)
 
   return (
     <>
@@ -100,32 +107,22 @@ function App() {
         allStyles={allStyles}
         allPhotos={photos}
       />
-      <ProductContext.Provider className="list-container" value={{ handleProductChange, product }}>
+      <ProductContext.Provider className="list-container" value={{ handleProductChange, currentProduct }}>
         <RelatedList
           related={related}
+          currentProduct={product?.id ? product.id : null}
         />
         <OutfitList
           currentProduct={product}
         />
       </ProductContext.Provider>
     </div>
-    <div className='App'>
-      <h1>Questions & Answers</h1>
-      <div className='searchParent'>
-        <input
-          className='searchChild'
-          type='text'
-          placeholder='Have a question? Search for answers...'
-          value={search}
-          onChange={handleSearch}
-        />
-        <button onClick={() => setShow(true)}>Ask a Question</button>
+      <div className="QA">
+        <h1>Questions & Answers</h1>
+        <div className="QuestionList">
+          <QuestionList product={product} />
+        </div>
       </div>
-      <QuestionModal onClose={() => setShow(false)} show={show} product={product} />
-      <div className='QuestionList'>
-        <QuestionList product={product} />
-      </div>
-    </div>
     <div>
     <Reviews product={product}/>
     </div>

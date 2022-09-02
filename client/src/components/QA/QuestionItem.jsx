@@ -1,12 +1,12 @@
 import React from 'react';
 import AnswerList from './AnswerList.jsx';
 
-function QuestionItem({ question }) {
+function QuestionItem({ question, product }) {
   //console.log(question);
   return (
-    <div>
+    <div className="QuestionItem">
       <h3>Q: {question.question_body}</h3>
-      <AnswerList questionid={question.question_id}/>
+      <AnswerList questionid={question.question_id} product={product}/>
     </div>
   );
 }
