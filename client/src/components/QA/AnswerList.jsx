@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AnswerItem from './AnswerItem.jsx';
-import sampleData from './sampleData.js';
-import AnswerModal from './Modal/AnswerModal.jsx';
+import AnswerModal from '../Modal/AnswerModal.jsx';
+import './QA.css';
 
-const { API_KEY } =  process.env;
-
-import './App.css';
-
-function AnswerList({ questionid }) {
+function AnswerList({ questionid, product }) {
 
   console.log(questionid);
 
@@ -38,26 +34,24 @@ function AnswerList({ questionid }) {
   function handleClick() {
     console.log('See More Answers');
     setShowMoreAnswers(true);
-  };
-
-  if(showMoreAnswers === true) {
-    return (
-      <div className="AnswerList">
-      {answers}
-        <AnswerModal onClose={() => setShow(false)} show={show} />
-        <p onClick={handleClick}>See More Answers</p>
-        <button onClick={() => setShow(true)}>Add Answer</button>
-      </div>
-    )
   }
+
   return (
     <div className="AnswerList">
-      {answers.slice(0,2)}
-      <AnswerModal onClose={() => setShow(false)} show={show} questionid={questionid} />
-      <p onClick={handleClick}>See More Answers</p>
+      <div className="initialA">
+        {answers.slice(0,2)}
+      {/* {showMoreAnswers ? answers : answers.slice(0,2)} */}
+      </div>
+      <div id="hideContainer">
+        <div id="hideContent" className={showMoreAnswers ? "showA" : "hideA"}>
+          {answers.slice(2)}
+        </div>
+      </div>
+      <AnswerModal onClose={() => setShow(false)} show={show} questionid={questionid} product={product}/>
+      <p className="clickable SeeMore" onClick={handleClick}>See More Answers</p>
       <button onClick={() => setShow(true)}>Add Answer</button>
     </div>
   );
-};
+}
 
 export default AnswerList;

@@ -2,15 +2,35 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 
-import '../../dist/sidebar.css';
+import '../../../dist/productOverview.css';
 
 const StyleIcons = ({ allStyles, setSelectedStyle }) => {
-  console.log("STYLE ICONS RENDER");
-  const [ticked, setTicked] = useState();
+  console.log('STYLE ICONS RENDER');
+  console.log(allStyles);
+  const [ticked, setTicked] = useState({});
+
+  const setFallbackToDefaultStyle = () => {
+    let defaultStyle = allStyles[0];
+    let defaultIndex = 0;
+
+    for (let i = 0; i < allStyles.length; i += 1) {
+      if (allStyles[i]['default?']) {
+        defaultStyle = allStyles[i];
+        defaultIndex = i;
+        break;
+      }
+    }
+
+    console.log(document.getElementsByClassName('checkOverlay')[defaultIndex]);
+    const node = document.getElementsByClassName('checkOverlay')[defaultIndex];
+
+    setTicked({ node, index: defaultIndex });
+    setSelectedStyle(defaultStyle);
+    node?.removeAttribute('hidden');
+  };
 
   useEffect(() => {
-    setSelectedStyle(allStyles[0]);
-    setTicked(document.getElementsByClassName('checkOverlay')[0]);
+    setFallbackToDefaultStyle();
   }, [allStyles]);
 
   const handleOnClick = (event) => {
@@ -24,18 +44,18 @@ const StyleIcons = ({ allStyles, setSelectedStyle }) => {
     const clicked = event.target.previousSibling;
     if (clicked.getAttribute('hidden') || clicked.getAttribute('hidden') === ''
     ) {
-      ticked?.setAttribute('hidden', true);
+      ticked?.node.setAttribute('hidden', true);
       clicked.removeAttribute('hidden');
-      setTicked(clicked);
+      setTicked({ node: clicked, index: clicked.dataset.id });
     }
   };
 
-  return allStyles?.map((style) => {
+  return allStyles?.map((style, idx) => {
     const jpg = style.photos[0].thumbnail_url;
     return (
       <div key={style.style_id} className="styleIcon">
         <div className="iconContainer">
-          <div className="checkOverlay" hidden={!style['default?']}>
+          <div className="checkOverlay" data-index={idx} hidden>
             <FontAwesomeIcon icon={faCircleCheck} />
           </div>
           <img
