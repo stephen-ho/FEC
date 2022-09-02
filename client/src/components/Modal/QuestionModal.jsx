@@ -37,6 +37,18 @@ class QuestionModal extends React.Component {
   }
 
   handleSubmit() {
+    if (this.state.username.length === 0) {
+      alert("You must enter a username");
+    }
+    if (this.state.email.length === 0) {
+      alert("You must enter an email");
+    }
+    if (!this.state.email.includes('@')) {
+      alert("You must enter a valid email");
+    }
+    if (this.state.question.length === 0) {
+      alert("You must ask a question");
+    }
     axios({
       method: 'post',
       url: `${process.env.API_URL}/qa/questions`,

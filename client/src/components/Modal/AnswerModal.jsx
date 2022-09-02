@@ -62,21 +62,21 @@ class AnswerModal extends React.Component {
       return null;
     }
     return (
-      <div className='modal' onClick={this.props.onClose}>
-        <div className='modal-content' onClick={e => e.stopPropagation()}>
-          <div className='modal-header'>
-            <h2 className='modal-title'>Submit Your Answer</h2>
+      <div className="modal" onClick={this.props.onClose}>
+        <div className="modal-content" onClick={e => e.stopPropagation()}>
+          <div className="modal-header">
+            <h2 className="modal-title">Submit Your Answer</h2>
             <h3>{this.props.product.name}: Question</h3>
           </div>
-          <div className='modal-body'>
+          <div className="modal-body">
             <form>
               <label>
                 What is your nickname? *
                 <br/>
                 <input
-                  name='username'
-                  type='text'
-                  placeholder='Example: jack543!'
+                  name="username"
+                  type="text"
+                  placeholder="Example: jack543!"
                   value={this.state.username}
                   onChange={this.handleUsername}
                 />
@@ -87,9 +87,9 @@ class AnswerModal extends React.Component {
                 What is your email? *
                 <br/>
                 <input
-                  name='email'
-                  type='email'
-                  placeholder='Example: jack@email.com'
+                  name="email"
+                  type="email"
+                  placeholder="Example: jack@email.com"
                   value={this.state.email}
                   onChange={this.handleEmail}
                 />

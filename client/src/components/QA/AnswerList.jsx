@@ -19,7 +19,7 @@ function AnswerList({ questionid, product }) {
   useEffect(() => {
     axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions/${questionid}/answers`, options)
       .then((response) => {
-        // console.log(response.data.results)
+        //console.log(response.data.results)
         setAnswers(response.data.results);
       })
       .catch((err) => {
@@ -33,7 +33,7 @@ function AnswerList({ questionid, product }) {
 
   function handleClick() {
     console.log('See More Answers');
-    setShowMoreAnswers(true);
+    setShowMoreAnswers(!showMoreAnswers);
   }
 
   return (
@@ -48,8 +48,10 @@ function AnswerList({ questionid, product }) {
         </div>
       </div>
       <AnswerModal onClose={() => setShow(false)} show={show} questionid={questionid} product={product}/>
-      <p className="clickable SeeMore" onClick={handleClick}>See More Answers</p>
-      <button onClick={() => setShow(true)}>Add Answer</button>
+      <p className="clickable SeeMore" onClick={handleClick}>
+        {showMoreAnswers ? "Collapse Answers" : "See More Answers"}
+      </p>
+      <button className="clickable button" onClick={() => setShow(true)}>Add Answer</button>
     </div>
   );
 }

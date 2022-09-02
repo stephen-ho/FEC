@@ -32,7 +32,9 @@
 }
 
 .subtext {
+  color: gray;
   font-size: 10px;
+  margin: 5px;
 }
 
 .button {
