@@ -3,8 +3,6 @@ import axios from 'axios';
 // eslint-disable-next-line import/extensions
 import QuestionItem from './QuestionItem.jsx';
 
-import {API_KEY} from '../config.js';
-
 function QuestionList({ product }) {
 
   const [questionsList, setQuestions] = useState([]);

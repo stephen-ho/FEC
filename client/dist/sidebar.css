@@ -99,7 +99,7 @@
 
 #productMain {
   display:flex;
-  background-color: aliceblue;
+  background-color: white;
   flex-direction: column;
 }
 
