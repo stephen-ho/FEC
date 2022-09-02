@@ -3,7 +3,7 @@ import axios from 'axios';
 import { FaRegStar } from 'react-icons/fa';
 import { getProduct, getStyles, getRelated } from '../../../getHelpers.js';
 import ProductContext from '../../ProductContext.jsx';
-import ListComparison from './modals/ListComparison.jsx'
+import ListComparison from './modals/listComparison.jsx';
 
 const {API_KEY} = process.env;
 
@@ -53,7 +53,7 @@ const RelatedListEntry = (props) => {
           close={setShow}
           entryFeatures={features}/>
         <div className="entry">
-          <FaRegStar className="button compare-outfit" onClick={()=>{setShow(true)}}/>
+          <FaRegStar className="button-compare-outfit" onClick={()=>{setShow(true)}}/>
           <img className="image" src={image} alt="could not be displayed" onClick={() => {newRender(props.item)}}/>
           <h2 className="name">{name}</h2>
           <h4 className="category">{category}</h4>

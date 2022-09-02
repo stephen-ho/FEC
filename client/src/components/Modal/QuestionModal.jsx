@@ -66,7 +66,7 @@ class QuestionModal extends React.Component {
         <div className="modal-content" onClick={e => e.stopPropagation()}>
           <div className="modal-header">
             <h2 className="modal-title">Ask Your Question</h2>
-            <h3>About the Product Name</h3>
+            <h3>About the {this.props.product.name}</h3>
           </div>
           <div className="modal-body">
             <form>
@@ -81,7 +81,7 @@ class QuestionModal extends React.Component {
                   onChange={this.handleUsername}
                 />
               </label>
-              <p>For privacy reasons, do not use your full name or email address</p>
+              <p className="subtext">For privacy reasons, do not use your full name or email address</p>
               <br/>
               <label>
                 What is your email? *
@@ -93,13 +93,15 @@ class QuestionModal extends React.Component {
                   value={this.state.email}
                   onChange={this.handleEmail}
                 />
-                <p>For authentication reasons, you will not be emailed</p>
+                <p className="subtext">For authentication reasons, you will not be emailed</p>
               </label>
               <br/>
               <label>
                 Your Question: *
                 <br/>
-                <input
+                <textarea
+                  rows="4"
+                  cols="30"
                   name="question"
                   type="text"
                   value={this.state.question}
