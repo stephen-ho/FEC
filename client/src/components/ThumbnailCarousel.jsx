@@ -3,8 +3,6 @@ import React, { useState, useEffect } from 'react';
 const ThumbnailCarousel = ({
   index, prev, next, handleThumbnailClick, thumbnails = [],
 }) => {
-  // TEST RMEOVE LATER
-  thumbnails = thumbnails.concat(thumbnails);
   const [thumbnailIndex, setThumbnailIndex] = useState(0);
 
   let shownThumbs = [];
@@ -19,7 +17,7 @@ const ThumbnailCarousel = ({
   }
 
   const prevHidden = thumbnailIndex <= 0;
-  const nextHidden = thumbnailIndex + 6 >= thumbnails.length;
+  const nextHidden = thumbnailIndex + 7 >= thumbnails.length;
 
   const handlePrevClick = () => {
     setThumbnailIndex(thumbnailIndex - 1);
@@ -30,14 +28,18 @@ const ThumbnailCarousel = ({
   };
 
   const handleThumbnailClickEvents = (e) => {
-    handleThumbnailClick(e.target.dataset.id);
     const newHighlightIndex = parseInt(e.target.dataset.id, 10) + thumbnailIndex;
+    handleThumbnailClick(newHighlightIndex);
+
     let newIndex;
-    if (newHighlightIndex + 7 >= thumbnails.length) {
+    if (thumbnails.length <= 7) {
+      newIndex = 0;
+    } else if (newHighlightIndex + 7 >= thumbnails.length) {
       newIndex = thumbnails.length - 7;
     } else {
       newIndex = newHighlightIndex;
     }
+
     setThumbnailIndex(newIndex);
   };
 
@@ -55,7 +57,8 @@ const ThumbnailCarousel = ({
               alt=""
               data-id={idx}
               onClick={(e) => handleThumbnailClickEvents(e)}
-              style={ {border: (index - thumbnailIndex) === idx ? '2px solid black': '1px solid white'}}
+              style={{ border: (index - thumbnailIndex) === idx ? '2px solid black' : '1px solid white' }}
+              key={idx}
             />
           ))}
         </div>

@@ -187,8 +187,13 @@
   margin-left: 5px;
 }
 
+
 #galleryImage:hover {
   cursor: zoom-in;
+}
+
+#galleryImage:active {
+
 }
 
 #galleryContainer {
