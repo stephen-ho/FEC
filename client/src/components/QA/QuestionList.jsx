@@ -11,7 +11,7 @@ function QuestionList({ product }) {
   const [questionsList, setQuestions] = useState([]);
   const [seeMoreQuestions, setSeeMoreQuestions] = useState(false);
   //console.log(product);
-  console.log(product?.id);
+  //console.log(product?.id);
 
   const filteredQs = [];
 
@@ -47,7 +47,7 @@ function QuestionList({ product }) {
   });
 
   const questions = filteredQs.map((question, index) => {
-    return (<QuestionItem key={index} question={question} />);
+    return (<QuestionItem key={index} question={question} product={product}/>);
   });
 
   return (

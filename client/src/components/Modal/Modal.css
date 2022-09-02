@@ -30,3 +30,19 @@
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
 }
+
+.subtext {
+  font-size: 10px;
+}
+
+.button {
+  border-radius: 10px;
+  border: 1px solid;
+  padding: 5px 30px;
+  background: black;
+  color: white;
+}
+
+input {
+  width: 45%;
+}
