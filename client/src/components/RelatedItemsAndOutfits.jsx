@@ -3,7 +3,7 @@ import axios from 'axios';
 import ProductContext from './ProductContext.jsx';
 import OutfitList from './lists/OutfitList.jsx';
 import RelatedList from './lists/RelatedList.jsx';
-import { API_KEY } from '../config.js';
+const { API_KEY } = process.env;
 
 const RelatedItemsAndOutfits = () => {
 

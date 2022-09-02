@@ -1,0 +1,92 @@
+.QA {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.clickable:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.searchbar {
+  padding: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.searchChild {
+  width: 25%;
+}
+
+.QuestionList {
+  padding: 20px;
+}
+
+
+.QuestionItem {
+  border-top-style: solid;
+  border-top-width: thin;
+  border-color: gray;
+  padding: 20px;
+}
+
+.SeeMore {
+  text-decoration: underline;
+}
+
+/* .SeeMore:hover {
+  text-decoration: none;
+  cursor: pointer;
+} */
+
+.AnswerList {
+  padding-left: 25px;
+}
+
+.AnswerListAll {
+  padding-left: 25px;
+}
+
+#hideContainer {
+  overflow: hidden;
+}
+
+#hideContent {
+   margin-top: -100%;
+   transition: 1s ease-in-out;
+}
+
+#hideContent.showA {
+  margin-top: 0;
+}
+
+#hideContent.showQ {
+  margin-top: 0;
+}
+
+.answerInfo {
+  display: flex;
+  gap: 50px;
+  font-size: 12px;
+}
+
+.postInfo {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.helpful {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border-style: solid;
+  border-radius: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.report {
+
+  text-decoration: underline;
+  gap: 10px;
+}

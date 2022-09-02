@@ -30,27 +30,28 @@ const Gallery = ({ product, photos = [] }) => {
     images.push(photos[i].url);
   }
 
+  const handleThumbnailClick = (index) => {
+    setImageIndex(parseInt(index, 10));
+  };
+
   return photos.length > 0 ? (
-    <div>
-      <div>
-        <div id="galleryContainer">
-          <div id="thumbnailCarouselContainer">
-            <ThumbnailCarousel
-              thumbnails={thumbnails}
-              index={imageIndex}
-              prev={prev}
-              next={next}
-            />
-          </div>
-          <div id="imageCarouselContainer">
-            <ImageCarousel
-              images={images}
-              index={imageIndex}
-              prev={prev}
-              next={next}
-            />
-          </div>
-        </div>
+    <div id="galleryWrapper">
+      <div id="thumbnailCarouselContainer">
+        <ThumbnailCarousel
+          thumbnails={thumbnails}
+          index={imageIndex}
+          prev={prev}
+          next={next}
+          handleThumbnailClick={handleThumbnailClick}
+        />
+      </div>
+      <div id="imageCarouselContainer">
+        <ImageCarousel
+          images={images}
+          index={imageIndex}
+          prev={prev}
+          next={next}
+        />
       </div>
     </div>
   ) : null;
