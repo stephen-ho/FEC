@@ -46,26 +46,20 @@ class AnswerModal extends React.Component {
   }
 
   handleSubmit() {
-    const formData = new FormData();
-    formData.append('file', this.state.file);
-    formData.append('body', this.state.answer);
-    formData.append('name', this.state.username);
-    formData.append('email', this.state.email);
-    axios({
-      method: 'post',
-      url: `${process.env.API_URL}/qa/questions/${this.props.questionid}/answers`,
-      data: formData,
-      headers: {
-        Authorization: process.env.API_KEY,
-        'content-type': 'multipart/form-data',
-      },
-    })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // axios({
+    //   method: 'post',
+    //   url: `${process.env.API_URL}/qa/questions/${this.props.questionid}/answers`,
+    //   data: ,
+    //   headers: {
+    //     Authorization: process.env.API_KEY,
+    //   },
+    // })
+    //   .then((response) => {
+    //     console.log(response);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
     console.log(this.state.file)
     this.props.onClose();
     console.log(this.props.question);
@@ -129,9 +123,14 @@ class AnswerModal extends React.Component {
                 <br/>
                 <label htmlFor="fileInput">
                   <img id="icon" src="https://static.vecteezy.com/system/resources/thumbnails/006/017/715/small/ui-add-icon-free-vector.jpg" />
-                  {/* <img id="icon" src="https://visualpharm.com/assets/135/Add%20Image-595b40b85ba036ed117dbead.svg" /> */}
                 </label>
-                <input id="fileInput" type="file" accept="image/png, image/jpeg" multiple onChange={this.handleFile} />
+                <input
+                  id="imgInput"
+                  type="file"
+                  accept="image/png, image/jpeg"
+                  multiple
+                  onChange={this.handleFile}
+                />
               </label>
             </form>
           </div>

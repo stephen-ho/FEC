@@ -16,7 +16,17 @@ function AnswerItem({ answer, incrementCount }) {
   }
 
   function handleReport() {
-    console.log('Reported');
+    axios({
+      method: 'put',
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/answers/${answer.answer_id}/report`,
+      headers: { Authorization: process.env.API_KEY },
+    })
+      .then(() => {
+        console.log('Reported');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     setReport(!report);
   }
 
