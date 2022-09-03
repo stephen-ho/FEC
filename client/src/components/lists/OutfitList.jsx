@@ -32,7 +32,8 @@ const OutfitList = (props) => {
     <>
       <h1>Your outfits</h1>
       <div className="container outfits" id="slider-outfits">
-        <FaArrowLeft className="slide-left" onClick={slideLeft} />
+        <FaArrowLeft className="slide-left"
+          onClick={slideLeft} />
         <div onClick={() => {handleAddToList()}}>
           <AddToOutfits />
         </div>
