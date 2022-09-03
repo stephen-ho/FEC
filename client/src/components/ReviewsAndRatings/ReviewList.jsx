@@ -8,7 +8,7 @@ export default function ReviewList (props) {
 const [renderedReviews, setRenderedReviews] = React.useState(1)
 const handleReviewCards = data.reviewData.results.map((reviewItem, i) => {
   if (i <= renderedReviews){
-    return <div>  <ReviewCard key={reviewItem.review_id}review={reviewItem} /> </div>
+    return <div>  <ReviewCard className='review-item' key={reviewItem.review_id}review={reviewItem} /> </div>
   }
   })
 
@@ -22,8 +22,9 @@ const handleReviewCards = data.reviewData.results.map((reviewItem, i) => {
     <div className="review-list">
        <h2>{data.reviewData.results.length} reviews, sorted by <ReviewSort /> </h2>
        {handleReviewCards}
-       <button onClick={addMoreReviews}>More reviews</button>
-       <button>Add a review +</button>
+       <button className='reviews-btn' onClick={addMoreReviews}>More reviews</button>
+       &nbsp;
+       <button className='reviews-btn'>Add a review +</button>
     </div>
 
   )

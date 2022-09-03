@@ -28,50 +28,47 @@ export default function RatingsStarMeta(props) {
 
   return (
     <div className="ratings-breakdown">
-      <span>
+      <span style={{color:'grey', fontSize:'40px'}}>
         {avgRatings} <RatingsStars stars={2.3}/>
-
       </span>
       <p>
         5 stars:
-        {' '}
-        {data.reviewMeta.ratings[5]}
-      </p>
-      <div className="progress-bar">
+
+        <div className="progress-bar">
         <span className="progress-bar-fill" style={{ width: `${getWidth(data.reviewMeta.ratings[5])}%` }}> </span>
       </div>
+      </p>
+
       <p>
         4 stars:
-        {' '}
-        {data.reviewMeta.ratings[4]}
-      </p>
-      <div className="progress-bar">
+
+        <div className="progress-bar">
         <span className="progress-bar-fill" style={{ width: `${getWidth(data.reviewMeta.ratings[4])}%` }}> </span>
       </div>
+      </p>
+
       <p>
         3 stars:
-        {' '}
-        {data.reviewMeta.ratings[3]}
-      </p>
-      <div className="progress-bar">
+
+        <div className="progress-bar">
         <span className="progress-bar-fill" style={{ width: `${getWidth(data.reviewMeta.ratings[3])}%` }}> </span>
       </div>
+      </p>
+
       <p>
         2 stars:
-        {' '}
-        {data.reviewMeta.ratings[2]}
-      </p>
-      <div className="progress-bar">
+
+        <div className="progress-bar">
         <span className="progress-bar-fill" style={{ width: `${getWidth(data.reviewMeta.ratings[2])}%` }}> </span>
       </div>
-      <p>
-        1 stars:
-        {' '}
-        {data.reviewMeta.ratings[1]}
       </p>
-      <div className="progress-bar">
+      <p>
+        1 star:
+
+        <div className="progress-bar">
         <span className="progress-bar-fill" style={{ width: `${getWidth(data.reviewMeta.ratings[1])}%` }}> </span>
       </div>
+      </p>
     </div>
   );
 }

@@ -8,7 +8,7 @@ export default function Ratings (props) {
 
   return (
     <div className="ratings-container">
-     <h2>Ratings</h2>
+     <h2>Ratings & Reviews</h2>
      <RatingsStarMeta />
      <RatingsProductMeta />
     </div>
