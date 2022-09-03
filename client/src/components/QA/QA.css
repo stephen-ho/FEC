@@ -105,11 +105,20 @@ body {
   border-radius: 15px;
   padding-left: 10px;
   padding-right: 10px;
-  width: 12%;
+  width: 100px;
 }
 
 .report {
   text-decoration: underline;
   gap: 10px;
   color: gray;
+}
+
+.answerPic {
+  height: 100px;
+  padding: 0px 10px;
+}
+
+.ansPhotos {
+  display: flex;
 }
