@@ -10,6 +10,7 @@ const RelatedList = (props) => {
   const { currentProduct } = useContext(ProductContext);
   const [currentFeatures, setFeatures] = useState([]);
 
+  console.log('window width: ', window.innerWidth)
   // useEffect(() => {
     // getProduct(props.currentProduct)
     // .then((response) => {
@@ -24,12 +25,12 @@ const RelatedList = (props) => {
 
   const slideLeft = () => {
     const slider = document.getElementById('slider');
-    slider.scrollLeft = slider.scrollLeft - 275;
+    slider.scrollLeft -= (window.innerWidth/4.625);
   };
 
   const slideRight = () => {
     const slider = document.getElementById('slider');
-    slider.scrollLeft = slider.scrollLeft + 275;
+    slider.scrollLeft += (window.innerWidth/4.625);
   };
 
   return (

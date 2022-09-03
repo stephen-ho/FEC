@@ -9,12 +9,12 @@ const OutfitList = (props) => {
 
   const slideLeft = () => {
     const slider = document.getElementById('slider-outfits');
-    slider.scrollLeft = slider.scrollLeft - 275;
+    slider.scrollLeft -= (window.innerWidth/4.625);
   };
 
   const slideRight = () => {
     const slider = document.getElementById('slider-outfits');
-    slider.scrollLeft = slider.scrollLeft + 275;
+    slider.scrollLeft += (window.innerWidth/4.625);
   };
 
   const handleAddToList = () => {
@@ -34,7 +34,7 @@ const OutfitList = (props) => {
       <div className="container outfits" id="slider-outfits">
         <FaArrowLeft className="slide-left"
           onClick={slideLeft} />
-        <div onClick={() => {handleAddToList()}}>
+        <div className="add-container" onClick={() => {handleAddToList()}}>
           <AddToOutfits />
         </div>
         {currentOutfits.length
