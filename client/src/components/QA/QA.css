@@ -115,6 +115,7 @@ body {
 }
 
 .answerPic {
+  border-radius: 20px;
   height: 100px;
   padding: 0px 10px;
 }

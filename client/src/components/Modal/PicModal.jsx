@@ -18,7 +18,7 @@ class PicModal extends React.Component {
       <div className="picModal" onClick={this.props.onClose}>
         <div className="pic-modal-content" onClick={e => e.stopPropagation()}>
           <div className="pic-modal-body">
-            <img src={this.props.photo.url}></img>
+            <img className="fullPhoto" src={this.props.photo.url}></img>
           </div>
         </div>
       </div>
