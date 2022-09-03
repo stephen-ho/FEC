@@ -10,12 +10,14 @@ class AnswerModal extends React.Component {
       username: '',
       answer: '',
       email: '',
+      file: null,
     };
 
     this.handleUsername = this.handleUsername.bind(this);
     this.handleAnswer = this.handleAnswer.bind(this);
     this.handleEmail = this.handleEmail.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleFile = this.handleFile.bind(this);
   }
 
   handleUsername(e) {
@@ -36,17 +38,27 @@ class AnswerModal extends React.Component {
     });
   }
 
+  handleFile(e) {
+    this.setState({
+      file: e.target.files[0]
+    });
+    console.log(this.state.file)
+  }
+
   handleSubmit() {
+    const formData = new FormData();
+    formData.append('file', this.state.file);
+    formData.append('body', this.state.answer);
+    formData.append('name', this.state.username);
+    formData.append('email', this.state.email);
     axios({
       method: 'post',
       url: `${process.env.API_URL}/qa/questions/${this.props.questionid}/answers`,
-      data: {
-        body: this.state.answer,
-        name: this.state.username,
-        email: this.state.email,
-        // photos: array of urls
+      data: formData,
+      headers: {
+        Authorization: process.env.API_KEY,
+        'content-type': 'multipart/form-data',
       },
-      headers: { Authorization: process.env.API_KEY },
     })
       .then((response) => {
         console.log(response);
@@ -54,7 +66,9 @@ class AnswerModal extends React.Component {
       .catch((err) => {
         console.log(err);
       });
+    console.log(this.state.file)
     this.props.onClose();
+    console.log(this.props.question);
   }
 
   render() {
@@ -66,7 +80,7 @@ class AnswerModal extends React.Component {
         <div className="modal-content" onClick={e => e.stopPropagation()}>
           <div className="modal-header">
             <h2 className="modal-title">Submit Your Answer</h2>
-            <h3>{this.props.product.name}: Question</h3>
+            <h3>{this.props.product.name}: {this.props.question.question_body}</h3>
           </div>
           <div className="modal-body">
             <form>
@@ -113,7 +127,11 @@ class AnswerModal extends React.Component {
               <label>
                 Add Photos:
                 <br/>
-                <input type='file'/>
+                <label htmlFor="fileInput">
+                  <img id="icon" src="https://static.vecteezy.com/system/resources/thumbnails/006/017/715/small/ui-add-icon-free-vector.jpg" />
+                  {/* <img id="icon" src="https://visualpharm.com/assets/135/Add%20Image-595b40b85ba036ed117dbead.svg" /> */}
+                </label>
+                <input id="fileInput" type="file" accept="image/png, image/jpeg" multiple onChange={this.handleFile} />
               </label>
             </form>
           </div>

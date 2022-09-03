@@ -53,3 +53,13 @@ input {
   border-radius: 30px;
   max-width: 100%;
 }
+
+#fileInput{
+  display: none;
+}
+
+#icon{
+  width: 50px;
+  padding-top: 10px;
+  cursor: pointer;
+}

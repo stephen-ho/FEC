@@ -123,3 +123,12 @@ body {
 .ansPhotos {
   display: flex;
 }
+
+#fileInput{
+  display: none;
+}
+
+#icon{
+  width: 100px;
+  cursor: pointer;
+}

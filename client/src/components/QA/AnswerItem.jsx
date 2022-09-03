@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import './QA.css';
 import PhotoItem from './PhotoItem.jsx';
+import axios from 'axios';
 
-function AnswerItem({ answer }) {
+function AnswerItem({ answer, incrementCount }) {
 
   const [report, setReport] = useState(false);
   const [helpful, setHelpful] = useState(false);
-  const [photo, setPhoto] = useState(null);
-  const [show, setShow] = useState(false);
 
   function handleHelpful() {
-    console.log('Add 1 to helpfulness');
-    setHelpful(!helpful);
+    if (helpful === false) {
+      incrementCount();
+    }
+    setHelpful(true);
   }
 
   function handleReport() {
