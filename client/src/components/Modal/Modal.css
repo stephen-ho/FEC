@@ -46,7 +46,17 @@
 }
 
 input {
-  width: 45%;
+  width: 50%;
+  height: 25px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin-top: 5px;
+}
+
+textarea {
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin-top: 5px;
 }
 
 .fullPhoto {
@@ -77,4 +87,9 @@ input {
   display: flex;
   justify-content: center;
   padding: 10px;
+}
+
+.thumbnail {
+  height: 150px;
+  padding-top: 20px;
 }

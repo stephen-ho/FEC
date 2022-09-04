@@ -89,7 +89,7 @@ class QuestionModal extends React.Component {
                   name="username"
                   type="text"
                   minLength="3"
-                  maxLength="20"
+                  maxLength="60"
                   required=""
                   placeholder="Example: jackson11!"
                   value={this.state.username}
@@ -104,6 +104,7 @@ class QuestionModal extends React.Component {
                 <input
                   name="email"
                   type="email"
+                  maxLength="60"
                   required=""
                   placeholder="Example: jackson11@email.com"
                   value={this.state.email}

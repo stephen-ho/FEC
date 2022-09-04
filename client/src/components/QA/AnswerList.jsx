@@ -41,7 +41,7 @@ function AnswerList({ question, questionid, product }) {
     const currentAnswer = { ...newAnswersList[index] };
     newAnswersList[index] = currentAnswer;
     currentAnswer.helpfulness += 1;
-    console.log('old:', answersList, 'new: ', newAnswersList);
+
     setAnswers(newAnswersList);
     console.log("incrementCount");
 

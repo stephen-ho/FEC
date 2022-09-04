@@ -1,6 +1,7 @@
 import React from 'react';
 import './Modal.css';
 import axios from 'axios';
+import ImageFile from './ImageFile.jsx';
 
 class AnswerModal extends React.Component {
   constructor(props) {
@@ -40,29 +41,42 @@ class AnswerModal extends React.Component {
 
   handleFile(e) {
     this.setState({
-      file: e.target.files[0]
+      file: e.target.files,
     });
-    console.log(this.state.file)
+    console.log('File: ', this.state.file);
   }
 
-  handleSubmit() {
-    // axios({
-    //   method: 'post',
-    //   url: `${process.env.API_URL}/qa/questions/${this.props.questionid}/answers`,
-    //   data: ,
-    //   headers: {
-    //     Authorization: process.env.API_KEY,
-    //   },
-    // })
-    //   .then((response) => {
-    //     console.log(response);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-    console.log(this.state.file)
+  handleSubmit(e) {
+    e.preventDefault();
+    const file = this.state.file;
+    const formData = new FormData();
+
+    formData.append('body', this.state.answer);
+    formData.append('name', this.state.username);
+    formData.append('email', this.state.email);
+    formData.append('photos', this.state.file);
+
+    console.log(Object.fromEntries(formData.entries()));
+    // // formData = JSON.stringify(formData);
+    // console.log([...formData]);
+
+    axios({
+      method: 'post',
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions/${this.props.questionid}/answers`,
+      data: formData,
+      headers: {
+        Authorization: process.env.API_KEY,
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     this.props.onClose();
-    console.log(this.props.question);
+    console.log(this.props.questionid);
   }
 
   render() {
@@ -85,6 +99,7 @@ class AnswerModal extends React.Component {
                   name="username"
                   type="text"
                   placeholder="Example: jack543!"
+                  maxLength="60"
                   value={this.state.username}
                   onChange={this.handleUsername}
                 />
@@ -98,6 +113,7 @@ class AnswerModal extends React.Component {
                   name="email"
                   type="email"
                   placeholder="Example: jack@email.com"
+                  maxLength="60"
                   value={this.state.email}
                   onChange={this.handleEmail}
                 />
@@ -118,20 +134,7 @@ class AnswerModal extends React.Component {
               </label>
               <br/>
               <br/>
-              <label>
-                Add Photos:
-                <br/>
-                <label htmlFor="fileInput">
-                  <img id="icon" src="https://static.vecteezy.com/system/resources/thumbnails/006/017/715/small/ui-add-icon-free-vector.jpg" />
-                </label>
-                <input
-                  id="imgInput"
-                  type="file"
-                  accept="image/png, image/jpeg"
-                  multiple
-                  onChange={this.handleFile}
-                />
-              </label>
+              <ImageFile onChange={this.handleFile} />
             </form>
           </div>
           <div className='modal-footer'>
