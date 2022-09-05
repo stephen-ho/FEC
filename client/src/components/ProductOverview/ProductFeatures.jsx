@@ -12,7 +12,6 @@ const ProductFeatures = ({ slogan, description, features = [] }) => (
     <ul>
       {
       features.length > 0 ? features.map((feature) => {
-        console.log(features);
         return (
           <li className="featureText">
             { feature.feature }

@@ -11,7 +11,7 @@ const { API_URL } = process.env;
 const header = { Authorization: process.env.API_KEY };
 
 const Sidebar = ({
-  productName, productCategory, allStyles, updateStyleImage,
+  productName, productCategory, allStyles, style, updateStyleImage, styleIndex
 }) => {
   console.log('SIDE BAR RENDER');
   const [selectedStyle, setSelectedStyle] = useState({});
@@ -95,6 +95,10 @@ const Sidebar = ({
       ...provided,
       borderRadius: 12,
     }),
+    control: (provided) => ({
+      ...provided,
+      fontFamily: 'Arial, Helvetica, sans-serif',
+    }),
   };
 
   const sizeChangeHandler = (event) => {
@@ -107,7 +111,7 @@ const Sidebar = ({
     for (let i = 0; i < allStyles.length; i += 1) {
       if (allStyles[i].style_id === event.style_id) {
         setSelectedStyle(allStyles[i]);
-        updateStyleImage(event.style_id);
+        updateStyleImage(i);
         break;
       }
     }
@@ -137,7 +141,12 @@ const Sidebar = ({
       </div>
       <br />
       <div id="styleSelector">
-        <StyleIcons allStyles={allStyles} setSelectedStyle={styleChangeHandler} />
+        <StyleIcons
+          allStyles={allStyles}
+          style={style}
+          setSelectedStyle={styleChangeHandler}
+          index={styleIndex}
+        />
       </div>
       <br />
       <div id="sidebarPrice">
@@ -222,7 +231,7 @@ const Sidebar = ({
       <br />
       <div id="addToCartButtonContainer">
         <button id="addToCartButton" type="button" onClick={addToCart} hidden={selectedSizeOption === null}>
-          Add to Cart
+          <strong>Add to Cart</strong>
         </button>
       </div>
       <div>
