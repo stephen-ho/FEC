@@ -12,6 +12,7 @@ class AnswerModal extends React.Component {
       answer: '',
       email: '',
       files: [],
+      showUpload: true,
     };
 
     this.handleUsername = this.handleUsername.bind(this);
@@ -40,11 +41,12 @@ class AnswerModal extends React.Component {
   }
 
   handleFile(e) {
-    // this.setState({
-    //   file: e.target.files[0],
-    // });
-    // console.log(e.target.files[0]);
-    // console.log(this.state);
+    if (this.state.files.length > 4) {
+      this.setState({
+        showUpload: false,
+      });
+    };
+
     const photos = this.state.files.slice();
     const formData = new FormData();
     formData.append("file", e.target.files[0]);
@@ -99,10 +101,15 @@ class AnswerModal extends React.Component {
         console.log(err);
       });
     this.props.onClose();
-    console.log(this.props.questionid);
+    // console.log(this.props.questionid);
   }
 
   render() {
+
+    const photoThumbs = this.state.files.map((fileURL) => {
+      return <img className="photoThumb" src={fileURL}></img>
+    });
+
     if (!this.props.show) {
       return null;
     }
@@ -160,7 +167,21 @@ class AnswerModal extends React.Component {
               </label>
               <br/>
               <br/>
-              <ImageFile onChange={this.handleFile} />
+              {/* <ImageFile onChange={this.handleFile} /> */}
+              <div id="hideUploadContainer">
+                <div id="hideUpload" className={this.state.showUpload ? "showU" : "hideU"}>
+                  <label htmlFor="fileInput" className="button">
+                    Upload an image
+                  </label>
+                  <input
+                    id="fileInput"
+                    type="file"
+                    onChange={this.handleFile}
+                    className="show-for-sr"
+                  />
+                </div>
+              </div>
+              {photoThumbs}
             </form>
           </div>
           <div className='modal-footer'>

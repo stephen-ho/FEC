@@ -93,3 +93,27 @@ textarea {
   height: 150px;
   padding-top: 20px;
 }
+
+.photoThumb {
+  height: 150px;
+  padding-top: 20px;
+  padding-right: 20px;
+}
+
+#hideUploadContainer {
+  overflow: hidden;
+}
+
+#hideUpload {
+   margin-top: -100%;
+   transition: 1s ease-in-out;
+}
+
+#hideUpload.showU {
+  padding: 5px 0px;
+  margin-top: 0px;
+}
+
+#hideUpload.hideU {
+  margin-top: -100%;
+}
