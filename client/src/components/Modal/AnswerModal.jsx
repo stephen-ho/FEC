@@ -11,7 +11,7 @@ class AnswerModal extends React.Component {
       username: '',
       answer: '',
       email: '',
-      file: null,
+      files: [],
     };
 
     this.handleUsername = this.handleUsername.bind(this);
@@ -40,33 +40,56 @@ class AnswerModal extends React.Component {
   }
 
   handleFile(e) {
-    this.setState({
-      file: e.target.files,
-    });
-    console.log('File: ', this.state.file);
+    // this.setState({
+    //   file: e.target.files[0],
+    // });
+    // console.log(e.target.files[0]);
+    // console.log(this.state);
+    const photos = this.state.files.slice();
+    const formData = new FormData();
+    formData.append("file", e.target.files[0]);
+    formData.append("upload_preset", "zm7ucgaq")
+
+    axios.post("https://api.cloudinary.com/v1_1/ddcvif9vu/image/upload", formData)
+      .then((response) => {
+        //console.log(response.data.url);
+        let photoURL = response.data.url;
+        photos.push(photoURL);
+        this.setState({
+          files: photos,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    console.log(this.state);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const file = this.state.file;
     const formData = new FormData();
 
     formData.append('body', this.state.answer);
     formData.append('name', this.state.username);
     formData.append('email', this.state.email);
-    formData.append('photos', this.state.file);
+    formData.append('photos', this.state.files);
 
-    console.log(Object.fromEntries(formData.entries()));
+    // console.log(Object.fromEntries(formData.entries()));
     // // formData = JSON.stringify(formData);
     // console.log([...formData]);
 
     axios({
       method: 'post',
       url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions/${this.props.questionid}/answers`,
-      data: formData,
+      data: {
+        "body": this.state.answer,
+        "name": this.state.username,
+        "email": this.state.email,
+        "photos": this.state.files,
+      },
       headers: {
         Authorization: process.env.API_KEY,
-        'Content-Type': 'multipart/form-data',
+        // 'Content-Type': 'multipart/form-data',
       },
     })
       .then((response) => {
@@ -100,6 +123,7 @@ class AnswerModal extends React.Component {
                   type="text"
                   placeholder="Example: jack543!"
                   maxLength="60"
+                  //errorMessage="Username required"
                   value={this.state.username}
                   onChange={this.handleUsername}
                 />
@@ -113,6 +137,7 @@ class AnswerModal extends React.Component {
                   name="email"
                   type="email"
                   placeholder="Example: jack@email.com"
+                  //errorMessage="The email address provided is not in correct email format"
                   maxLength="60"
                   value={this.state.email}
                   onChange={this.handleEmail}
@@ -128,6 +153,7 @@ class AnswerModal extends React.Component {
                   cols="30"
                   name="answer"
                   type="text"
+                  //errorMessage="Required field"
                   value={this.state.answer}
                   onChange={this.handleAnswer}
                 />
