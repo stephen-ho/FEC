@@ -1,20 +1,24 @@
 import React from 'react';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 const ImageCarousel = ({
-  images = [], index, prev, next,
+  images = [], index, prev, next, setExpandedView,
 }) => {
   console.log('IMAGE CAROUSEL');
+  const handleImageClick = () => {
+    setExpandedView();
+  };
 
   return (
     <div id="imageGalleryContainer">
-      <div id="imageGalleryPrev" onClick={prev} hidden={index === 0}>
-        &#8249;
+      <div hidden={index === 0}>
+        <FaArrowLeft id="imageGalleryPrev" onClick={prev} />
       </div>
-      <div id="imageGalleryNext" onClick={next} hidden={index === images.length - 1}>
-        &#8250;
+      <div hidden={index === images.length - 1}>
+        <FaArrowRight id="imageGalleryNext" onClick={next} />
       </div>
       <div id="imageGallery">
-        <img id="galleryImage" src={images[index]} alt="" />
+        <img id="galleryImage" src={images[index]} alt="" onClick={handleImageClick} />
       </div>
     </div>
   );
