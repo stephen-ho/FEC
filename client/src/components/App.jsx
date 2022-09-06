@@ -118,7 +118,7 @@ function App() {
       </ProductContext.Provider>
     </div>
       <div className="QA">
-        <h1>Questions & Answers</h1>
+        <h1 className="QAhead">Questions & Answers</h1>
         <div className="QuestionList">
           <QuestionList product={product} />
         </div>

@@ -37,6 +37,18 @@ class QuestionModal extends React.Component {
   }
 
   handleSubmit() {
+    // if (this.state.username.length === 0) {
+    //   alert("You must enter a username");
+    // }
+    // if (this.state.email.length === 0) {
+    //   alert("You must enter an email");
+    // }
+    // if (!this.state.email.includes('@')) {
+    //   alert("You must enter a valid email");
+    // }
+    // if (this.state.question.length === 0) {
+    //   alert("You must ask a question");
+    // }
     axios({
       method: 'post',
       url: `${process.env.API_URL}/qa/questions`,
@@ -76,6 +88,9 @@ class QuestionModal extends React.Component {
                 <input
                   name="username"
                   type="text"
+                  minLength="3"
+                  maxLength="60"
+                  required=""
                   placeholder="Example: jackson11!"
                   value={this.state.username}
                   onChange={this.handleUsername}
@@ -89,6 +104,8 @@ class QuestionModal extends React.Component {
                 <input
                   name="email"
                   type="email"
+                  maxLength="60"
+                  required=""
                   placeholder="Example: jackson11@email.com"
                   value={this.state.email}
                   onChange={this.handleEmail}
@@ -104,6 +121,7 @@ class QuestionModal extends React.Component {
                   cols="30"
                   name="question"
                   type="text"
+                  required=""
                   value={this.state.question}
                   onChange={this.handleQuestion}
                 />
