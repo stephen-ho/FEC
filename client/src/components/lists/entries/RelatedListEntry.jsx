@@ -28,7 +28,7 @@ const RelatedListEntry = (props) => {
       .then((res) => {
         setName(res.data.name);
         setCategory(res.data.category);
-        setFeatures(res.data.features.map(item => item.feature));
+        setFeatures(res.data.features.map(item => item.value ? item.value : item.feature));
       })
       .then(() => {
         getStyles(props.item)
@@ -54,7 +54,12 @@ const RelatedListEntry = (props) => {
           entryFeatures={features}/>
         <div className="entry">
           <FaRegStar className="button-compare-outfit" onClick={()=>{setShow(true)}}/>
-          <img className="image" src={image} alt="could not be displayed" onClick={() => {newRender(props.item)}}/>
+          <div className="image-container">
+            <img className="image"
+              src={image}
+              alt="could not be displayed"
+              onClick={() => {newRender(props.item)}}/>
+          </div>
           <h2 className="name">{name}</h2>
           <h4 className="category">{category}</h4>
           <h4 className="price original">{price}</h4>
