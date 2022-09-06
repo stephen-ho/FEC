@@ -1,3 +1,16 @@
+.accordianIcon {
+  float: right;
+  margin-left: 5px;
+}
+
+.accordianIcon:after {
+  content: "\002B";
+}
+
+.accordianIcon.active:after{
+  content:"\2212";
+}
+
 #addToCartButtonContainer {
   display: flex;
   align-items: center;
@@ -114,6 +127,22 @@
   margin-top: 20px;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+#featuresContainer {
+  padding-top: 10px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+#featureAccordian {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: larger;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
 
 #shareIconContainer {
   display: flex;
@@ -359,12 +388,27 @@
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 900;
   font-size: x-large;
+  padding-bottom: 15px;
 }
 
 #descriptionText {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  margin-bottom: 15px;
+  margin-top: 15px;
   text-align: left;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+}
+
+#descriptionAccordian {
+  font-family: Arial, Helvetica, sans-serif;
   font-size: larger;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
 }
 
 #featuresText {
