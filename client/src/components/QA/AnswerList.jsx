@@ -6,7 +6,7 @@ import './QA.css';
 
 function AnswerList({ question, questionid, product }) {
 
-  console.log("question id: ", questionid);
+  // console.log("question id: ", questionid);
 
   const [show, setShow] = useState(false);
   const [answersList, setAnswers] = useState([]);

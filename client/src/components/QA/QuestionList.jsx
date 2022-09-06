@@ -11,24 +11,42 @@ function QuestionList({ product }) {
   const [questionsList, setQuestions] = useState([]);
   const [seeMoreQuestions, setSeeMoreQuestions] = useState(false);
   //console.log(product);
-  //console.log(product?.id);
+  //console.log("product ID: ", product?.id);
 
   const filteredQs = [];
 
   const options = {
     headers: {'Authorization': process.env.API_KEY},
-    params: {'product_id': 65656}
+    params: {
+      // 'product_id': product?.id,
+      'product_id': 65656,
+      // 'count': 99,
+    }
   };
 
   useEffect(() => {
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions`, options)
+    let productID = product?.id;
+    console.log(productID);
+    // axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions`, options)
+    // async function fetchData() {}
+    // const request = await
+    axios({
+      method: 'get',
+      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions/',
+      headers: { Authorization: process.env.API_KEY },
+      params: {
+        product_id: 65656,
+        // product_id: product?.id,
+        // count: 99,
+      },
+    })
       .then((response) => {
         //console.log(response.data.results)
         setQuestions(response.data.results);
       })
       .catch((err) => {
         console.log(err);
-      })
+      });
   }, []);
 
   function handleClick() {
