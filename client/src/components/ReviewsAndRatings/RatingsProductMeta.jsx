@@ -17,7 +17,7 @@ export default function RatingsProductMeta(props) {
         /5
       </p>
       <div className="progress-bar">
-        <span className="progress-bar-fill" style={{ width: `${getWidth(data.reviewMeta.characteristics.Size.value)}%` }}> </span>
+        <span className="progress-bar-fill product-highlights" style={{ width: `${getWidth(data.reviewMeta.characteristics.Size.value)}%` }}> Replace</span>
       </div>
       <p>
         Width is a
@@ -25,8 +25,8 @@ export default function RatingsProductMeta(props) {
         {Number(data.reviewMeta.characteristics.Width.value).toFixed(1)}
         /5
       </p>
-      <div className="progress-bar">
-        <span className="progress-bar-fill" style={{ width: `${getWidth(data.reviewMeta.characteristics.Width.value)}%` }}> </span>
+      <div className="progress-bar ">
+        <span className="progress-bar-fill product-highlights" style={{ width: `${getWidth(data.reviewMeta.characteristics.Width.value)}%` }}> Replace</span>
       </div>
       <p>
         Comfort is a
@@ -35,7 +35,7 @@ export default function RatingsProductMeta(props) {
         /5
       </p>
       <div className="progress-bar">
-        <span className="progress-bar-fill" style={{ width: `${getWidth(data.reviewMeta.characteristics.Comfort.value)}%` }}> </span>
+        <span className="progress-bar-fill product-highlights" style={{ width: `${getWidth(data.reviewMeta.characteristics.Comfort.value)}%` }}> Replace</span>
       </div>
     </div>
   );

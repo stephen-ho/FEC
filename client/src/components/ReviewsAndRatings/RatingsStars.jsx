@@ -13,6 +13,7 @@ function handleStars(num){
   if(num > 5){
     num = 5
   }
+  let overflow = 5 - num;
   while(num > 0){
     if(num >= 1){
       setStars(prevState => [...prevState, 'fullStar'])
@@ -20,26 +21,40 @@ function handleStars(num){
     }
     else if (num < 1){
       setStars(prevState => [...prevState, 'halfStar'])
-      return
+      num--
+    }
+    }
+    while(overflow > 1){
+        setStars(prevState => [...prevState, 'emptyStar'])
+        overflow--
     }
   }
-}
+
 React.useEffect(() => {
   handleStars(props.stars)
 },[]);
-console.log('this review has stars equal to:', stars)
-//logic to turn iterate through stars and render them
+
+const renderStars =
+      stars.map((star) => {
+        if(star === 'fullStar'){
+          return <FontAwesomeIcon className='ratings-star' icon={fullStar} />
+        }
+        else if(star === 'halfStar'){
+          return <span className="fa-layers fa-fw fa-lg ratings-star">
+          <FontAwesomeIcon icon={faStar} />
+          <FontAwesomeIcon icon={faStarHalf} />
+          </span>
+          }
+        else if(star === 'emptyStar'){
+          return <FontAwesomeIcon className='ratings-star' icon={faStar} />
+        }
+        })
+
+
+
 
 return(
 <div className='star-row'>
-  <FontAwesomeIcon className='ratings-star' icon={fullStar} />
-  <FontAwesomeIcon className='ratings-star' icon={fullStar} />
-  <FontAwesomeIcon className='ratings-star' icon={fullStar} />
-<span className="fa-layers fa-fw fa-lg ratings-star">
-  <FontAwesomeIcon icon={faStar} />
-  <FontAwesomeIcon icon={faStarHalf} />
-</span>
-
+{renderStars}
 </div> )
-
 }

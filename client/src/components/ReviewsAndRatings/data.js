@@ -34,7 +34,7 @@ const reviewData = {
       },
       {
           "review_id": 1175864,
-          "rating": 5,
+          "rating": 3.2,
           "summary": "test review test 123",
           "recommend": true,
           "response": null,
