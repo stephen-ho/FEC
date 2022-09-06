@@ -12,7 +12,6 @@ const OutfitListEntry = (props) => {
   const [reviews, setReviews] = useState('');
 
   const newRender = (productID) => {
-    console.log('current product id ==>', props.outfit);
     handleProductChange(productID);
   };
 
@@ -38,9 +37,13 @@ const OutfitListEntry = (props) => {
 
   return (
     <div className="entry">
-      <FaTimes className="button compare-outfit"
+      <FaTimes
+        className="button-compare-outfit"
         onClick={() => props.remove(props.outfit)}/>
-      <img className="image" src={image} alt="could not be displayed" />
+      <div className="image-container">
+        <img className="image"
+        src={image} alt="could not be displayed" />
+      </div>
       <h3 className="name">{name}</h3>
       <h4 className="category">{category}</h4>
       <h4 className="price original">{price}</h4>

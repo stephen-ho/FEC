@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const ThumbnailCarousel = ({
-  index, prev, next, handleThumbnailClick, thumbnails = [],
+  index, handleThumbnailClick, thumbnails = [],
 }) => {
   const [thumbnailIndex, setThumbnailIndex] = useState(0);
 
@@ -56,7 +56,7 @@ const ThumbnailCarousel = ({
               src={thumbnail}
               alt=""
               data-id={idx}
-              onClick={(e) => handleThumbnailClickEvents(e)}
+              onClick={handleThumbnailClickEvents}
               style={{ border: (index - thumbnailIndex) === idx ? '2px solid black' : '1px solid white' }}
               key={idx}
             />

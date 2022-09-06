@@ -4,9 +4,8 @@ import data from './data.js'
 import ReviewSort from './ReviewSort.jsx'
 
 
-export default function ReviewList () {
+export default function ReviewList (props) {
 const [renderedReviews, setRenderedReviews] = React.useState(1)
-
 const handleReviewCards = data.reviewData.results.map((reviewItem, i) => {
   if (i <= renderedReviews){
     return <div>  <ReviewCard key={reviewItem.review_id}review={reviewItem} /> </div>
