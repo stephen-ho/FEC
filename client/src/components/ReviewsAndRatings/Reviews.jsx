@@ -2,6 +2,8 @@ import React from 'react';
 import Ratings from './Ratings.jsx'
 import ReviewCard from './ReviewCard.jsx'
 import ReviewList from './ReviewList.jsx'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faStar} from '@fortawesome/free-regular-svg-icons';
 import './ratingsAndReviews.css';
 const axios = require('axios');
 const {API_KEY} = process.env;

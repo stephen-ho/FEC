@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import Sidebar from '../client/src/components/Sidebar.jsx';
-import StyleIcons from '../client/src/components/StyleIcons.jsx';
+import Sidebar from '../client/src/components/ProductOverview/Sidebar.jsx';
+import StyleIcons from '../client/src/components/ProductOverview/StyleIcons.jsx';
 
 /**
  * @jest-environment jsdom
@@ -277,7 +277,7 @@ test('addToCart renders correctly', () => {
   render(<Sidebar productName="st" productCategory="st" allStyles={[]} updateStyleImage={() => {}} />);
   const addToCartElement = screen.getByText(/add to cart/i);
   expect(addToCartElement).toBeInTheDocument();
-  expect(addToCartElement).toHaveAttribute('hidden');
+  expect(addToCartElement).not.toBeVisible();
 });
 
 test('styleSelector renders correctly', () => {

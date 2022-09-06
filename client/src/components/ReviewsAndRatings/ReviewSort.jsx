@@ -13,9 +13,9 @@ function handleSort (e) {
 }
 
   return (
-    <select id="sort" onChange={handleSort}>
-        <option value="Relevant">Relevant</option>
-        <option value="Newest">Newest</option>
+    <select  id="sort" onChange={handleSort}>
+        <option className='sort-dropdown-content' value="Relevant">Relevant</option>
+        <option  value="Newest">Newest</option>
         <option value="Helpful">Helpful</option>
       </select>
   )
