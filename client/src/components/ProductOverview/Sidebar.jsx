@@ -234,9 +234,6 @@ const Sidebar = ({
           <strong>Add to Cart</strong>
         </button>
       </div>
-      <div>
-        {/* <FontAwesomeIcon icon={faStar} class="fa-border" /> */}
-      </div>
       <br />
       <ShareIcons
         url={window.location.href}
