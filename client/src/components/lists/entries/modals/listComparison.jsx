@@ -1,10 +1,12 @@
 import React, {useState, useContext, useEffect } from 'react';
+import { FaCheck } from 'react-icons/fa';
 import ProductContext from '../../../ProductContext.jsx'
 import FeaturesContext from '../../../FeaturesContext.jsx'
 import { getProduct } from '../../../../getHelpers.js'
 
 const ListComparison = (props) => {
   const { currentProduct } = useContext(ProductContext);
+  const { currentFeatures } = useContext(FeaturesContext);
   const [currentList, setCurrentList] = useState([]);
   const [featureList, setFeatureList] = useState([]);
 
@@ -15,34 +17,23 @@ const ListComparison = (props) => {
   }
 
   const mergeFeatures = () => {
-    // gets features from the main product currently displayed
-    getProduct(currentProduct.id)
-    .then((response) => {
-      setCurrentList(response.data.features.map(item => item.feature))
-      return response.data.features.map(item => item.feature)
-    })
-    .then((list) => {
-      // combines those features with entry features, filters out duplicates and render into elements
-      console.log(props.entryFeatures);
-      const rawListData = list.concat(props.entryFeatures);
-      console.log('HERE IS THE RAW DATA FROM LISTCOMPARISON: ', rawListData)
-      setFeatureList(filterDuplicates(rawListData))
-    })
+    const rawListData = currentFeatures.concat(props.entryFeatures);
+    setFeatureList(filterDuplicates(rawListData))
   }
 
   const handleCurrentChecks = () => {
     return featureList.map(item => {
-      return currentList.indexOf(item) === -1
-        ? <div className="empty">empty space</div>
-        : <div className="check">check</div>
+      return currentFeatures.indexOf(item) === -1
+      ? <div className="empty"></div>
+      : <FaCheck className="check"/>
     })
   }
 
   const handleRelatedChecks = () => {
     return featureList.map(item => {
       return props.entryFeatures.indexOf(item) === -1
-        ? <div className="empty">empty space</div>
-        : <div className="check">check</div>
+        ? <div className="empty"></div>
+        : <FaCheck className="check"/>
     })
   }
 
@@ -58,17 +49,17 @@ const ListComparison = (props) => {
       <div className="comparison-modal">
         <div className="comparison-content">
           <div className="comparison-list">
-            <div className="current-features">current
+            <div className="current-features">Current Product
             {
               handleCurrentChecks()
             }
             </div>
-            <div className="features">features
+            <div className="features">Features
             {
               featureList.map(item => <div className="feature">{item}</div> )
             }
             </div>
-            <div className="related-features">related
+            <div className="related-features">Related Entry Name
             {
               handleRelatedChecks()
             }
