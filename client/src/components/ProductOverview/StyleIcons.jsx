@@ -4,14 +4,23 @@ import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 
 import '../../../dist/productOverview.css';
 
-const StyleIcons = ({ allStyles, setSelectedStyle }) => {
+const StyleIcons = ({
+  allStyles, setSelectedStyle, style, index,
+}) => {
   console.log('STYLE ICONS RENDER');
-  console.log(allStyles);
+
   const [ticked, setTicked] = useState({});
 
+  console.log(style);
+  console.log('INDEX : ' + index);
+  console.log(ticked);
   const setFallbackToDefaultStyle = () => {
     let defaultStyle = allStyles[0];
     let defaultIndex = 0;
+
+    console.log('AAAAAAAAAAAAAAAa');
+    console.log(style);
+    console.log(index);
 
     for (let i = 0; i < allStyles.length; i += 1) {
       if (allStyles[i]['default?']) {
@@ -21,7 +30,8 @@ const StyleIcons = ({ allStyles, setSelectedStyle }) => {
       }
     }
 
-    console.log(document.getElementsByClassName('checkOverlay')[defaultIndex]);
+    console.log("DEFAULT INDEX: " + defaultIndex);
+
     const node = document.getElementsByClassName('checkOverlay')[defaultIndex];
 
     setTicked({ node, index: defaultIndex });
@@ -34,6 +44,10 @@ const StyleIcons = ({ allStyles, setSelectedStyle }) => {
   }, [allStyles]);
 
   const handleOnClick = (event) => {
+    const clicked = event.target.previousSibling;
+
+    if (clicked === ticked.node) return;
+
     for (let i = 0; i < allStyles.length; i += 1) {
       if (allStyles[i].style_id === parseInt(event.target.dataset.id, 10)) {
         setSelectedStyle(allStyles[i]);
@@ -41,7 +55,6 @@ const StyleIcons = ({ allStyles, setSelectedStyle }) => {
       }
     }
 
-    const clicked = event.target.previousSibling;
     if (clicked.getAttribute('hidden') || clicked.getAttribute('hidden') === ''
     ) {
       ticked?.node.setAttribute('hidden', true);

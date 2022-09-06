@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import ImageCarousel from './ImageCarousel.jsx';
 import ThumbnailCarousel from './ThumbnailCarousel.jsx';
 
-const Gallery = ({ product, photos = [] }) => {
+const Gallery = ({
+  product, photos = [], syncFromDefaultView, index
+}) => {
   console.log('GALLERY RENDER');
-
-  const [imageIndex, setImageIndex] = useState(0);
+  console.log('imageIndex passed from pdp: ' + index);
+  const [imageIndex, setImageIndex] = useState(index || 0);
+  console.log(imageIndex);
   const thumbnails = [];
   const images = [];
 
@@ -18,6 +21,10 @@ const Gallery = ({ product, photos = [] }) => {
       setImageIndex(0);
     }
   }, [photos]);
+
+  useEffect(() => {
+    setImageIndex(index);
+  }, [index]);
 
   const prev = () => {
     if (imageIndex > 0) {
@@ -36,8 +43,14 @@ const Gallery = ({ product, photos = [] }) => {
     images.push(photos[i].url);
   }
 
-  const handleThumbnailClick = (index) => {
-    setImageIndex(index);
+  const handleThumbnailClick = (idx) => {
+    setImageIndex(idx);
+  };
+
+  const handleOpenExpandedView = () => {
+    console.log("OPEN EXPAND");
+    console.log(imageIndex);
+    syncFromDefaultView(imageIndex);
   };
 
   return photos.length > 0 ? (
@@ -46,8 +59,6 @@ const Gallery = ({ product, photos = [] }) => {
         <ThumbnailCarousel
           thumbnails={thumbnails}
           index={imageIndex}
-          prev={prev}
-          next={next}
           handleThumbnailClick={handleThumbnailClick}
         />
       </div>
@@ -57,6 +68,7 @@ const Gallery = ({ product, photos = [] }) => {
           index={imageIndex}
           prev={prev}
           next={next}
+          setExpandedView={handleOpenExpandedView}
         />
       </div>
     </div>
