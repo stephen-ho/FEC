@@ -6,6 +6,7 @@ import AddToOutfits from './entries/AddToOutfits.jsx';
 
 const OutfitList = (props) => {
   const [currentOutfits, setCurrentOutfits] = useState([]);
+
   const slideLeft = () => {
     const slider = document.getElementById('slider-outfits');
     slider.scrollLeft = slider.scrollLeft - 275;
@@ -18,14 +19,12 @@ const OutfitList = (props) => {
 
   const handleAddToList = () => {
       setCurrentOutfits(currentOutfits => [...currentOutfits, props.currentProduct.id])
-      console.log(currentOutfits);
   }
 
   const handleDelete = (target) => {
-    console.log('target outfit ==>', target);
-    console.log('list of outfits ==>', currentOutfits);
     setCurrentOutfits(currentOutfits.filter(outfit => outfit !== target));
   }
+
   useEffect(() => {
   }, [currentOutfits]);
 

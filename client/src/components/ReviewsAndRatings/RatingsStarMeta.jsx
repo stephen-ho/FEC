@@ -2,7 +2,7 @@ import React from 'react';
 import data from './data.js'
 import './ratingsAndReviews.css';
 
-export default function RatingsStarMeta () {
+export default function RatingsStarMeta (props) {
   let count = 0
 function getAvgRatings() {
   let sum = 0

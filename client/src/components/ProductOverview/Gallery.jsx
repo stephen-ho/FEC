@@ -13,6 +13,12 @@ const Gallery = ({ product, photos = [] }) => {
     setImageIndex(0);
   }, [product]);
 
+  useEffect(() => {
+    if (imageIndex > photos.length - 1) {
+      setImageIndex(0);
+    }
+  }, [photos]);
+
   const prev = () => {
     if (imageIndex > 0) {
       setImageIndex(imageIndex - 1);
@@ -31,7 +37,7 @@ const Gallery = ({ product, photos = [] }) => {
   }
 
   const handleThumbnailClick = (index) => {
-    setImageIndex(parseInt(index, 10));
+    setImageIndex(index);
   };
 
   return photos.length > 0 ? (
