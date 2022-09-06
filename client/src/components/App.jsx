@@ -96,7 +96,6 @@ function App() {
   }
 
   const currentProduct = useMemo(() => product, [product])
-  console.log('PRODUCT IN APP ====>', product)
 
   return (
     <>
@@ -124,7 +123,7 @@ function App() {
         </div>
       </div>
     <div>
-    <Reviews />
+    <Reviews product={product}/>
     </div>
     </>
   );
