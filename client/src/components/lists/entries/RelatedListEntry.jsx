@@ -16,6 +16,7 @@ const RelatedListEntry = (props) => {
   const [price, setPrice] = useState('');
   const [reviews, setReviews] = useState('');
   const [show, setShow] = useState(false);
+  const [sale, setSale] = useState(null);
   const [isLoading, setLoading] = useState(true);
 
   const newRender = (productID) => {
@@ -35,6 +36,7 @@ const RelatedListEntry = (props) => {
         .then((res) => {
           setImage(res.data.results[0].photos[0].thumbnail_url);
           setPrice(res.data.results[0].original_price);
+          setSale(res.data.results[0].sale_price)
           setLoading(false)
         })
       })
