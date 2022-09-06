@@ -6,6 +6,8 @@ import QuestionModal from '../Modal/QuestionModal.jsx';
 
 function QuestionList({ product }) {
 
+  console.log(product);
+
   const [search, setSearch] = useState('');
   const [show, setShow] = useState(false);
   const [questionsList, setQuestions] = useState([]);
@@ -15,39 +17,46 @@ function QuestionList({ product }) {
 
   const filteredQs = [];
 
-  const options = {
-    headers: {'Authorization': process.env.API_KEY},
-    params: {
-      // 'product_id': product?.id,
-      'product_id': 65656,
-      // 'count': 99,
-    }
-  };
+  // const options = {
+  //   headers: {'Authorization': process.env.API_KEY},
+  //   params: {
+  //     // 'product_id': product?.id,
+  //     'product_id': 65656,
+  //     // 'count': 99,
+  //   }
+  // };
 
   useEffect(() => {
-    let productID = product?.id;
-    console.log(productID);
+    // let productID = product?.id;
+    // console.log(productID);
     // axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions`, options)
-    // async function fetchData() {}
-    // const request = await
-    axios({
-      method: 'get',
-      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions/',
-      headers: { Authorization: process.env.API_KEY },
-      params: {
-        product_id: 65656,
-        // product_id: product?.id,
-        // count: 99,
-      },
-    })
-      .then((response) => {
-        //console.log(response.data.results)
-        setQuestions(response.data.results);
-      })
-      .catch((err) => {
-        console.log(err);
+
+    async function fetchData() {
+      const request = await axios({
+        method: 'get',
+        url: 'https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions/',
+        headers: { Authorization: process.env.API_KEY },
+        params: {
+          product_id: product.id,
+          // product_id: product?.id,
+          count: 50,
+        },
       });
-  }, []);
+      console.log(request.data.results);
+      setQuestions(request.data.results);
+      return;
+      // .then((response) => {
+      //   //console.log(response.data.results)
+      //   setQuestions(response.data.results);
+      // })
+      // .catch((err) => {
+      //   console.log(err);
+      // });
+    }
+    if (product) {
+      fetchData();
+    }
+  }, [product]);
 
   function handleClick() {
     console.log('Clicked');
@@ -69,7 +78,7 @@ function QuestionList({ product }) {
   });
 
   return (
-    <>
+    <div>
       <div className="searchbar">
         <input
           className="searchChild"
@@ -84,13 +93,13 @@ function QuestionList({ product }) {
       <div id="initialQ">
         {questions.slice(0,4)}
       </div>
-      <div id="hideContainer">
-        <div id="hideContent" className={seeMoreQuestions ? 'showQ' : 'hideQ'}>
-          {questions.slice(4)}
+      <div id="hideQContainer">
+        <div id="hideQContent" className={seeMoreQuestions ? 'showQ' : 'hideQ'}>
+          {questions.slice(4,8)}
         </div>
       </div>
       <p className="clickable SeeMore" onClick={handleClick}>See More Questions</p>
-    </>
+    </div>
   );
 };
 
