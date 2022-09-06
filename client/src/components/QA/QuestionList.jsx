@@ -60,7 +60,7 @@ function QuestionList({ product }) {
           value={search}
           onChange={handleSearch}
         />
-        <button onClick={() => setShow(true)}>Ask a Question</button>
+        <button className="clickable button" onClick={() => setShow(true)}>Ask a Question</button>
       </div>
       <QuestionModal onClose={() => setShow(false)} show={show} product={product} />
       <div id="initialQ">

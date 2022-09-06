@@ -6,9 +6,9 @@ const ShareIcons = ({
   url, productCategory, productName, style,
 }) => (
   <div>
-    <h4 style={{ textAlign: 'center' }}>
-      SHARE
-    </h4>
+    <div id="shareText">
+      share
+    </div>
     <div id="shareIconContainer">
       <a href={`https://www.facebook.com/sharer.php?u=${url}`} target="popup" onClick={() => window.open(`https://www.facebook.com/sharer.php?u=${url}`, 'popup', 'height=600,width=400')}>
         <FontAwesomeIcon icon={faFacebook} />
