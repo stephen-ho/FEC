@@ -6,7 +6,7 @@ function QuestionItem({ question, product }) {
   return (
     <div className="QuestionItem">
       <h3>Q: {question.question_body}</h3>
-      <AnswerList questionid={question.question_id} product={product}/>
+      <AnswerList question={question} questionid={question.question_id} product={product}/>
     </div>
   );
 }
