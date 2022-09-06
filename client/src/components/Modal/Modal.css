@@ -1,4 +1,4 @@
-.modal {
+.modal, .picModal {
   position: fixed;
   left: 0;
   top: 0;
@@ -32,7 +32,9 @@
 }
 
 .subtext {
+  color: gray;
   font-size: 10px;
+  margin: 5px;
 }
 
 .button {
@@ -44,5 +46,74 @@
 }
 
 input {
-  width: 45%;
+  width: 50%;
+  height: 25px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin-top: 5px;
+}
+
+textarea {
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin-top: 5px;
+}
+
+.fullPhoto {
+  justify-content: center;
+  border-radius: 30px;
+  max-width: 90%;
+}
+
+#fileInput{
+  display: none;
+}
+
+#icon{
+  width: 50px;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.pic-modal-content {
+  display: flex;
+  justify-content: center;
+  width: 75%;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.pic-modal-body {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.thumbnail {
+  height: 150px;
+  padding-top: 20px;
+}
+
+.photoThumb {
+  height: 150px;
+  padding-top: 20px;
+  padding-right: 20px;
+}
+
+#hideUploadContainer {
+  overflow: hidden;
+}
+
+#hideUpload {
+   margin-top: -100%;
+   transition: 1s ease-in-out;
+}
+
+#hideUpload.showU {
+  padding: 5px 0px;
+  margin-top: 0px;
+}
+
+#hideUpload.hideU {
+  margin-top: -100%;
 }
