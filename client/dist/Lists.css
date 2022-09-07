@@ -2,6 +2,10 @@
   scroll-behavior: auto;
 }
 
+.list-title {
+  margin-left: 7vw;
+}
+
 .list-container {
   display: flex;
   align-items: center;

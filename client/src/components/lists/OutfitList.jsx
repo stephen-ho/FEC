@@ -22,7 +22,7 @@ const OutfitList = (props) => {
   };
 
   const handleAddToList = () => {
-    if (currentOutfits.indexOf(currentProduct.id.toString() && currentProduct.id) === -1) {
+    if (currentOutfits.indexOf(currentProduct.id.toString() || currentProduct.id) === -1) {
       const key = currentProduct.id;
       localStorage.setItem(key, true);
       setCurrentOutfits(currentOutfits => [...currentOutfits, currentProduct.id]);
@@ -57,6 +57,8 @@ const OutfitList = (props) => {
     for (let key in storage) {
       outfitList.push(key)
     }
+
+    console.log(outfitList);
     setCurrentOutfits(outfitList);
   }
 
@@ -67,11 +69,11 @@ const OutfitList = (props) => {
 
   return (
     <>
-      <h1>Your outfits</h1>
+      <h1 className="list-title">Customize your outfits</h1>
       <div className="container outfits" id="slider-outfits">
         {countLeft === 0
           ? null
-          : <FaArrowLeft className="slide-left" onClick={() => {slideLeft(); handleCountLeft()}} />
+          : <FaArrowLeft className="slide-left" onClick={() => {slideLeft(); handleCountLeft();}} />
         }
         <div className="add-container" onClick={() => {handleAddToList(); handleCount();}}>
           <AddToOutfits />
