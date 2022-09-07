@@ -106,8 +106,50 @@ border-radius: 25px;
   border-radius: 3px;
 }
 
-.product-highlights {
+
+.ratings-products > h4 {
+  font-size: medium;
+  font-weight: lighter;
+}
+.ratings-products > p {
+  font-size: small;
+  font-weight: lighter;
+  text-align: inherit;
+}
+.product-highlights-fill {
   text-align: right;
   height: fit-content;
-  background-color:lightslategrey
+  background-color:lightsteelblue
+}
+
+.progress-bar-product {
+  display: inline-block;
+  width: 280px;
+  background-color: lightsteelblue;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, .2);
+  padding-left: none;
+  padding-top: none;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility:hidden;
+  width: inherit;
+  bottom: 100%;
+  text-align: inherit;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  margin-left: -60px;
+  font-size: small;
+
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
