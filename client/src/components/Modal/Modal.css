@@ -63,6 +63,7 @@ textarea {
   justify-content: center;
   border-radius: 30px;
   max-width: 90%;
+  max-height: 90%;
 }
 
 #fileInput{
@@ -87,6 +88,7 @@ textarea {
   display: flex;
   justify-content: center;
   padding: 10px;
+  align-items: center;
 }
 
 .thumbnail {
@@ -131,4 +133,17 @@ input:invalid ~ span {
 
 textarea:invalid ~ span {
   display: block;
+}
+
+#closeX {
+  font-size: 25px;
+  color: white;
+  display: grid;
+  position: relative;
+  left: -5%;
+  top: -40%;
+  /* background-color: rgba(125, 125, 125, 0.6); */
+  padding: 0px 5px;
+  border-radius: 5px;
+  border: solid 1px white;
 }
