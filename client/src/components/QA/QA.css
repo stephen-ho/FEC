@@ -94,7 +94,7 @@ body {
 .answerInfo {
   display: flex;
   justify-content: space-between;
-  width: 75%;
+  width: 90%;
   gap: 50px;
   font-size: 12px;
 }
@@ -134,4 +134,14 @@ body {
 
 .ansPhotos {
   display: flex;
+}
+
+#QAList {
+  height: 100vh;
+  overflow: scroll;
+}
+
+#QAContainer {
+  display: grid;
+  grid-template-columns: 10% auto 10%;
 }
