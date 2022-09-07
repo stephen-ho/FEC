@@ -36,7 +36,10 @@ function ProductDetailPage({ product, allStyles, allPhotos }) {
   const syncFromExpandedView = (options) => {
     console.log(viewState);
     setViewState((prev) => ({
-      ...prev, imageIndex: options.imageIndex, active: options.active, styleIndex: options.styleIndex,
+      ...prev,
+      imageIndex: options.imageIndex,
+      active: options.active,
+      styleIndex: options.styleIndex,
     }));
   };
 
@@ -71,6 +74,7 @@ function ProductDetailPage({ product, allStyles, allPhotos }) {
           </div>
           <div id="productFeatures">
             <ProductFeatures
+              product={product}
               slogan={product?.slogan}
               description={product?.description}
               features={product?.features}
