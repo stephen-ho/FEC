@@ -7,10 +7,12 @@ import RelatedListEntry from './entries/RelatedListEntry.jsx';
 import '/client/dist/Lists.css';
 
 const RelatedList = (props) => {
+  const { related } = props;
   const { currentProduct } = useContext(ProductContext);
   const [currentFeatures, setFeatures] = useState([]);
   const [isLoading, setLoading] = useState(true);
-console.log('this is the current product ==>', currentProduct?.id);
+  const [countLeft, setCountLeft] = useState(0);
+  const [countRight, setCountRight] = useState(4);
 
   useEffect(() => {
     getProduct(currentProduct?.id)
@@ -39,6 +41,16 @@ console.log('this is the current product ==>', currentProduct?.id);
     slider.scrollLeft += (window.innerWidth/4.625);
   };
 
+  const handleCountLeft = () => {
+    setCountLeft(countLeft - 1);
+    setCountRight(countRight - 1);
+  }
+
+  const handleCountRight = () => {
+    setCountRight(countRight + 1);
+    setCountLeft(countLeft + 1);
+  }
+
   if(isLoading) {
     return <div>loading</div>
   } else {
@@ -47,12 +59,19 @@ console.log('this is the current product ==>', currentProduct?.id);
         <h1 className="list-title">Related outfits</h1>
         <div className="container related" id="slider">
           <FeaturesContext.Provider value={{currentFeatures}}>
-            <FaArrowLeft className="slide-left" onClick={slideLeft} />
+            {countLeft === 0
+              ? null
+              : <FaArrowLeft className="slide-left" onClick={() => {slideLeft(); handleCountLeft()}} />
+            }
               {
-              props.related.map((item, index) => <RelatedListEntry
+              related.map((item, index) => <RelatedListEntry
               item={item} key={index}/>)
               }
-            <FaArrowRight className="slide-right" onClick={slideRight} />
+
+            {countRight === related.length
+              ? null
+              : <FaArrowRight className="slide-right" onClick={() => {slideRight(); handleCountRight()}} />
+            }
           </FeaturesContext.Provider>
         </div>
       </>

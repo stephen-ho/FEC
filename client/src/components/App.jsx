@@ -116,11 +116,15 @@ function App() {
         />
       </ProductContext.Provider>
     </div>
-      <div className="QA">
-        <h1 className="QAhead">Questions & Answers</h1>
-        <div className="QuestionList">
-          <QuestionList product={product} />
-        </div>
+      <div id="QAContainer">
+        <div></div>
+          <div className="QA">
+            <h1 className="QAhead">Questions & Answers</h1>
+            <div className="QuestionList">
+              <QuestionList product={product} />
+            </div>
+          </div>
+        <div></div>
       </div>
     <div>
     <Reviews product={product}/>
