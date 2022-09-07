@@ -5,8 +5,8 @@ import AddToOutfits from './entries/AddToOutfits.jsx';
 
 
 const OutfitList = (props) => {
+  const { currentProduct } = props;
   const [currentOutfits, setCurrentOutfits] = useState([]);
-  // const [IDlist, setIDlist] = useState([])
   const [count, setCount] = useState(1)
   const [countLeft, setCountLeft] = useState(0);
   const [countRight, setCountRight] = useState(3);
@@ -22,15 +22,19 @@ const OutfitList = (props) => {
   };
 
   const handleAddToList = () => {
-    if (currentOutfits.indexOf(props.currentProduct.id) === -1) {
-      setCurrentOutfits(currentOutfits => [...currentOutfits, props.currentProduct.id]);
+    if (currentOutfits.indexOf(currentProduct.id.toString() && currentProduct.id) === -1) {
+      const key = currentProduct.id;
+      localStorage.setItem(key, true);
+      setCurrentOutfits(currentOutfits => [...currentOutfits, currentProduct.id]);
     } else {
       alert('This product is already on your list');
     }
   }
 
   const handleDelete = (target) => {
-    setCurrentOutfits(currentOutfits.filter(outfit => outfit !== target));
+    const outfitList = currentOutfits.filter(outfit => outfit !== target)
+    setCurrentOutfits(outfitList);
+    localStorage.removeItem(target);
   }
 
   const handleCount = () => {
@@ -47,9 +51,19 @@ const OutfitList = (props) => {
     setCountLeft(countLeft + 1);
   }
 
-  useEffect(() => {
+  const getStorage = () => {
+    const storage = {...localStorage};
+    const outfitList = [];
+    for (let key in storage) {
+      outfitList.push(key)
+    }
+    setCurrentOutfits(outfitList);
+  }
 
-  }, [currentOutfits]);
+
+  useEffect(() => {
+    getStorage();
+  }, []);
 
   return (
     <>
@@ -64,7 +78,12 @@ const OutfitList = (props) => {
         </div>
         {currentOutfits.length
           ? currentOutfits.map((outfit, index) =>
-            <OutfitListEntry outfit={outfit} remove={handleDelete} key={index} updateCount={handleCount}/>
+            <OutfitListEntry
+              outfit={outfit}
+              remove={handleDelete}
+              key={index}
+              updateCount={handleCount}
+              count={count}/>
             )
           : null
         }
