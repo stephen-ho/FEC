@@ -63,11 +63,10 @@ const RelatedList = (props) => {
               ? null
               : <FaArrowLeft className="slide-left" onClick={() => {slideLeft(); handleCountLeft()}} />
             }
-              {
-              related.map((item, index) => <RelatedListEntry
-              item={item} key={index}/>)
-              }
-
+            {
+            related.map((item, index) => <RelatedListEntry
+            item={item} key={index}/>)
+            }
             {countRight === related.length
               ? null
               : <FaArrowRight className="slide-right" onClick={() => {slideRight(); handleCountRight()}} />

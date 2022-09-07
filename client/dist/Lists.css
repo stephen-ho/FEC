@@ -230,6 +230,15 @@
   font-size: small;
 }
 
+.original-onsale {
+  text-decoration: line-through;
+  color: grey;
+}
+
+.sale {
+  color: red;
+}
+
 .reviews {
   margin-top: 0.5%;
   margin-left: 2.5vw;

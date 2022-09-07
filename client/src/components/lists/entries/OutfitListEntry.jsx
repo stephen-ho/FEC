@@ -39,7 +39,7 @@ const OutfitListEntry = (props) => {
     <div className="entry">
       <FaTimes
         className="button-compare-outfit"
-        onClick={() => props.remove(props.outfit)}/>
+        onClick={() => {props.remove(props.outfit); props.updateCount(count - 1)}}/>
       <div className="image-container">
         <img className="image"
         src={image} alt="could not be displayed" />

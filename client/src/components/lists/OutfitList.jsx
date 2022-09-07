@@ -6,6 +6,10 @@ import AddToOutfits from './entries/AddToOutfits.jsx';
 
 const OutfitList = (props) => {
   const [currentOutfits, setCurrentOutfits] = useState([]);
+  // const [IDlist, setIDlist] = useState([])
+  const [count, setCount] = useState(1)
+  const [countLeft, setCountLeft] = useState(0);
+  const [countRight, setCountRight] = useState(3);
 
   const slideLeft = () => {
     const slider = document.getElementById('slider-outfits');
@@ -18,32 +22,56 @@ const OutfitList = (props) => {
   };
 
   const handleAddToList = () => {
-      setCurrentOutfits(currentOutfits => [...currentOutfits, props.currentProduct.id])
+    if (currentOutfits.indexOf(props.currentProduct.id) === -1) {
+      setCurrentOutfits(currentOutfits => [...currentOutfits, props.currentProduct.id]);
+    } else {
+      alert('This product is already on your list');
+    }
   }
 
   const handleDelete = (target) => {
     setCurrentOutfits(currentOutfits.filter(outfit => outfit !== target));
   }
 
+  const handleCount = () => {
+    setCount(count + 1);
+  }
+
+  const handleCountLeft = () => {
+    setCountLeft(countLeft - 1);
+    setCountRight(countRight - 1);
+  }
+
+  const handleCountRight = () => {
+    setCountRight(countRight + 1);
+    setCountLeft(countLeft + 1);
+  }
+
   useEffect(() => {
+
   }, [currentOutfits]);
 
   return (
     <>
       <h1>Your outfits</h1>
       <div className="container outfits" id="slider-outfits">
-        <FaArrowLeft className="slide-left"
-          onClick={slideLeft} />
-        <div className="add-container" onClick={() => {handleAddToList()}}>
+        {countLeft === 0
+          ? null
+          : <FaArrowLeft className="slide-left" onClick={() => {slideLeft(); handleCountLeft()}} />
+        }
+        <div className="add-container" onClick={() => {handleAddToList(); handleCount();}}>
           <AddToOutfits />
         </div>
         {currentOutfits.length
-        ? currentOutfits.map((outfit, index) =>
-            <OutfitListEntry outfit={outfit} remove={handleDelete} key={index}/>
-          )
-        : null
+          ? currentOutfits.map((outfit, index) =>
+            <OutfitListEntry outfit={outfit} remove={handleDelete} key={index} updateCount={handleCount}/>
+            )
+          : null
         }
-        <FaArrowRight className="slide-right" onClick={slideRight} />
+        {currentOutfits.length < 3 || countRight === currentOutfits.length
+          ? null
+          : <FaArrowRight className="slide-right" onClick={() => {slideRight(); handleCountRight()}} />
+        }
       </div>
     </>
   );
