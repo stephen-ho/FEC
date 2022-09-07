@@ -51,12 +51,12 @@ class QuestionModal extends React.Component {
     // }
     axios({
       method: 'post',
-      url: `${process.env.API_URL}/qa/questions`,
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions`,
       data: {
-        body: this.state.question,
-        name: this.state.username,
-        email: this.state.email,
-        product_id: this.props.product?.id
+        "body": this.state.question,
+        "name": this.state.username,
+        "email": this.state.email,
+        "product_id": this.props.product?.id
       },
       headers: { Authorization: process.env.API_KEY },
     })
@@ -90,11 +90,12 @@ class QuestionModal extends React.Component {
                   type="text"
                   minLength="3"
                   maxLength="60"
-                  required=""
                   placeholder="Example: jackson11!"
                   value={this.state.username}
                   onChange={this.handleUsername}
+                  required="true"
                 />
+                <span>Username Required</span>
               </label>
               <p className="subtext">For privacy reasons, do not use your full name or email address</p>
               <br/>
@@ -105,11 +106,12 @@ class QuestionModal extends React.Component {
                   name="email"
                   type="email"
                   maxLength="60"
-                  required=""
+                  required="true"
                   placeholder="Example: jackson11@email.com"
                   value={this.state.email}
                   onChange={this.handleEmail}
                 />
+                <span>Valid Email Required</span>
                 <p className="subtext">For authentication reasons, you will not be emailed</p>
               </label>
               <br/>
@@ -121,10 +123,11 @@ class QuestionModal extends React.Component {
                   cols="30"
                   name="question"
                   type="text"
-                  required=""
+                  required="true"
                   value={this.state.question}
                   onChange={this.handleQuestion}
                 />
+                <span>Question Required</span>
               </label>
             </form>
           </div>

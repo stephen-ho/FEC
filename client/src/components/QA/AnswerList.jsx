@@ -6,7 +6,7 @@ import './QA.css';
 
 function AnswerList({ question, questionid, product }) {
 
-  console.log("question id: ", questionid);
+  // console.log("question id: ", questionid);
 
   const [show, setShow] = useState(false);
   const [answersList, setAnswers] = useState([]);
@@ -69,7 +69,13 @@ function AnswerList({ question, questionid, product }) {
           {answers.slice(2)}
         </div>
       </div>
-      <AnswerModal onClose={() => setShow(false)} show={show} question={question} questionid={questionid} product={product}/>
+      <AnswerModal
+        onClose={() => setShow(false)}
+        show={show}
+        question={question}
+        questionid={questionid}
+        product={product}
+      />
       <p className="clickable SeeMore" onClick={handleClick}>
         {showMoreAnswers ? "Collapse Answers" : "See More Answers"}
       </p>
