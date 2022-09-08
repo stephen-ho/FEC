@@ -5,6 +5,7 @@ const {API_KEY} = process.env;
 
 module.exports = {
   getProduct: (productID) => {
+    console.log(productID);
     return axios({
       method: 'get',
       url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products/${productID}`,
