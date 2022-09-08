@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const ProductFeatures = ({ slogan, description, features = [] }) => {
+  useEffect(() => {
+    if (slogan) {
+      const descAccordian = document.getElementById('descriptionAccordian');
+      const descIcon = descAccordian.firstElementChild;
+      const descPanel = descAccordian.nextElementSibling;
+      descIcon.classList.remove('active');
+      descPanel.style.maxHeight = null;
+      const featureAccordian = document.getElementById('featureAccordian');
+      const featureIcon = featureAccordian.firstElementChild;
+      const featurePanel = featureAccordian.nextElementSibling;
+      featureIcon.classList.remove('active');
+      featurePanel.style.maxHeight = null;
+    }
+  }, [slogan]);
+
   const handleAccordianClick = (e) => {
     const icon = e.currentTarget.firstElementChild;
     const panel = e.currentTarget.nextElementSibling;
-    const sidebar = document.getElementById('sidebarContainer');
 
     icon.classList.toggle('active');
 

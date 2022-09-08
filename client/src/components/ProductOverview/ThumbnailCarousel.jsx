@@ -51,15 +51,17 @@ const ThumbnailCarousel = ({
         </div>
         <div id="thumbnailContainer">
           {shownThumbs.map((thumbnail, idx) => (
-            <img
-              className="thumbnailImage"
-              src={thumbnail}
-              alt=""
-              data-id={idx}
-              onClick={handleThumbnailClickEvents}
-              style={{ border: (index - thumbnailIndex) === idx ? '2px solid black' : '1px solid white' }}
-              key={idx}
-            />
+            <div id="thumbnailImageWrapper">
+              <img
+                className="thumbnailImage"
+                src={thumbnail}
+                alt=""
+                data-id={idx}
+                onClick={handleThumbnailClickEvents}
+                style={{ border: (index - thumbnailIndex) === idx ? '2px solid black' : 'none' }}
+                key={idx}
+              />
+            </div>
           ))}
         </div>
         <div id="thumbnailNext" onClick={handleNextClick} hidden={nextHidden}>
