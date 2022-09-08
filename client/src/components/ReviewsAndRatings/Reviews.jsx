@@ -8,9 +8,7 @@ import './ratingsAndReviews.css';
 const axios = require('axios');
 const {API_KEY} = process.env;
 
-
-
-export default function Reviews ({product, interactions }) {
+export default function Reviews ({ product, interactions }) {
 const [reviews, setReviews] = React.useState([])
 const [meta, setMeta] = React.useState('')
 
