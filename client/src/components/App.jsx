@@ -121,7 +121,7 @@ function App() {
           <div className="QA">
             <h1 className="QAhead">Questions & Answers</h1>
             <div className="QuestionList">
-              <QuestionList product={product} />
+              <QuestionList product={product} key={product?.id} />
             </div>
           </div>
         <div></div>
