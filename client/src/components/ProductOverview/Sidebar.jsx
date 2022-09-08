@@ -68,6 +68,7 @@ const Sidebar = ({
   useEffect(() => {
     setSizeOptions(getSizesOptions(selectedStyle?.style_id));
     setSelectedSizeOption(null);
+    setSelectedQuantityOption(null);
   }, [selectedStyle]);
 
   const customTheme = (theme) => ({

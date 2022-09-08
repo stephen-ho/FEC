@@ -10,7 +10,7 @@ const {API_KEY} = process.env;
 
 
 
-export default function Reviews ({product}) {
+export default function Reviews (props, { interactions }) {
 const [reviews, setReviews] = React.useState([])
 const [productId, setProductId] = React.useState('')
 const [meta, setMeta] = React.useState('')
@@ -81,12 +81,12 @@ console.log('meta is', meta)}, [product])
   return (
     // <div>
     //   <h1>Ratings and Reviews</h1>
-    <div className="reviews-container">
-      <Ratings reviewMeta={meta}/>
-      <ReviewList reviewData={reviews}/>
+    <div onClick={(e) => interactions(e, 'RatingsAndReviews')}>
+      <div className="reviews-container">
+        <Ratings />
+        <ReviewList reviewData={reviews} />
+      </div>
     </div>
-
   )
-
 }
 
