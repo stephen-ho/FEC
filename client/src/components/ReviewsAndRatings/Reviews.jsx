@@ -8,9 +8,7 @@ import './ratingsAndReviews.css';
 const axios = require('axios');
 const {API_KEY} = process.env;
 
-
-
-export default function Reviews (props, { interactions }) {
+export default function Reviews ({ product, interactions }) {
 const [reviews, setReviews] = React.useState([])
 const [productId, setProductId] = React.useState(65656)
 
@@ -25,8 +23,8 @@ function getReviews (productID) {
 };
 
 React.useEffect(() => {
-  if(props.product?.id){
-  setProductId(props.product?.id)
+  if(product?.id){
+  setProductId(product?.id)
   }
  getReviews(productId)
  .then(res => {
