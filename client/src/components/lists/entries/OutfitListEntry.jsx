@@ -5,6 +5,7 @@ import { FaTimes, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 // import '/client/dist/Lists.css';
 
 const OutfitListEntry = (props) => {
+  const {outfit, remove, updateCount, count} = props;
   const [image, setImage] = useState('');
   const [name, setName] = useState('');
   const [category, setCategory] = useState('');
@@ -16,7 +17,7 @@ const OutfitListEntry = (props) => {
   };
 
   useEffect(() => {
-    getProduct(props.outfit)
+    getProduct(outfit)
       .then((res) => {
         setCategory(res.data.category);
         setName(res.data.name);
@@ -25,7 +26,7 @@ const OutfitListEntry = (props) => {
         console.error(e);
       });
 
-    getStyles(props.outfit)
+    getStyles(outfit)
       .then((res) => {
         setImage(res.data.results[0].photos[0].thumbnail_url);
         setPrice(res.data.results[0].original_price);
@@ -33,13 +34,13 @@ const OutfitListEntry = (props) => {
       .catch((e) => {
         console.error(e);
       });
-  }, [props.outfit]);
+  }, [outfit]);
 
   return (
     <div className="entry">
       <FaTimes
         className="button-compare-outfit"
-        onClick={() => props.remove(props.outfit)}/>
+        onClick={() => {remove(outfit); updateCount(count - 1)}}/>
       <div className="image-container">
         <img className="image"
         src={image} alt="could not be displayed" />

@@ -64,7 +64,16 @@ const RelatedListEntry = (props) => {
           </div>
           <h2 className="name">{name}</h2>
           <h4 className="category">{category}</h4>
-          <h4 className="price original">{price}</h4>
+          <div className="price-container">
+            {
+              sale
+                ? <>
+                    <h4 className="price original-onsale">{price}</h4>
+                    <h4 className="price sale">{sale}</h4>
+                  </>
+                : <h4 className="price original">{price}</h4>
+            }
+          </div>
           <div className="reviews">No reviews</div>
         </div>
       </>
