@@ -7,7 +7,6 @@ const {API_KEY} = process.env;
 
 
 export default function ReviewSort (props) {
-//api call
 
 function sortReviews (productID, order) {
   return axios({

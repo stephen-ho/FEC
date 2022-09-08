@@ -6,14 +6,19 @@ import RatingsStarMeta from './RatingsStarMeta.jsx';
 
 export default function Ratings (props) {
 
-console.log("the props for ratings are:,", props)
 
+const [metaData, setMetaData] = React.useState(props.reviewMeta)
+
+console.log("the props for ratings are:,", metaData)
+React.useEffect(() =>{
+setMetaData(props.reviewMeta)
+},[])
 
   return (
     <div className="ratings-container">
      <h2>Ratings & Reviews</h2>
-     <RatingsStarMeta reviewMeta={props.reviewMeta}/>
-     <RatingsProductMeta />
+     <RatingsStarMeta reviewMeta={metaData}/>
+     <RatingsProductMeta reviewMeta={metaData}/>
     </div>
   )
 

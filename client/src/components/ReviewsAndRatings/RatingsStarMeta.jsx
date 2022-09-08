@@ -9,6 +9,7 @@ import {faStar} from '@fortawesome/free-regular-svg-icons';
 export default function RatingsStarMeta(props) {
   let count = 0;
 
+
   function getAvgRatings(obj) {
     let sum = 0;
   console.log('the props for ratings star meta are:', props)
@@ -28,15 +29,15 @@ export default function RatingsStarMeta(props) {
   //   if(props){
   //     avgRatings = getAvgRatings(props.reviewMeta)
   //   }
-  // }, [props])
+  // }, [])
 
 
 
   return (
     <div className="ratings-breakdown">
-      <span style={{color:'grey', fontSize:'40px'}}>
-        {avgRatings} <RatingsStars stars={avgRatings}/>
-      </span>
+      <div className='ratings-star-meta' >
+       {avgRatings} <RatingsStars stars={avgRatings}/>
+      </div>
       <p>
         5 stars
 

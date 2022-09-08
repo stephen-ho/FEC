@@ -10,31 +10,9 @@ const {API_KEY} = process.env;
 
 
 
-export default function Reviews (props, { interactions }) {
+export default function Reviews ({product, interactions }) {
 const [reviews, setReviews] = React.useState([])
-const [productId, setProductId] = React.useState('')
 const [meta, setMeta] = React.useState('')
-
-// async function getReviews (productID) {
-//   return axios({
-//    method: 'get',
-//    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews?product_id=${productID}`,
-//    headers: {
-//      'Authorization': `${API_KEY}`,
-//    },
-//  });
-// };
-
-// React.useEffect(() => {
-//   if(product.id){
-//   setProductId(product.id)
-//   }
-//  getReviews(productId)
-//  .then(res => {
-//   setReviews(res.data)
-//  })
-//  .catch(err => console.log(err))
-// }, [productId])
 
 React.useEffect(() => {
   async function fetchData() {
@@ -83,10 +61,30 @@ console.log('meta is', meta)}, [product])
     //   <h1>Ratings and Reviews</h1>
     <div onClick={(e) => interactions(e, 'RatingsAndReviews')}>
       <div className="reviews-container">
-        <Ratings />
+        <Ratings reviewMeta={meta}/>
         <ReviewList reviewData={reviews} />
       </div>
     </div>
   )
 }
 
+// async function getReviews (productID) {
+//   return axios({
+//    method: 'get',
+//    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews?product_id=${productID}`,
+//    headers: {
+//      'Authorization': `${API_KEY}`,
+//    },
+//  });
+// };
+
+// React.useEffect(() => {
+//   if(product.id){
+//   setProductId(product.id)
+//   }
+//  getReviews(productId)
+//  .then(res => {
+//   setReviews(res.data)
+//  })
+//  .catch(err => console.log(err))
+// }, [productId])

@@ -45,7 +45,7 @@ export default function RatingsProductMeta(props) {
         Comfort
       </h4>
       <div className="progress-bar-product">
-        <span className="progress-bar-fill product-highlights-fill tooltip" style={{ width: `${getWidth(data.reviewMeta.characteristics.Comfort.value)}%` }}> <FontAwesomeIcon icon={faAngleDoubleDown}/>
+        <span className="progress-bar-fill product-highlights-fill tooltip" style={{ width: `${getWidth(data.reviewMeta.characteristics.Comfort.value)}%` }}> <FontAwesomeIcon icon={faAngleDoubleDown} />
         <p className='tooltiptext'>{getProductRatings(data.reviewMeta.characteristics.Comfort.value)}</p>
         </span>
       </div>
