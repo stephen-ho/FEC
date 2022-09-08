@@ -11,16 +11,9 @@ const StyleIcons = ({
 
   const [ticked, setTicked] = useState({});
 
-  console.log(style);
-  console.log('INDEX : ' + index);
-  console.log(ticked);
   const setFallbackToDefaultStyle = () => {
     let defaultStyle = allStyles[0];
     let defaultIndex = 0;
-
-    console.log('AAAAAAAAAAAAAAAa');
-    console.log(style);
-    console.log(index);
 
     for (let i = 0; i < allStyles.length; i += 1) {
       if (allStyles[i]['default?']) {
@@ -29,8 +22,6 @@ const StyleIcons = ({
         break;
       }
     }
-
-    console.log("DEFAULT INDEX: " + defaultIndex);
 
     const node = document.getElementsByClassName('checkOverlay')[defaultIndex];
 
