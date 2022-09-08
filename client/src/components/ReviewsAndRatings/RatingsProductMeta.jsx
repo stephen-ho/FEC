@@ -33,6 +33,10 @@ export default function RatingsProductMeta(props) {
         <p className='tooltiptext'>{getProductRatings(data.reviewMeta.characteristics.Size.value)}</p>
         </span>
       </div>
+      < div className='bar-labels'>
+      < div className='bar-label-left'>Poor</div>
+      < div className='bar-label-right'>Perfect</div>
+      </div>
       <h4>
         Width
       </h4>
@@ -40,6 +44,10 @@ export default function RatingsProductMeta(props) {
         <span className="progress-bar-fill product-highlights-fill tooltip" style={{ width: `${getWidth(data.reviewMeta.characteristics.Width.value)}%` }}> <FontAwesomeIcon icon={faAngleDoubleDown}/>
         <p className='tooltiptext'>{getProductRatings(data.reviewMeta.characteristics.Width.value)}</p>
         </span>
+      </div>
+      < div className='bar-labels'>
+      < div className='bar-label-left'>Poor</div>
+      < div className='bar-label-right'>Perfect</div>
       </div>
       <h4>
         Comfort
@@ -49,7 +57,10 @@ export default function RatingsProductMeta(props) {
         <p className='tooltiptext'>{getProductRatings(data.reviewMeta.characteristics.Comfort.value)}</p>
         </span>
       </div>
-
+      < div className='bar-labels'>
+      < div className='bar-label-left'>Poor</div>
+      < div className='bar-label-right'>Perfect</div>
+      </div>
     </div>
   );
 }
