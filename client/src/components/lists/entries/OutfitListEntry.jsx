@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getProduct, getStyles, getRelated } from '../../../getHelpers.js';
 import ProductContext from '../../ProductContext.jsx';
 import { FaTimes, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import RatingsStars from '../../ReviewsAndRatings/RatingsStars.jsx';
 // import '/client/dist/Lists.css';
 
 const OutfitListEntry = (props) => {
@@ -48,7 +49,9 @@ const OutfitListEntry = (props) => {
       <h3 className="name">{name}</h3>
       <h4 className="category">{category}</h4>
       <h4 className="price original">{price}</h4>
-      <div className="reviews">No reviews</div>
+      <div className="reviews">
+        <RatingsStars stars={5} />
+      </div>
     </div>
   );
 };
