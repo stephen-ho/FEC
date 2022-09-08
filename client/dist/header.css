@@ -1,0 +1,63 @@
+#headerWrapper {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 10% auto 10%;
+  background-color: white;
+  z-index: 100000000;
+}
+
+header {
+  font-size: 40pt;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+#headerContainer {
+  border-bottom: 1px solid gray;
+  padding: 25px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#shoppingCartIcon {
+  font-size: 15pt;
+  text-align: center;
+}
+
+#shoppingCartIcon:hover{
+  cursor: pointer;
+  color: gray;
+}
+
+#pBag {
+  margin:0px;
+}
+
+#pBag:hover {
+  text-decoration: none;
+  color: grey;
+  cursor: pointer;
+}
+
+#headerSearchBar {
+}
+
+#headerIcons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.input-wrapper {
+  display:inline-block;
+  position: relative
+}
+
+#magGlassIcon {
+  padding-right: 10px;
+  font-size: 15px;
+}

@@ -3,6 +3,8 @@ import axios from 'axios';
 // eslint-disable-next-line import/extensions
 import QuestionItem from './QuestionItem.jsx';
 import QuestionModal from '../Modal/QuestionModal.jsx';
+import './QA.css';
+
 
 function QuestionList({ product, interactions }) {
   console.log(product);
