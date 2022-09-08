@@ -1,8 +1,9 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import Sidebar from '../client/src/components/ProductOverview/Sidebar.jsx';
 import StyleIcons from '../client/src/components/ProductOverview/StyleIcons.jsx';
+import ShareIcons from '../client/src/components/ProductOverview/ShareIcons.jsx';
 
 /**
  * @jest-environment jsdom
@@ -293,4 +294,34 @@ test('default style is chosen', () => {
   const styleIcons = container.getElementsByClassName('checkOverlay');
   expect(styleIcons[0]).not.toHaveAttribute('hidden');
   expect(styleIcons[1]).toHaveAttribute('hidden');
+});
+
+test('share icons rendered', () => {
+  const { container } = render(<ShareIcons
+    url="test"
+    productName="test"
+    productCategory="test"
+    style={{}}
+  />);
+
+  const icons = container.getElementsByClassName('shareIcon');
+  expect(icons.length).toBe(3);
+});
+
+test('share icons open popups', () => {
+  window.open = jest.fn();
+  const { container } = render(<ShareIcons
+    url="test"
+    productName="test"
+    productCategory="test"
+    style={{}}
+  />);
+
+  const button = container.getElementsByClassName('fa-facebook')[0];
+  fireEvent.click(button);
+
+  expect(window.open).toHaveBeenCalled();
+  expect(window.open).toHaveBeenCalledWith('https://www.facebook.com/sharer.php?u=test', 'popup', 'height=600,width=400');
+
+  jest.resetAllMocks();
 });

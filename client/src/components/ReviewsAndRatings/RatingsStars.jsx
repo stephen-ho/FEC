@@ -24,7 +24,7 @@ function handleStars(num){
       num--
     }
     }
-    while(overflow > 1){
+    while(overflow >= 1){
         setStars(prevState => [...prevState, 'emptyStar'])
         overflow--
     }
@@ -40,12 +40,12 @@ const renderStars =
           return <FontAwesomeIcon className='ratings-star' icon={fullStar} />
         }
         else if(star === 'halfStar'){
-          return <span className="fa-layers fa-fw fa-lg ratings-star">
-          <FontAwesomeIcon icon={faStar} />
-          <FontAwesomeIcon icon={faStarHalf} />
-          </span>
+          return <div className="fa-layers fa-fw fa-lg ratings-star">
+          <FontAwesomeIcon className='ratings-star' icon={faStar} />
+          <FontAwesomeIcon className='ratings-star' icon={faStarHalf} />
+          </div>
           }
-        else if(star === 'emptyStar'){
+        else {
           return <FontAwesomeIcon className='ratings-star' icon={faStar} />
         }
         })

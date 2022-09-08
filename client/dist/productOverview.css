@@ -32,6 +32,10 @@
 
 #addToCartButton:hover {background-color: rgb(110, 108, 108)}
 
+html {
+  scroll-behavior: smooth;
+}
+
 #addToCartButton:active {
   background-color: black;
   box-shadow: 0 1px #666;
@@ -59,6 +63,12 @@
   width:60px;
   height:60px;
   object-fit: cover;
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+}
+
+.styleIcon img:hover{
+  transform: scale(1.1);
 }
 
 .iconContainer {
@@ -74,9 +84,11 @@
   right: 0px;
   width: 10px;
   height: 10px;
+  z-index: 1;
 }
 
 #sidebar {
+  padding-top: 20px;
   background-color: white;
   position: sticky;
   position: -webkit-sticky;
@@ -121,6 +133,7 @@
 #productContainer {
   display: grid;
   grid-template-columns: 15% 52% 18% 15%;
+  margin-top: 115px
 }
 
 #productFeatures {
@@ -226,6 +239,10 @@
   cursor: pointer;
 }
 
+#expandedViewContainer {
+  margin-top: 115px;
+}
+
 #zoomImage {
   transition: opacity .8s;
   display: block;
@@ -271,7 +288,7 @@
 
 .fa-twitter {
   color: rgb(80, 162, 230);
-  transition: all .5s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 
 .fa-twitter:hover {
@@ -346,12 +363,16 @@
   max-width: 60px;
   flex: 1 0 100%;
   margin: 5px;
-  object-fit: fill;
+  object-fit: cover;
   border-radius: 5px;
 }
 
-.thumbnailImage:hover {
-  border: black solid 1px;
+#thumbnailImageWrapper {
+  transition: .3s ease-in-out;
+}
+
+#thumbnailImageWrapper:hover {
+  transform: scale(1.1);
 }
 
 #thumbnailPrev {

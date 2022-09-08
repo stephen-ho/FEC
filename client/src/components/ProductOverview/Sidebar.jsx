@@ -68,6 +68,7 @@ const Sidebar = ({
   useEffect(() => {
     setSizeOptions(getSizesOptions(selectedStyle?.style_id));
     setSelectedSizeOption(null);
+    setSelectedQuantityOption(null);
   }, [selectedStyle]);
 
   const customTheme = (theme) => ({
@@ -133,7 +134,7 @@ const Sidebar = ({
       </h2>
       <div>
         ★★★★★
-        <a href="#reviews">(# of reviews)</a>
+        <a href="#reviews">(42069)</a>
       </div>
       <br />
       <div id="sidebarStyleName">

@@ -4,7 +4,7 @@ import Gallery from './Gallery.jsx';
 import ProductFeatures from './ProductFeatures.jsx';
 import ExpandedView from './ExpandedView.jsx';
 
-function ProductDetailPage({ product, allStyles, allPhotos }) {
+function ProductDetailPage({ product, allStyles, allPhotos, interactions }) {
   console.log('PDP RENDER');
 
   const [viewState, setViewState] = useState({});
@@ -36,7 +36,10 @@ function ProductDetailPage({ product, allStyles, allPhotos }) {
   const syncFromExpandedView = (options) => {
     console.log(viewState);
     setViewState((prev) => ({
-      ...prev, imageIndex: options.imageIndex, active: options.active, styleIndex: options.styleIndex,
+      ...prev,
+      imageIndex: options.imageIndex,
+      active: options.active,
+      styleIndex: options.styleIndex,
     }));
   };
 
@@ -46,9 +49,8 @@ function ProductDetailPage({ product, allStyles, allPhotos }) {
     }));
   };
 
-  console.log(viewState);
   return (
-    <div>
+    <div onClick={(e) => interactions(e, 'ProductDetail')}>
       <div hidden={!viewState.active}>
         <ExpandedView
           photos={viewState.photoSet}
@@ -71,6 +73,7 @@ function ProductDetailPage({ product, allStyles, allPhotos }) {
           </div>
           <div id="productFeatures">
             <ProductFeatures
+              product={product}
               slogan={product?.slogan}
               description={product?.description}
               features={product?.features}

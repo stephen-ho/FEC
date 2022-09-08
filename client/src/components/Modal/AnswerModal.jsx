@@ -129,11 +129,14 @@ class AnswerModal extends React.Component {
                   name="username"
                   type="text"
                   placeholder="Example: jack543!"
+                  minLength="3"
                   maxLength="60"
-                  //errorMessage="Username required"
                   value={this.state.username}
                   onChange={this.handleUsername}
+                  required="true"
                 />
+                <br/>
+                <span>Username Required</span>
               </label>
               <p className="subtext">For privacy reasons, do not use your full name or email address</p>
               <br/>
@@ -148,7 +151,10 @@ class AnswerModal extends React.Component {
                   maxLength="60"
                   value={this.state.email}
                   onChange={this.handleEmail}
+                  required="true"
                 />
+                <br/>
+                <span>Email Required</span>
                 <p className="subtext">For authentication reasons, you will not be emailed</p>
               </label>
               <br/>
@@ -163,7 +169,10 @@ class AnswerModal extends React.Component {
                   //errorMessage="Required field"
                   value={this.state.answer}
                   onChange={this.handleAnswer}
+                  required="true"
                 />
+                <br/>
+                <span>Answer Required</span>
               </label>
               <br/>
               <br/>
