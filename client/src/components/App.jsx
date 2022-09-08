@@ -5,8 +5,6 @@ import { faShoppingBag, faMagnifyingGlass} from '@fortawesome/free-solid-svg-ico
 import ProductDetailPage from './ProductOverview/ProductDetailPage.jsx';
 import RelatedAndOutfits from './RelatedAndOutfits.jsx';
 import QuestionList from './QA/QuestionList.jsx';
-import AnswerList from './QA/AnswerList.jsx';
-import QuestionModal from './Modal/QuestionModal.jsx';
 import Reviews from './ReviewsAndRatings/Reviews.jsx';
 import Interactions from './Interactions.jsx';
 
@@ -97,10 +95,6 @@ function App() {
         setProduct(response.data);
       });
   };
-
-  function handleSearch(e) {
-    setSearch(e.target.value);
-  }
 
   return (product) ? (
     <>
