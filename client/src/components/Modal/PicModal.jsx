@@ -19,7 +19,7 @@ class PicModal extends React.Component {
         <div className="pic-modal-content" onClick={e => e.stopPropagation()}>
           <div className="pic-modal-body">
             <img className="fullPhoto" src={this.props.photo.url}></img>
-            <p id="closeX" className="clickable" onClick={this.props.onClose}>x</p>
+            <p id="closeX" className="clickable" onClick={this.props.onClose}>X</p>
           </div>
         </div>
       </div>
