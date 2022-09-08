@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faPinterest } from '@fortawesome/free-brands-svg-icons';
 
 const ShareIcons = ({
-  url, productCategory, productName, style,
+  url, productCategory, productName, style, interactions
 }) => (
-  <div>
+  <div onClick={(e) => interactions(e, 'ProductDetail')}>
     <div id="shareText">
       share
     </div>

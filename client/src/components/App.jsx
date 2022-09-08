@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import ProductDetailPage from './ProductOverview/ProductDetailPage.jsx';
-import OutfitList from './lists/OutfitList.jsx';
-import RelatedList from './lists/RelatedList.jsx';
-import ProductContext from './ProductContext.jsx';
+import RelatedAndOutfits from './RelatedAndOutfits.jsx';
 import QuestionList from './QA/QuestionList.jsx';
 import AnswerList from './QA/AnswerList.jsx';
 import QuestionModal from './Modal/QuestionModal.jsx';
 import Reviews from './ReviewsAndRatings/Reviews.jsx';
+import Interactions from './Interactions.jsx';
 import './QA/QA.css';
 
 const axios = require('axios');
@@ -87,6 +86,7 @@ function App() {
 
   // trigger for product change in other components
   const handleProductChange = (productId) => {
+    console.log("PRODUCT CHANGE HANDLER");
     axios.get(`${API_URL}/products/${productId}`, { headers: header })
       .then((response) => {
         setProduct(response.data);
@@ -97,38 +97,24 @@ function App() {
     setSearch(e.target.value);
   }
 
-  const currentProduct = useMemo(() => product, [product]);
-
-  return (
-    <>
-      <div>
-        <ProductDetailPage
-          related={related}
-          product={product}
-          allStyles={allStyles}
-          allPhotos={photos}
-        />
-        <ProductContext.Provider className="list-container" value={{ handleProductChange, currentProduct }}>
-          <RelatedList
-            related={related}
-            currentProduct={product?.id ? product.id : null}
-          />
-          <OutfitList
-            currentProduct={product}
-          />
-        </ProductContext.Provider>
-      </div>
-      <div className="QA">
-        <h1 className="QAhead">Questions & Answers</h1>
-        <div className="QuestionList">
-          <QuestionList product={product} />
-        </div>
-      </div>
-      <div>
-        <Reviews product={product} />
-      </div>
-    </>
-  );
+  return (product) ? (
+    <Interactions>
+      <ProductDetailPage
+        related={related}
+        product={product}
+        allStyles={allStyles}
+        allPhotos={photos}
+      />
+      <RelatedAndOutfits
+        related={related}
+        handleProductChange={handleProductChange}
+        currentProduct={product?.id}
+        product={product}
+      />
+      <QuestionList product={product} />
+      <Reviews product={product} />
+    </Interactions>
+  ) : null;
 }
 
 export default App;

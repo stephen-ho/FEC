@@ -4,7 +4,7 @@ import Gallery from './Gallery.jsx';
 import ProductFeatures from './ProductFeatures.jsx';
 import ExpandedView from './ExpandedView.jsx';
 
-function ProductDetailPage({ product, allStyles, allPhotos }) {
+function ProductDetailPage({ product, allStyles, allPhotos, interactions }) {
   console.log('PDP RENDER');
 
   const [viewState, setViewState] = useState({});
@@ -49,9 +49,8 @@ function ProductDetailPage({ product, allStyles, allPhotos }) {
     }));
   };
 
-  console.log(viewState);
   return (
-    <div>
+    <div onClick={(e) => interactions(e, 'ProductDetail')}>
       <div hidden={!viewState.active}>
         <ExpandedView
           photos={viewState.photoSet}
