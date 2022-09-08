@@ -13,7 +13,7 @@ body {
 }
 
 .searchbar {
-  padding: 20px;
+  padding: 20px 40px;
   display: flex;
   gap: 10px;
 }
@@ -61,21 +61,21 @@ body {
    transition: 1s ease-in-out;
 }
 
-#hideQContainer {
-  overflow: hidden;
-}
-
-#hideQContent {
-   margin-top: -100%;
-   transition: 1s ease-in-out;
-}
-
 #hideContent.showA {
   margin-top: 0;
 }
 
 #hideContent.hideA {
   margin-top: -100%;
+}
+
+#hideQContainer {
+  overflow: hidden;
+}
+
+#hideQContent {
+  /* margin-top: -100%; */
+  transition: 1s ease-in-out;
 }
 
 #hideQContent.hideQ {
