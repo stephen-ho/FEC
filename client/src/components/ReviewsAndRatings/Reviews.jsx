@@ -2,13 +2,15 @@ import React from 'react';
 import Ratings from './Ratings.jsx'
 import ReviewCard from './ReviewCard.jsx'
 import ReviewList from './ReviewList.jsx'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faStar} from '@fortawesome/free-regular-svg-icons';
 import './ratingsAndReviews.css';
 const axios = require('axios');
 const {API_KEY} = process.env;
 
 
 
-export default function Reviews (props) {
+export default function Reviews (props, { interactions }) {
 const [reviews, setReviews] = React.useState([])
 const [productId, setProductId] = React.useState(65656)
 
@@ -38,12 +40,12 @@ console.log('the product id is: ', productId)
   return (
     // <div>
     //   <h1>Ratings and Reviews</h1>
-    <div className="reviews-container">
-      <Ratings />
-      <ReviewList reviewData={reviews}/>
+    <div onClick={(e) => interactions(e, 'RatingsAndReviews')}>
+      <div className="reviews-container">
+        <Ratings />
+        <ReviewList reviewData={reviews} />
+      </div>
     </div>
-
   )
-
 }
 

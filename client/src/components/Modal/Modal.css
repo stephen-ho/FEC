@@ -63,6 +63,7 @@ textarea {
   justify-content: center;
   border-radius: 30px;
   max-width: 90%;
+  max-height: 90%;
 }
 
 #fileInput{
@@ -87,6 +88,7 @@ textarea {
   display: flex;
   justify-content: center;
   padding: 10px;
+  align-items: center;
 }
 
 .thumbnail {
@@ -116,4 +118,34 @@ textarea {
 
 #hideUpload.hideU {
   margin-top: -100%;
+}
+
+span {
+  font-size: 12px;
+  padding: 3px;
+  color:red;
+  display: none;
+}
+
+input:invalid ~ span {
+  display: block;
+}
+
+textarea:invalid ~ span {
+  display: block;
+}
+
+#closeX {
+  font-size: 25px;
+  color: white;
+  display: grid;
+  position: relative;
+  left: -5%;
+  top: -40%;
+  background-color: rgba(125, 125, 125, 0.5);
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  border-radius: 5px;
+  border: solid 1px white;
 }
