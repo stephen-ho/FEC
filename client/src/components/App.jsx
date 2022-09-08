@@ -1,4 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faReact } from '@fortawesome/free-brands-svg-icons';
+import { faShoppingBag, faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 import ProductDetailPage from './ProductOverview/ProductDetailPage.jsx';
 import RelatedAndOutfits from './RelatedAndOutfits.jsx';
 import QuestionList from './QA/QuestionList.jsx';
@@ -6,7 +9,9 @@ import AnswerList from './QA/AnswerList.jsx';
 import QuestionModal from './Modal/QuestionModal.jsx';
 import Reviews from './ReviewsAndRatings/Reviews.jsx';
 import Interactions from './Interactions.jsx';
+
 import './QA/QA.css';
+import '../../dist/header.css';
 
 const axios = require('axios');
 
@@ -86,7 +91,7 @@ function App() {
 
   // trigger for product change in other components
   const handleProductChange = (productId) => {
-    console.log("PRODUCT CHANGE HANDLER");
+    console.log('PRODUCT CHANGE HANDLER');
     axios.get(`${API_URL}/products/${productId}`, { headers: header })
       .then((response) => {
         setProduct(response.data);
@@ -98,22 +103,43 @@ function App() {
   }
 
   return (product) ? (
-    <Interactions>
-      <ProductDetailPage
-        related={related}
-        product={product}
-        allStyles={allStyles}
-        allPhotos={photos}
-      />
-      <RelatedAndOutfits
-        related={related}
-        handleProductChange={handleProductChange}
-        currentProduct={product?.id}
-        product={product}
-      />
-      <QuestionList product={product} key={product?.id} />
-      <Reviews product={product} />
-    </Interactions>
+    <>
+      <div id="headerWrapper">
+        <div />
+        <div id="headerContainer">
+          <header><FontAwesomeIcon icon={faReact} /> ATLR</header>
+          <div id="headerIcons">
+            <div id="headerSearchBar">
+              <div id="inputWrapper">
+                <FontAwesomeIcon id="magGlassIcon" icon={faMagnifyingGlass} />
+                <input type="text" placeholder="Search" style={{ width: '15vw' }} />
+              </div>
+            </div>
+            <div id="shoppingCartIcon">
+              <FontAwesomeIcon icon={faShoppingBag} />
+              <p id="pBag">Bag</p>
+            </div>
+          </div>
+        </div>
+        <div />
+      </div>
+      <Interactions>
+        <ProductDetailPage
+          related={related}
+          product={product}
+          allStyles={allStyles}
+          allPhotos={photos}
+        />
+        <RelatedAndOutfits
+          related={related}
+          handleProductChange={handleProductChange}
+          currentProduct={product?.id}
+          product={product}
+        />
+        <QuestionList product={product} key={product?.id} />
+        <Reviews product={product} />
+      </Interactions>
+    </>
   ) : null;
 }
 
