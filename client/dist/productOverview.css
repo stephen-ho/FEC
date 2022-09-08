@@ -32,6 +32,10 @@
 
 #addToCartButton:hover {background-color: rgb(110, 108, 108)}
 
+html {
+  scroll-behavior: smooth;
+}
+
 #addToCartButton:active {
   background-color: black;
   box-shadow: 0 1px #666;
@@ -84,6 +88,7 @@
 }
 
 #sidebar {
+  padding-top: 20px;
   background-color: white;
   position: sticky;
   position: -webkit-sticky;
@@ -128,6 +133,7 @@
 #productContainer {
   display: grid;
   grid-template-columns: 15% 52% 18% 15%;
+  margin-top: 115px
 }
 
 #productFeatures {
@@ -231,6 +237,10 @@
 #closeExpandedViewButton {
   z-index: 2342;
   cursor: pointer;
+}
+
+#expandedViewContainer {
+  margin-top: 115px;
 }
 
 #zoomImage {
