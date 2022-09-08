@@ -1,5 +1,5 @@
 import React from 'react';
-import RatingsStars from './RatingsStars.jsx'
+import RatingsStars from './RatingsStars.jsx';
 import  {faCheck} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
