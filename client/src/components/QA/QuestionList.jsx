@@ -76,32 +76,36 @@ function QuestionList({ product, interactions }) {
 
   return (
     <div onClick={(e) => interactions(e, 'Q&A')}>
-      <div className="QA">
-        <h1 className="QAhead">Questions & Answers</h1>
-        <div className="QuestionList">
-          <div>
-            <div className="searchbar">
-              <input
-                className="searchChild"
-                type="text"
-                placeholder="Have a question? Search for answers..."
-                value={search}
-                onChange={handleSearch}
-              />
-              <button className="clickable button" onClick={() => setShow(true)}>Ask a Question</button>
-            </div>
-            <QuestionModal onClose={() => setShow(false)} show={show} product={product} />
-            <div id="initialQ">
-              {questions.slice(0, 4)}
-            </div>
-            <div id="hideQContainer">
-              <div id="hideQContent" className={seeMoreQuestions ? 'showQ' : 'hideQ'}>
-                {questions.slice(4, 8)}
+      <div id="QAContainer">
+        <div></div>
+        <div className="QA">
+          <h1 className="QAhead">Questions & Answers</h1>
+          <div className="searchbar">
+            <input
+              className="searchChild"
+              type="text"
+              placeholder="Have a question? Search for answers..."
+              value={search}
+              onChange={handleSearch}
+            />
+            <button className="clickable button" onClick={() => setShow(true)}>Ask a Question</button>
+          </div>
+          <div className="QuestionList">
+            <div id="QAList">
+              <QuestionModal onClose={() => setShow(false)} show={show} product={product} />
+              <div id="initialQ">
+                {questions.slice(0, 4)}
               </div>
+              <div id="hideQContainer">
+                <div id="hideQContent" className={seeMoreQuestions ? 'showQ' : 'hideQ'}>
+                  {questions.slice(4, 8)}
+                </div>
+              </div>
+              <p className="clickable SeeMore" onClick={handleClick}>See More Questions</p>
             </div>
-            <p className="clickable SeeMore" onClick={handleClick}>See More Questions</p>
           </div>
         </div>
+        <div></div>
       </div>
     </div>
   );
