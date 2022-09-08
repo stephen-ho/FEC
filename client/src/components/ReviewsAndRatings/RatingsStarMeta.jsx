@@ -8,21 +8,27 @@ import {faStar} from '@fortawesome/free-regular-svg-icons';
 
 export default function RatingsStarMeta(props) {
   let count = 0;
-  function getAvgRatings() {
-    let sum = 0;
 
-    for (const keys in data.reviewMeta.ratings) {
-      sum += (data.reviewMeta.ratings[keys] * keys);
+  function getAvgRatings(obj) {
+    let sum = 0;
+  console.log('the props for ratings star meta are:', props)
+    for (const keys in obj.reviewMeta.ratings) {
+      sum += (obj.reviewMeta.ratings[keys] * keys);
       count++;
     }
     return Number(sum / count).toFixed(1);
   }
-  const avgRatings = getAvgRatings();
+  let avgRatings = getAvgRatings(data)
 
   function getWidth(num) {
     return num ? Number(Math.round((num / count) * 100)) : 0;
   }
 
+  // React.useEffect(() => {
+  //   if(props){
+  //     avgRatings = getAvgRatings(props.reviewMeta)
+  //   }
+  // }, [props])
 
 
 

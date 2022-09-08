@@ -6,10 +6,13 @@ import RatingsStarMeta from './RatingsStarMeta.jsx';
 
 export default function Ratings (props) {
 
+console.log("the props for ratings are:,", props)
+
+
   return (
     <div className="ratings-container">
      <h2>Ratings & Reviews</h2>
-     <RatingsStarMeta />
+     <RatingsStarMeta reviewMeta={props.reviewMeta}/>
      <RatingsProductMeta />
     </div>
   )

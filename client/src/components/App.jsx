@@ -126,7 +126,7 @@ function App() {
           </div>
         <div></div>
       </div>
-    <div>
+    <div id="ratingsContainer">
     <Reviews product={product}/>
     </div>
     </>
