@@ -353,7 +353,7 @@
   max-width: 60px;
   flex: 1 0 100%;
   margin: 5px;
-  object-fit: fill;
+  object-fit: cover;
   border-radius: 5px;
 }
 

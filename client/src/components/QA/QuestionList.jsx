@@ -43,7 +43,7 @@ function QuestionList({ product, interactions }) {
       });
       console.log(request.data.results);
       setQuestions(request.data.results);
-
+      return;
       // .then((response) => {
       //   //console.log(response.data.results)
       //   setQuestions(response.data.results);

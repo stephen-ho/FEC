@@ -111,7 +111,7 @@ function App() {
         currentProduct={product?.id}
         product={product}
       />
-      <QuestionList product={product} />
+      <QuestionList product={product} key={product?.id} />
       <Reviews product={product} />
     </Interactions>
   ) : null;

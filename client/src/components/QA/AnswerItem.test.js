@@ -6,6 +6,7 @@ import AnswerItem from './AnswerItem.jsx';
 import AnswerList from './AnswerList.jsx';
 import QuestionList from './QuestionList.jsx';
 import AnswerModal from '../Modal/AnswerModal.jsx';
+import QuestionItem from './QuestionItem.jsx';
 
 /**
  *  @jest-environment jsdom
@@ -111,4 +112,8 @@ test('should show AnswerModal on button click', async () => {
   expect(screen.getByText(/Submit Your Answer/)).toBeInTheDocument();
 });
 
+// test('should render QuestionItem', () => {
+//   const { getByText } = render(<QuestionItem question={question} product={product}/>);
+//   expect(getByText(question.question_body)).toBeInTheDocument();
+// });
 
