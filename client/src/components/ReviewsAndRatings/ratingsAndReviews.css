@@ -13,7 +13,6 @@ h6 {
 .reviews-container {
   display: flex;
   flex-direction: row;
-  align-items: center;
   font-family: Arial, Helvetica, sans-serif;
 
 }
@@ -22,6 +21,7 @@ h6 {
   padding-bottom: 10px;
   overflow-wrap: break-word;
   padding-right: 30px;
+  margin-top: 130px;
 }
 .review-item{
   border-bottom: 2px solid grey;
