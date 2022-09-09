@@ -92,7 +92,7 @@ function App() {
             </div>
             <div id="shoppingCartIcon">
               <FontAwesomeIcon icon={faShoppingBag} />
-              <p id="pBag">Bag</p>
+              <p id="pBag">BAG</p>
             </div>
           </div>
         </div>
