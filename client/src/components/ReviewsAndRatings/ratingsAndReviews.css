@@ -42,8 +42,16 @@ h6 {
   color: orange;
 }
 
-.star-row{
+.ratings-star-half {
   display: inline-block;
+  position: relative;
+  font-size: 15px;
+  color: orange;
+}
+
+.star-row{
+  display: flex;
+  align-items: center;
 }
 
 
@@ -176,7 +184,9 @@ select#sort {
 }
 
 .ratings-star-meta {
- color: darkgray;
+  display: flex;
+  gap: 20px;
+  color: darkgray;
   font-size:40px;
 }
 
