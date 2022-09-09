@@ -27,7 +27,6 @@ function App() {
   const [features, setFeatures] = useState([]);
   const [show, setShow] = useState(false);
 
-  // get all produts for initial loading
   useEffect(() => {
     axios.get(`${API_URL}/products`, { headers: header })
       .then((response) => {
@@ -39,22 +38,15 @@ function App() {
         return response.data;
       })
       .then((data) => {
-        // temp way to set initial product until catalog page
         axios.get(`${API_URL}/products/${data[0].id}`, { headers: header })
           .then((response) => {
             setProduct(response.data);
-            console.log('PRODUCT UPDATED TO: ', response.data);
-            // return data;
           });
       });
   }, []);
 
-  // trigger updates when product is changed
   useEffect(() => {
-    console.log('PRODUCT CHANGE TRIGGERED');
-    console.log(product);
     if (product) {
-      console.log('product exists');
       axios.get(`${API_URL}/products/${product.id}/styles`, { headers: header })
         .then((response) => {
           setAllStyles(response.data.results);
@@ -74,22 +66,11 @@ function App() {
               setRelated(response.data);
             });
         });
-      console.log('B I G console log ==============');
-      console.log('product ==>', product);
-      console.log('allStyles ==> ', allStyles);
-      console.log('defaultPhoto ==>', defaultPhoto);
-      console.log('photos ==> ', photos);
-      console.log('related ==> ', related);
-      console.log('search ==> ', search);
-      console.log('show ==> ', show);
-      console.log('features ==>', features);
-      console.log('================================');
     }
   }, [product]);
 
   // trigger for product change in other components
   const handleProductChange = (productId) => {
-    console.log('PRODUCT CHANGE HANDLER');
     axios.get(`${API_URL}/products/${productId}`, { headers: header })
       .then((response) => {
         setProduct(response.data);
@@ -111,7 +92,7 @@ function App() {
             </div>
             <div id="shoppingCartIcon">
               <FontAwesomeIcon icon={faShoppingBag} />
-              <p id="pBag">Bag</p>
+              <p id="pBag">BAG</p>
             </div>
           </div>
         </div>

@@ -1,4 +1,12 @@
 
+h1 {
+  font-family: 'Oswald', sans-serif;
+}
+
+h2 {
+  font-family: 'Oswald', sans-serif;
+}
+
 h6 {
   text-align: right;
 }
@@ -13,11 +21,12 @@ h6 {
   flex: 8 0 auto;
   padding-bottom: 10px;
   overflow-wrap: break-word;
+  padding-right: 30px;
 }
 .review-item{
   border-bottom: 2px solid grey;
   padding-bottom: 10px;
-  width: 75%;
+  width: 100%;
   overflow-wrap: break-word;
 }
 
@@ -63,6 +72,11 @@ select#sort {
   margin: 20px;
 }
 
+#reviewsWrapper {
+  display: grid;
+  grid-template-columns: 10% auto 10%;
+}
+
 /* ratings sidebar */
 
 
@@ -73,7 +87,8 @@ select#sort {
 .ratings-container{
   /* box-sizing: border-box;
   width:fit-content; */
-  padding: 50px;
+  padding: 30px;
+  font-family: 'Oswald', sans-serif;
   }
 
 .ratings-breakdown {
