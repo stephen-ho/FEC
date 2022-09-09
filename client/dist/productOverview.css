@@ -124,6 +124,10 @@ html {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+#scrollToReviewsButton:hover {
+  text-decoration: underline;
+}
+
 #productMain {
   display:flex;
   background-color: white;
