@@ -3,6 +3,7 @@ import axios from 'axios';
 import { FaRegStar } from 'react-icons/fa';
 import { getProduct, getStyles, getRelated } from '../../../getHelpers.js';
 import ProductContext from '../../ProductContext.jsx';
+import RatingsStars from '../../ReviewsAndRatings/RatingsStars.jsx';
 import ListComparison from './modals/listComparison.jsx';
 
 const {API_KEY} = process.env;
@@ -64,8 +65,19 @@ const RelatedListEntry = (props) => {
           </div>
           <h2 className="name">{name}</h2>
           <h4 className="category">{category}</h4>
-          <h4 className="price original">{price}</h4>
-          <div className="reviews">No reviews</div>
+          <div className="price-container">
+            {
+              sale
+                ? <>
+                    <h4 className="price original-onsale">{price}</h4>
+                    <h4 className="price sale">{sale}</h4>
+                  </>
+                : <h4 className="price original">{price}</h4>
+            }
+          </div>
+          <div className="reviews">
+            <RatingsStars stars={4.5} />
+          </div>
         </div>
       </>
     );

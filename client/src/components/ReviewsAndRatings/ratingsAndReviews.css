@@ -7,6 +7,7 @@ h6 {
   flex-direction: row;
   align-items: center;
   font-family: Arial, Helvetica, sans-serif;
+
 }
 .review-list{
   flex: 8 0 auto;
@@ -33,7 +34,7 @@ h6 {
 }
 
 .star-row{
-  display: inline;
+  display: inline-block;
 }
 
 
@@ -51,14 +52,15 @@ select#sort {
 }
 
 .reviews-btn{
-border-radius: 25px;
-  background: whitesmoke;
-  background-position: left top;
-  background-repeat: repeat;
-  padding: 10px;
-  font-size: large;
-  margin-right:20px ;
-  margin-top: 20px;
+  height: 50px;
+  width: 80;
+  border: none;
+  border-radius: 100px;
+  color: #FFFFFF;
+  font-size: medium;
+  background-color: rgba(0, 0, 0, 0.9);
+  transition: 0.2s;
+  margin: 20px;
 }
 
 /* ratings sidebar */
@@ -106,8 +108,73 @@ border-radius: 25px;
   border-radius: 3px;
 }
 
-.product-highlights {
+
+.ratings-products > h4 {
+  font-size: medium;
+  font-weight: lighter;
+  margin-bottom: 3px;
+}
+.ratings-products > p {
+  font-size: small;
+  font-weight: lighter;
+  text-align: inherit;
+}
+.product-highlights-fill {
   text-align: right;
   height: fit-content;
-  background-color:lightslategrey
+  background-color:lightsteelblue;
+  color: darkcyan;
+  font-size:100%;
+}
+
+.progress-bar-product {
+  display: inline-block;
+  width: 280px;
+  background-color: lightsteelblue;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, .2);
+  padding-left: none;
+  padding-top: none;
+
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility:hidden;
+  width: inherit;
+  bottom: 100%;
+  text-align:inherit;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  margin-left: -60px;
+  font-size: small;
+
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.ratings-star-meta {
+ color: darkgray;
+  font-size:40px;
+}
+
+.bar-labels{
+  display: flex;
+  font-size: 12px;
+}
+.bar-label-left {
+display: inline-flex;
+text-align: left;
+}
+.bar-label-right{
+display: inline-flex;
+margin-left: 215px;
+text-align: right;
 }

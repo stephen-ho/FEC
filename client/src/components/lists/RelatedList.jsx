@@ -56,18 +56,17 @@ const RelatedList = (props) => {
   } else {
     return (
       <>
-        <h1 className="list-title">Related outfits</h1>
+        <h1 className="list-title">Products similar to this one</h1>
         <div className="container related" id="slider">
           <FeaturesContext.Provider value={{currentFeatures}}>
             {countLeft === 0
               ? null
               : <FaArrowLeft className="slide-left" onClick={() => {slideLeft(); handleCountLeft()}} />
             }
-              {
-              related.map((item, index) => <RelatedListEntry
-              item={item} key={index}/>)
-              }
-
+            {
+            related.map((item, index) => <RelatedListEntry
+            item={item} key={index}/>)
+            }
             {countRight === related.length
               ? null
               : <FaArrowRight className="slide-right" onClick={() => {slideRight(); handleCountRight()}} />
