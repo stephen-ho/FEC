@@ -45,9 +45,6 @@ header {
   cursor: pointer;
 }
 
-#headerSearchBar {
-}
-
 #headerIcons {
   display: flex;
   flex-direction: row;
