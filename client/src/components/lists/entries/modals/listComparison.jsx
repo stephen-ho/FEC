@@ -21,6 +21,7 @@ const ListComparison = (props) => {
     setFeatureList(filterDuplicates(rawListData))
   }
 
+  // merge features render with checks/blanks render
   const handleCurrentChecks = () => {
     return featureList.map(item => {
       return currentFeatures.indexOf(item) === -1

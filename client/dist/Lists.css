@@ -2,6 +2,10 @@
   scroll-behavior: auto;
 }
 
+.list-title {
+  margin-left: 7vw;
+}
+
 .list-container {
   display: flex;
   align-items: center;
@@ -228,6 +232,15 @@
   margin: 0.5%;
   margin-left: 2.5vw;
   font-size: small;
+}
+
+.original-onsale {
+  text-decoration: line-through;
+  color: grey;
+}
+
+.sale {
+  color: red;
 }
 
 .reviews {
