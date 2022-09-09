@@ -3,7 +3,7 @@
   top: 0;
   width: 100%;
   display: grid;
-  grid-template-columns: 10% auto 10%;
+  grid-template-columns: 7% auto 7%;
   background-color: white;
   z-index: 100;
 }
@@ -12,6 +12,7 @@ header {
   font-size: 40pt;
   font-family: 'Oswald', sans-serif;
   text-align: center;
+  padding-left: 5%;
 }
 
 #headerContainer {
@@ -44,19 +45,17 @@ header {
   cursor: pointer;
 }
 
-#headerSearchBar {
-}
-
 #headerIcons {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 20px;
+  padding-right: 5%;
 }
 
 .input-wrapper {
   display:inline-block;
-  position: relative
+  position: relative;
 }
 
 #magGlassIcon {

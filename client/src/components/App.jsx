@@ -87,7 +87,7 @@ function App() {
             <div id="headerSearchBar">
               <div id="inputWrapper">
                 <FontAwesomeIcon id="magGlassIcon" icon={faMagnifyingGlass} />
-                <input type="text" placeholder="Search" style={{ width: '15vw' }} />
+                <input type="text" placeholder="Search" style={{ width: '10vw' }} />
               </div>
             </div>
             <div id="shoppingCartIcon">
