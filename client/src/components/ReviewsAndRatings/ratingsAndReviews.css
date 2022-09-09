@@ -42,13 +42,6 @@ h6 {
   color: orange;
 }
 
-.ratings-star-half {
-  display: inline-block;
-  position: relative;
-  font-size: 15px;
-  color: orange;
-}
-
 .star-row{
   display: flex;
   align-items: center;
