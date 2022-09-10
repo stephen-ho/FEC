@@ -1,5 +1,4 @@
-# FEC
-NSYNC FEC
+# Front End Capstone Project
 ===============================
 
 ![](https://github.com/FEC-NSYNC/FEC/blob/main/FEC%20Demo%20Giphy.gif)
