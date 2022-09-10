@@ -2,6 +2,8 @@
 NSYNC FEC
 ===============================
 
+![](https://github.com/FEC-NSYNC/FEC/blob/main/FEC%20Demo%20Giphy.gif)
+
 Project Description
 ----------------
 This is the Hack Reactor front-end capstone project that required our group to create a product detail page with the following components:
