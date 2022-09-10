@@ -103,6 +103,7 @@
 }
 
 .entry-add-button {
+  padding: 0px 15px;
   height: 50px;
   width: 80;
   border: none;
@@ -138,18 +139,20 @@
 ========================================
 */
 .slide-left {
+  font-size: x-large;
   position: absolute;
   /* margin-left: -47.5%; */
-  margin-left: -5%;
+  margin-left: -2.5%;
   padding: 0px;
   transition: 0.2s;
 }
 
 .slide-right {
+  font-size: x-large;
   position: absolute;
   padding: 0px;
   /* margin-left: 47.5%; */
-  margin-left: 90%;
+  margin-left: 89%;
   transition: 0.2s;
 }
 
@@ -223,6 +226,7 @@
 }
 
 .name {
+  font-family: 'Oswald', sans-serif;
   display: flex;
   justify-content: flex-start;
   margin: 0.5%;
@@ -270,6 +274,7 @@
   border-radius: 10px;
   background-color: white;
   box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+  z-index: 98;
 }
 
 .comparison-content {
@@ -295,6 +300,7 @@
 /* ------------ list components ------------ */
 
 .current-features {
+  margin-top: 20px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -303,6 +309,7 @@
 }
 
 .features {
+  margin-top: 20px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -311,6 +318,7 @@
 }
 
 .related-features {
+  margin-top: 20px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
