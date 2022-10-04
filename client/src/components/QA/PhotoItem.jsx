@@ -14,7 +14,7 @@ function PhotoItem({ photo }) {
     <>
       <PicModal onClose={() => setShow(false)} show={show} photo={photo} />
       <div>
-        <img className="answerPic" src={photo.url} onClick={handlePic} />
+        <img className="answerPic" src={photo.url} onClick={handlePic} alt="thumbnail"/>
       </div>
     </>
   );
